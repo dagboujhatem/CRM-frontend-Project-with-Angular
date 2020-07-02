@@ -24,7 +24,7 @@ responseData ;
     this.auth.signin(this.LoginForm.value).subscribe(res => {
       console.log(res);
       this.responseData = res ;
-      localStorage.setItem('token', this.responseData.access_token);
+      localStorage.setItem('token', this.responseData.token);
     });
   }
 

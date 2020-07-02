@@ -10,7 +10,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -24,10 +23,9 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './commen/login/login.component';
 import { MatInputModule } from '@angular/material/input';
-
 import { MatIconModule } from '@angular/material/icon';
-
-
+import { RegisterComponent } from './commen/register/register.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -49,6 +47,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ForgetComponent } from './commen/forget/forget.component';
+import { AuthInterceptor } from './commen/interceptor';
 
 @NgModule({
   imports: [
@@ -68,8 +67,8 @@ import { ForgetComponent } from './commen/forget/forget.component';
     FormsModule, 
     ReactiveFormsModule,
     MatInputModule,
-    MatIconModule
-    
+    MatIconModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -78,11 +77,13 @@ import { ForgetComponent } from './commen/forget/forget.component';
     P500Component,
     LoginComponent,
     ForgetComponent,
+    RegisterComponent
 
   ],
   providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
   }],
   bootstrap: [ AppComponent ]
 })
