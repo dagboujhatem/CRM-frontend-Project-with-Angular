@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './commen/login/login.component';
 import { RegisterComponent } from './commen/register/register.component';
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -51,15 +52,16 @@ export const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: 'home',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
     children: [
       {
-        path: 'base',
-        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
+        path: 'superadmin',
+        loadChildren: () => import('./views/superadmin/superadmin.module')
+        .then(module => module.SuperAdmin)
       },
       {
         path: 'buttons',
