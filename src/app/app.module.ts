@@ -48,6 +48,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ForgetComponent } from './commen/forget/forget.component';
 import { AuthInterceptor } from './commen/interceptor';
+import { SuperAdmin } from './views/superadmin/superadmin.module';
+
 
 @NgModule({
   imports: [
@@ -64,11 +66,12 @@ import { AuthInterceptor } from './commen/interceptor';
     TabsModule.forRoot(),
     ChartsModule,
     MatFormFieldModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    SuperAdmin
   ],
   declarations: [
     AppComponent,
@@ -77,8 +80,7 @@ import { AuthInterceptor } from './commen/interceptor';
     P500Component,
     LoginComponent,
     ForgetComponent,
-    RegisterComponent
-
+    RegisterComponent,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

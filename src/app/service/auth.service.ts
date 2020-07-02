@@ -9,16 +9,16 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   BaseUrl = environment.baseuri;
   responseData = localStorage.getItem('token');
-  constructor( private http : HttpClient) { }
+  constructor( private http: HttpClient) { }
   // connection sur la base de donnée et register societé
   Register(data) {
-    const url = `${this.BaseUrl}/pme/register`;
+    const url = `${this.BaseUrl}/admin/register`;
     return this.http.post(url, data);
   }
   // connection sur la base de donnée et login societé
 
   signin(data) {
-    const url = `${this.BaseUrl}/pme/login`;
+    const url = `${this.BaseUrl}/admin/login`;
     console.log(data);
     return this.http.post(url, data);
   }
