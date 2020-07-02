@@ -6,38 +6,23 @@
             <div class="card-group">
               <div class="card p-4">
                 <div class="card-body">
-                  <form [formGroup]="LoginForm">
+                  <form>
                     <h1>Login </h1>
                     <p class="text-muted">Sign In to your account</p>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-user"></i></span>
                       </div>
-                      <input matInput class="form-control" type="email" formControlName="email" required/>
+                      <input type="text" class="form-control" placeholder="email" autocomplete="email" required>
                     </div>
-                    <mat-error *ngIf="LoginForm.hasError('required','email')"> email is required </mat-error>
-                    <mat-error *ngIf="LoginForm.hasError('email','email')"> email is invalid </mat-error>
-              
                     <div class="input-group mb-4">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-lock"></i></span>
                       </div>
-                      <!-- <mat-label>password</mat-label> -->
-                      <input type="password" class="form-control"  formControlName="password" matInput  minlength="8"  [type]="hide ? 'password' : 'text'"   required>
-                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                      </button>
                     </div>
-                    <mat-error *ngIf="LoginForm.hasError('required','password')"> password is required </mat-error>
-            
-      
-                
                     <div class="row">
                       <div class="col-6">
-                        <button [disabled]="!LoginForm.valid" type="button" class="btn btn-primary px-4">Login</button>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                        <button type="button" class="btn btn-primary px-4">confirm email</button>
                       </div>
                     </div>
                   </form>
@@ -59,3 +44,4 @@
     </main>
   </div>
   
+
