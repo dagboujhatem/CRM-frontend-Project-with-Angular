@@ -8,10 +8,16 @@ import { environment } from '../../environments/environment';
 export class AdminService {
   constructor(private http: HttpClient) { }
   BaseUrl = environment.baseuri;
+  token = localStorage.getItem('token');
   // *********get all pme for super admin******** */
   getall() {
     // tslint:disable-next-line: no-shadowed-variable
     const url = `${this.BaseUrl}/pme/`;
+    return this.http.get(url);
+  }
+  /**************get pme by idadmin ************ */
+  getPmeByAdminId(idadmin) {
+    const url = `${this.BaseUrl}/pme/list-pme/${idadmin}`;
     return this.http.get(url);
   }
   /*****************delete pme for supre admin *********** */
