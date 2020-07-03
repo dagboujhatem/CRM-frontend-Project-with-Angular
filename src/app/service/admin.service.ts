@@ -15,6 +15,11 @@ export class AdminService {
     const url = `${this.BaseUrl}/pme/`;
     return this.http.get(url);
   }
+  /**************get pme by idadmin ************ */
+  getPmeByAdminId(idadmin) {
+    const url = `${this.BaseUrl}/pme/list-pme/${idadmin}`;
+    return this.http.get(url);
+  }
   /*****************delete pme for supre admin *********** */
   deletepme(id) {
     const url = `${this.BaseUrl}/delete/${id}`;
