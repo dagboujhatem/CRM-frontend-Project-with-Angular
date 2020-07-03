@@ -19,4 +19,9 @@ export class AdminService {
     const url = `${this.BaseUrl}/delete/${id}`;
     return this.http.delete(url);
   }
+  /**************Add societé (admin)*********** */
+  addsociete(data) {
+    const url = `${this.BaseUrl}/pme/create-pme`;
+    return this.http.post(url, data);
+  }
 }

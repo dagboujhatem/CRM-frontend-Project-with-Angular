@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
+import { AddsocieterComponent } from './addsocieter/addsocieter.component';
 
 
 
@@ -16,6 +17,13 @@ const routes: Routes = [
                 component: ListsocieterComponent,
                 data: {
                     title: 'List Des Societé'
+                }
+            },
+            {
+                path: 'addsociete',
+                component: AddsocieterComponent,
+                data: {
+                    title: 'Add Societé'
                 }
             }
         ],

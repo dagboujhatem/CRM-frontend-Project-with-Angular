@@ -1,6 +1,6 @@
 // Angular
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 // import {  } from './cards.component';
@@ -49,15 +49,18 @@ import { NgModule } from '@angular/core';
 // import { BaseRoutingModule } from './base-routing.module';
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
 import { SuperAdminRouting } from './superadmin-rouring.module';
+import { AddsocieterComponent } from './addsocieter/addsocieter.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SuperAdminRouting,
+    ReactiveFormsModule
 
   ],
   declarations: [
-      ListsocieterComponent
+      ListsocieterComponent,
+      AddsocieterComponent
     // CardsComponent,
     // FormsComponent,
     // SwitchesComponent,
