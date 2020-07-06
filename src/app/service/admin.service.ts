@@ -22,12 +22,22 @@ export class AdminService {
   }
   /*****************delete pme for supre admin *********** */
   deletepme(id) {
-    const url = `${this.BaseUrl}/delete/${id}`;
+    const url = `${this.BaseUrl}/pme/delete/${id}`;
     return this.http.delete(url);
   }
   /**************Add societé (admin)*********** */
   addsociete(data) {
     const url = `${this.BaseUrl}/pme/create-pme`;
     return this.http.post(url, data);
+  }
+  /********************get societé By Id************* */
+  getsocieteById(idpme) {
+    const url = `${this.BaseUrl}/pme/${idpme}`;
+    return this.http.get(url);
+  }
+  /******************update societé*************** */
+  updatesociete(id, data) {
+    const url = `${this.BaseUrl}/pme/edit/${id}`;
+    return this.http.put(url, data);
   }
 }
