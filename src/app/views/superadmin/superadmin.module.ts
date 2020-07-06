@@ -50,6 +50,7 @@ import { NgModule } from '@angular/core';
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
 import { SuperAdminRouting } from './superadmin-rouring.module';
 import { AddsocieterComponent } from './addsocieter/addsocieter.component';
+import { UpdatesocieterComponent } from './updatesocieter/updatesocieter.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -60,7 +61,8 @@ import { AddsocieterComponent } from './addsocieter/addsocieter.component';
   ],
   declarations: [
       ListsocieterComponent,
-      AddsocieterComponent
+      AddsocieterComponent,
+      UpdatesocieterComponent,
     // CardsComponent,
     // FormsComponent,
     // SwitchesComponent,

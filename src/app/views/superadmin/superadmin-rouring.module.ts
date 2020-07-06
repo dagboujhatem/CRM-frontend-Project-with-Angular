@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
 import { AddsocieterComponent } from './addsocieter/addsocieter.component';
+import { UpdatesocieterComponent } from './updatesocieter/updatesocieter.component';
 
 
 
@@ -24,6 +25,13 @@ const routes: Routes = [
                 component: AddsocieterComponent,
                 data: {
                     title: 'Add Societé'
+                }
+            },
+            {
+                path: 'updatesociete/:id',
+                component: UpdatesocieterComponent,
+                data: {
+                    title: 'Update Societé'
                 }
             }
         ],

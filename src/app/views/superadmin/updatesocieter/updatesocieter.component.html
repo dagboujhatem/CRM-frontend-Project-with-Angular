@@ -1,0 +1,49 @@
+<div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Company</strong>
+        <small>Form</small>
+      </div>
+      <form class="card-body" [formGroup]="societeUpdateform">
+          <div class="row">
+        <div class="form-group  col-sm-6">
+          <label >Company</label>
+          <input type="text" class="form-control" formControlName="name" placeholder="Enter your company name">
+        </div>
+        <div class="form-group  col-sm-6">
+            <label >Email Company</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your company email">
+          </div>
+    </div>
+        <div class="form-group">
+          <label >Description</label>
+          <input type="text" class="form-control" formControlName="description" placeholder="Enter your company Description">
+        </div>
+        <div class="form-group">
+          <label >Adresse</label>
+          <input type="text" class="form-control" formControlName="adress" placeholder="Enter street Adresse">
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label >Télephone</label>
+            <input type="number" class="form-control" formControlName="telephone" placeholder="Enter your Télephone number">
+          </div>
+          <div class="form-group col-sm-6">
+            <label >Fax</label>
+            <input type="number" class="form-control" formControlName="fax" placeholder="Enter your fax number">
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+            <div class="form-group col-sm-6">
+              <label >Siege</label>
+              <input type="text" class="form-control" formControlName="siege" placeholder="Enter your siege">
+            </div>
+            <div class="form-group col-sm-6">
+              <label >Activity</label>
+              <input type="text" class="form-control" formControlName="activity" placeholder="Enter your activity">
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary px-4"  (click)="updatePmeById()">Update</button>
+        </form>
+    </div>
+  </div>

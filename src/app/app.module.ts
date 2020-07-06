@@ -50,8 +50,6 @@ import { ForgetComponent } from './commen/forget/forget.component';
 import { AuthInterceptor } from './commen/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
 
-
-
 @NgModule({
   imports: [
     BrowserModule,
