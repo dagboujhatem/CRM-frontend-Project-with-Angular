@@ -21,10 +21,10 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './commen/login/login.component';
+import { LoginComponent } from './common/login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { RegisterComponent } from './commen/register/register.component';
+import { RegisterComponent } from './common/register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const APP_CONTAINERS = [
@@ -46,9 +46,11 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { ForgetComponent } from './commen/forget/forget.component';
-import { AuthInterceptor } from './commen/interceptor';
+import { ForgetComponent } from './common/forget/forget.component';
+import { AuthInterceptor } from './common/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
+import { Produit } from './views/produit/produit.module';
+
 
 @NgModule({
   imports: [
@@ -70,7 +72,8 @@ import { SuperAdmin } from './views/superadmin/superadmin.module';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    SuperAdmin
+    SuperAdmin,
+    Produit
   ],
   declarations: [
     AppComponent,

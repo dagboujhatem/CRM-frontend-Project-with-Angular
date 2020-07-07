@@ -63,18 +63,6 @@ import { UpdatesocieterComponent } from './updatesocieter/updatesocieter.compone
       ListsocieterComponent,
       AddsocieterComponent,
       UpdatesocieterComponent,
-    // CardsComponent,
-    // FormsComponent,
-    // SwitchesComponent,
-    // TablesComponent,
-    // TabsComponent,
-    // CarouselsComponent,
-    // CollapsesComponent,
-    // PaginationsComponent,
-    // PopoversComponent,
-    // ProgressComponent,
-    // TooltipsComponent,
-    // NavbarsComponent
   ]
 })
 export class SuperAdmin { }
