@@ -6,8 +6,8 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './commen/login/login.component';
-import { RegisterComponent } from './commen/register/register.component';
+import { LoginComponent } from './common/login/login.component';
+import { RegisterComponent } from './common/register/register.component';
 
 
 export const routes: Routes = [
