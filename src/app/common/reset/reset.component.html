@@ -1,0 +1,104 @@
+<!-- <div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form [formGroup]="resetForm">
+                  <div class="input-group mb-3"></div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <label></label>
+                    <input [ngStyle]="{'border-color':(resetForm.password==='btnClicked') ? '':'green'}" type="password"
+                      class="form-control" placeholder="password" formControlName=" password" matInput minlength="8"
+                      [type]="hide ? 'password' : 'text'" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </div>
+                  <label></label>
+                  <input [ngStyle]="{'border-color':(resetForm.confirmPassword==='btnClicked') ? '':'green'}" type="password"
+                    class="form-control" placeholder="confirm password" formControlName="confirmPassword" matInput minlength="8"
+                    [type]="hide ? 'password' : 'text'" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+              
+                  <mat-error *ngIf="resetForm.hasError('required','password')"> you have to confirm your new password</mat-error>
+                  <div class="row">
+                    <div class="col-6">
+                      <button [disabled]="!resetForm.valid" type="button" class="btn btn-primary px-4" >Submit</button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div> -->
+<div class="container-fluid form">
+  <div class="row" *ngIf="CurrentState=='Wait'">
+      <div class="col-md-12  close-form">
+          <h2> Please Wait...</h2>
+      </div>
+  </div>
+  <div class="row"
+      *ngIf="CurrentState=='NotVerified'">
+      <div class="col-md-12">
+          <h2> Invalid URL.</h2>
+      </div>
+  </div>
+  <div class="row" *ngIf="CurrentState=='Verified'">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+              <div class="card-body">
+                  <h5 class="card-title text-center">Set New Password</h5>
+                  <div>
+                      <div id="errorMsg" *ngIf="errorMessage">
+                          <span>{{errorMessage}}</span>
+                      </div>
+                      <div id="successMsg" *ngIf="successMessage">
+                          <span>{{successMessage}}</span>
+                      </div>
+                      <form action="" [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword(ResponseResetForm)">
+                          <div class="form-group">
+                              <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Password"
+                                  type="password" id="password" formControlName="newPassword" />
+                              <span *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid"
+                                  class="help-block">Password is required with atleast 4 characters.</span>
+                          </div>
+                          <div class="form-group">
+                              <input _ngcontent-c0="" class="form-control form-control-lg"
+                                  placeholder="Confirm Password" type="password" id="cpassword"
+                                  formControlName="confirmPassword" />
+                              <span *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid"
+                                  class="help-block">. </span>
+                              <span
+                                  *ngIf="ResponseResetForm.get('confirmPassword').valid && (ResponseResetForm.get('confirmPassword').value != ResponseResetForm.get('newPassword').value) && !IsResetFormValid"
+                                  class="help-block">Confirm Password does not match with password.</span>
+                          </div>
+                          <div class="form-group">
+                              <div>
+
+                                  <button type="submit" class="  btn btn-primary">Update
+                                      Password</button>
+
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

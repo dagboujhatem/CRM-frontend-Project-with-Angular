@@ -6,8 +6,10 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './commen/login/login.component';
-import { RegisterComponent } from './commen/register/register.component';
+import { LoginComponent } from './common/login/login.component';
+import { RegisterComponent } from './common/register/register.component';
+import { ForgetComponent } from './common/forget/forget.component';
+import { ResetComponent } from './common/reset/reset.component';
 
 
 export const routes: Routes = [
@@ -16,11 +18,18 @@ export const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  {
-    path: 'login',
-    component: LoginComponent,
+  { 
+    path: 'response-reset-password/:token',
+    component: ResetComponent,
     data: {
-      title: 'Page login'
+      title: 'Page reset'
+    }
+  },
+  {
+    path: 'forget',
+    component: ForgetComponent,
+    data: {
+      title: 'Page forget'
     }
   },
   {
