@@ -50,6 +50,8 @@ import { ForgetComponent } from './common/forget/forget.component';
 import { AuthInterceptor } from './common/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
 import { ResetComponent } from './common/reset/reset.component';
+import { Produit } from './views/produit/produit.module';
+
 
 @NgModule({
   imports: [
@@ -71,7 +73,8 @@ import { ResetComponent } from './common/reset/reset.component';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    SuperAdmin
+    SuperAdmin,
+    Produit
   ],
   declarations: [
     AppComponent,

@@ -73,8 +73,8 @@ export const routes: Routes = [
         .then(module => module.SuperAdmin)
       },
       {
-        path: 'buttons',
-        loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
+        path: 'produit',
+        loadChildren: () => import('./views/produit/produit.module').then(m => m.Produit)
       },
       {
         path: 'charts',
