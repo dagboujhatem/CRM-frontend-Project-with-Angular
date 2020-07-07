@@ -49,6 +49,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ForgetComponent } from './common/forget/forget.component';
 import { AuthInterceptor } from './common/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
+import { ResetComponent } from './common/reset/reset.component';
 import { Produit } from './views/produit/produit.module';
 
 
@@ -83,6 +84,7 @@ import { Produit } from './views/produit/produit.module';
     LoginComponent,
     ForgetComponent,
     RegisterComponent,
+    ResetComponent,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
