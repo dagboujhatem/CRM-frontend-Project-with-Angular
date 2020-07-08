@@ -5,8 +5,8 @@
           <i class="fa fa-align-justify"></i> Combined All Table
         </div>
         <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
+          <table class="table table-responsive-sm table-hover table-outline mb-0">
+            <thead class="thead-light">
               <tr>
                 <th>Name</th>
                 <th>Réfferance</th>
@@ -16,7 +16,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor=" let tab of table; let i=index">
+            <tbody *ngFor=" let tab of table; let i=index" routerLink="../affichageproduit/{{tab._id}}">
               <tr>
                 <td>{{tab.name}}</td>
                 <td>{{tab.ref}}</td>

@@ -5,6 +5,7 @@ import { ProduitRouting } from './produit-routing.module';
 import { AddproduitComponent } from './addproduit/addproduit.component';
 import { ListproduitComponent } from './listproduit/listproduit.component';
 import { UpdateproduitComponent } from './updateproduit/updateproduit.component';
+import { AffichageProduitComponent } from './affichage-produit/affichage-produit.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { UpdateproduitComponent } from './updateproduit/updateproduit.component'
     declarations: [
         AddproduitComponent,
         ListproduitComponent,
-        UpdateproduitComponent
+        UpdateproduitComponent,
+        AffichageProduitComponent
     ]
 })
 export class Produit { }
