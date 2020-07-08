@@ -18,7 +18,7 @@ export const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  { 
+  {
     path: 'response-reset-password/:token',
     component: ResetComponent,
     data: {

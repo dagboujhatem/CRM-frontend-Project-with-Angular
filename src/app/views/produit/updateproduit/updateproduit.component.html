@@ -4,7 +4,7 @@
             <strong>Produit Form</strong>
         </div>
         <div class="card-body">
-            <form [formGroup]="produitform" class="form-horizontal" >
+            <form [formGroup]="updateproduitform" class="form-horizontal" >
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input">Produit Name</label>
                     <div class="col-md-9">
@@ -87,8 +87,7 @@
                     </div>
         </div>
         <div class="card-footer">
-            <button type="submit" (click)="addproduit()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Add Produit</button>
-            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+            <button type="submit" (click)="updateproduitById()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>Update Produit</button>
         </div>
     </div>
 </div>
