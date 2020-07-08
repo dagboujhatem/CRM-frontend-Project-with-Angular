@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ProduitService } from '../../../service/produit.service';
+import * as jwt_decode from 'jwt-decode';
+import { AdminService } from '../../../service/admin.service';
+
 
 @Component({
   selector: 'app-listproduit',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listproduit.component.css']
 })
 export class ListproduitComponent implements OnInit {
-
-  constructor() { }
+table;
+decoded = jwt_decode(this.adminservice.token);
+  constructor(private produit: ProduitService, private adminservice: AdminService) { }
 
   ngOnInit(): void {
+    this.getproduit();
   }
-
+  getproduit() {
+    this.produit.Getallproduit(this.decoded.data.pme).subscribe((res: any) => {
+      this.table = res;
+    });
+  }
 }
