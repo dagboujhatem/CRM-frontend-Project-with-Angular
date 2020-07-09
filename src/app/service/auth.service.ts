@@ -9,9 +9,14 @@ import * as jwt_decode from "jwt-decode";
 })
 export class AuthService {
   BaseUrl = environment.baseuri;
+<<<<<<< HEAD
   id: string;
 
   constructor(private http: HttpClient, private router: Router) {}
+=======
+  responseData = localStorage.getItem('token');
+  constructor( private http: HttpClient , private router: Router) { }
+>>>>>>> fb45e8e1214cbde86607d40f202c23a2e30431ce
   // connection sur la base de donnée et register societé
   Register(data) {
     const url = `${this.BaseUrl}/admin/register`;

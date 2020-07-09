@@ -18,7 +18,11 @@ export const routes: Routes = [
     pathMatch: "full",
   },
   {
+<<<<<<< HEAD
     path: "response-reset-password/:token",
+=======
+    path: 'response-reset-password/:token',
+>>>>>>> fb45e8e1214cbde86607d40f202c23a2e30431ce
     component: ResetComponent,
     data: {
       title: "Page reset",
