@@ -14,6 +14,16 @@ export const navItems: INavData[] = [
       url: '/home/superadmin/addsociete',
       icon: 'icon-drop'
     },
+    {
+      name:'Add User',
+      url:'/home/superadmin/adduser',
+      icon: 'icon-drop'
+    },
+    {
+      name:'List User',
+      url:'/home/superadmin/listuser',
+      icon: 'icon-drop'
+    }
     ]
   },
   {

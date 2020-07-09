@@ -51,8 +51,7 @@ import { AuthInterceptor } from './common/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
 import { ResetComponent } from './common/reset/reset.component';
 import { Produit } from './views/produit/produit.module';
-
-
+import { UpdateUserComponent } from './views/superadmin/update-user/update-user.component';
 @NgModule({
   imports: [
     BrowserModule,

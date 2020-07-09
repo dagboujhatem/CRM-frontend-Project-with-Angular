@@ -32,5 +32,6 @@ export class AuthService {
   ValidPasswordToken(body){
     return this.http.post(`${this.BaseUrl}/admin/valid-password-token`, body);
   }
+  
 }
 
