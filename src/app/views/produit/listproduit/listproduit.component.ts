@@ -17,9 +17,16 @@ decoded = jwt_decode(this.adminservice.token);
   ngOnInit(): void {
     this.getproduit();
   }
+  /*********************get produit ************ */
   getproduit() {
     this.produit.Getallproduit(this.decoded.data.pme).subscribe((res: any) => {
       this.table = res;
     });
+  }
+  /*******************delete produit ******************* */
+  delete(i, id) {
+    this.produit.DeleteProduitById(this.decoded.data.pme, id).subscribe((res: any) => {
+    });
+    this.table.splice(i, 1);
   }
 }
