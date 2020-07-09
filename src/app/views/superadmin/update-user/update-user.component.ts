@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
-  Id = this.activateroute.snapshot.paramMap.get('id');
+  Id ;
   table;
   pme :''
 decoded = jwt_decode(this.adminservice.token);
@@ -19,6 +19,7 @@ updateUserForm: FormGroup;
   constructor(private userservice: UserServiceService, private adminservice : AdminService , private activateroute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.Id = this.activateroute.snapshot.paramMap.get('id');
    this.getUserById() 
     this.updateUserForm = new FormGroup({
       name: new FormControl(''),
@@ -27,15 +28,15 @@ updateUserForm: FormGroup;
       ,
     });
     this.getpme()
+   
   }
   getUserById() {
-    this.userservice.getUsrById(this.Id).subscribe((res: any) => {
-      this.updateUserForm = new FormGroup({
-        name: new FormControl(res.name),
-        email: new FormControl(res.email),
-        password: new FormControl(res.password),
-      });
-    });
+    this.userservice.getUsrById(this.Id).subscribe((res) => {
+      console.log(res);
+      
+      this.updateUserForm.patchValue(res);
+    },
+    errors=> console.log(errors));
   }
   getpme() {
     this.adminservice.getPmeByAdminId(this.decoded.data._id).subscribe((res: any) => {

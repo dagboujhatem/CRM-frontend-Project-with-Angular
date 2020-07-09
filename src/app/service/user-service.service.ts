@@ -18,11 +18,11 @@ export class UserServiceService {
     return this.http.get(url,data);
   }
   updateUser(id, data) {
-    const url = `${this.BaseUrl}/user/edit/${id}`;
+    const url = `${this.BaseUrl}/user/putuser/${id}`;
     return this.http.put(url, data);
   }
-  getUsrById(idpme) {
-    const url = `${this.BaseUrl}/user/${idpme}`;
+  getUsrById(id) {
+    const url = `${this.BaseUrl}/user/${id}`;
     return this.http.get(url);
   }
   
