@@ -3,6 +3,7 @@ import { AdminService } from '../../../service/admin.service';
 import * as jwt_decode from 'jwt-decode';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProduitService } from '../../../service/produit.service';
+import { CategorieService } from '../../../service/categorie.service';
 @Component({
   selector: 'app-addproduit',
   templateUrl: './addproduit.component.html',
@@ -10,14 +11,17 @@ import { ProduitService } from '../../../service/produit.service';
 })
 export class AddproduitComponent implements OnInit {
   data: FormData;
-  constructor(private adminservice: AdminService, private produit: ProduitService) {
+  constructor(private adminservice: AdminService, private produit: ProduitService, private categorie: CategorieService) {
     this.data = new FormData();
   }
+  isAwesome = false;
   file: File;
   decoded = jwt_decode(this.adminservice.token);
   table;
   produitform: FormGroup;
+  categorietable;
   ngOnInit(): void {
+    this.getcatigorie();
     this.produitform = new FormGroup({
       name: new FormControl('', [Validators.required]),
       ref: new FormControl(''),
@@ -25,6 +29,8 @@ export class AddproduitComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       prix: new FormControl(''),
       min: new FormControl(''),
+      categorie: new FormControl('', [Validators.required]),
+      notifRupture: new FormControl(this.isAwesome)
     });
   }
   onFileChange(event) {
@@ -42,6 +48,19 @@ upload(id) {
   this.produit.upload(this.data, id).subscribe(res => {
     });
   // this.router.navigateByUrl('/home');
+}
+/***********get categorie *********** */
+getcatigorie() {
+  this.categorie.GetCategorie(this.decoded.data.pme).subscribe((res: any) => {
+    this.categorietable = res;
+  });
+}
+toggleIsAwesome() {
+  this.isAwesome = !this.isAwesome;
+  this.produitform.controls.notifRupture.setValue(this.isAwesome);
+  console.log(this.isAwesome);
+  console.log(this.produitform.value);
+  
 }
 
 
