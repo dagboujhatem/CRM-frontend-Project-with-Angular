@@ -44,7 +44,7 @@ export class UpdatesocieterComponent implements OnInit {
   }
   /******************update pme by id *********** */
   updatePmeById() {
-    this.adminservice.updatesociete(this.Id, this.societeUpdateform.value).subscribe((res:any)=> {
+    this.adminservice.updatesociete(this.Id, this.societeUpdateform.value).subscribe((res: any) => {
       console.log(res);
     });
   }

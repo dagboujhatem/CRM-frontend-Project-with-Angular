@@ -9,9 +9,10 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ToastrModule } from 'ngx-toastr';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
+  suppressScrollX: true,
 };
 
 import { AppComponent } from './app.component';
@@ -27,9 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegisterComponent } from './common/register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-const APP_CONTAINERS = [
-  DefaultLayoutComponent
-];
+const APP_CONTAINERS = [DefaultLayoutComponent];
 
 import {
   AppAsideModule,
@@ -52,6 +51,12 @@ import { SuperAdmin } from './views/superadmin/superadmin.module';
 import { ResetComponent } from './common/reset/reset.component';
 import { Produit } from './views/produit/produit.module';
 import { UpdateUserComponent } from './views/superadmin/update-user/update-user.component';
+import { FournisseurModule } from './views/fournisseur/fournisseur.module';
+import { AddcategorieComponent } from './views/categorie/addcategorie/addcategorie.component';
+import { UpdatecategorieComponent } from './views/categorie/updatecategorie/updatecategorie.component';
+import { ListcategorieComponent } from './views/categorie/listcategorie/listcategorie.component';
+import { Categorie } from './views/categorie/categorie.module';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -67,13 +72,16 @@ import { UpdateUserComponent } from './views/superadmin/update-user/update-user.
     TabsModule.forRoot(),
     ChartsModule,
     MatFormFieldModule,
+    ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
     HttpClientModule,
     SuperAdmin,
-    Produit
+    FournisseurModule,
+    Produit,
+    Categorie
   ],
   declarations: [
     AppComponent,
@@ -85,11 +93,13 @@ import { UpdateUserComponent } from './views/superadmin/update-user/update-user.
     RegisterComponent,
     ResetComponent,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true,
-  }],
-  bootstrap: [ AppComponent ]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

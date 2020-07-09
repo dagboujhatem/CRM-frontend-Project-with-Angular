@@ -1,5 +1,6 @@
 import { INavData } from '@coreui/angular';
 
+
 export const navItems: INavData[] = [
   {
     name: 'Administration',
@@ -23,7 +24,21 @@ export const navItems: INavData[] = [
       name:'List User',
       url:'/home/superadmin/listuser',
       icon: 'icon-drop'
-    }
+    },
+  {
+    name: 'Categorie',
+    icon: 'icon-puzzle',
+    children:[
+      {
+        name: 'Add Categorie',
+        url: '/home/categorie/addcategorie',
+        icon: 'icon-puzzle'
+      },
+      {
+        name: 'List Categories',
+        url: '/home/categorie/listcategorie',
+        icon: 'icon-puzzle'
+      }
     ]
   },
   {
@@ -33,14 +48,30 @@ export const navItems: INavData[] = [
       {
         name: 'Add Produit',
         url: '/home/produit/addproduit',
-        icon: 'icon-puzzle'
+        icon: 'icon-puzzle',
       },
       {
         name: 'List Produit',
         url: '/home/produit/listproduit',
-        icon: 'icon-puzzle'
+        icon: 'icon-puzzle',
       },
-    ]
+    ],
+  },
+  {
+    name: 'Fournisseur',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Add Fournisseur',
+        url: '/home/fournisseur/add-fournisseur',
+        icon: 'icon-puzzle',
+      },
+      {
+        name: 'List Fournisseur',
+        url: '/home/fournisseur/list-fournisseur',
+        icon: 'icon-puzzle',
+      },
+    ],
   },
   {
     name: 'Buttons',
@@ -50,24 +81,24 @@ export const navItems: INavData[] = [
       {
         name: 'Buttons',
         url: '/buttons/buttons',
-        icon: 'icon-cursor'
+        icon: 'icon-cursor',
       },
       {
         name: 'Dropdowns',
         url: '/buttons/dropdowns',
-        icon: 'icon-cursor'
+        icon: 'icon-cursor',
       },
       {
         name: 'Brand Buttons',
         url: '/buttons/brand-buttons',
-        icon: 'icon-cursor'
-      }
-    ]
+        icon: 'icon-cursor',
+      },
+    ],
   },
   {
     name: 'Charts',
     url: '/charts',
-    icon: 'icon-pie-chart'
+    icon: 'icon-pie-chart',
   },
   {
     name: 'Icons',
@@ -80,13 +111,13 @@ export const navItems: INavData[] = [
         icon: 'icon-star',
         badge: {
           variant: 'success',
-          text: 'NEW'
-        }
+          text: 'NEW',
+        },
       },
       {
         name: 'Flags',
         url: '/icons/flags',
-        icon: 'icon-star'
+        icon: 'icon-star',
       },
       {
         name: 'Font Awesome',
@@ -94,15 +125,15 @@ export const navItems: INavData[] = [
         icon: 'icon-star',
         badge: {
           variant: 'secondary',
-          text: '4.7'
-        }
+          text: '4.7',
+        },
       },
       {
         name: 'Simple Line Icons',
         url: '/icons/simple-line-icons',
-        icon: 'icon-star'
-      }
-    ]
+        icon: 'icon-star',
+      },
+    ],
   },
   {
     name: 'Notifications',
@@ -112,19 +143,19 @@ export const navItems: INavData[] = [
       {
         name: 'Alerts',
         url: '/notifications/alerts',
-        icon: 'icon-bell'
+        icon: 'icon-bell',
       },
       {
         name: 'Badges',
         url: '/notifications/badges',
-        icon: 'icon-bell'
+        icon: 'icon-bell',
       },
       {
         name: 'Modals',
         url: '/notifications/modals',
-        icon: 'icon-bell'
-      }
-    ]
+        icon: 'icon-bell',
+      },
+    ],
   },
   {
     name: 'Widgets',
@@ -132,10 +163,10 @@ export const navItems: INavData[] = [
     icon: 'icon-calculator',
     badge: {
       variant: 'info',
-      text: 'NEW'
-    }
+      text: 'NEW',
+    },
   },
   {
-    divider: true
+    divider: true,
   },
-];
+]}]

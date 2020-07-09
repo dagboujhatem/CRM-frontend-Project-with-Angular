@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { ProduitRouting } from './produit-routing.module';
 import { AddproduitComponent } from './addproduit/addproduit.component';
 import { ListproduitComponent } from './listproduit/listproduit.component';
+import { UpdateproduitComponent } from './updateproduit/updateproduit.component';
+import { AffichageProduitComponent } from './affichage-produit/affichage-produit.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ListproduitComponent } from './listproduit/listproduit.component';
     ],
     declarations: [
         AddproduitComponent,
-        ListproduitComponent
+        ListproduitComponent,
+        UpdateproduitComponent,
+        AffichageProduitComponent
     ]
 })
 export class Produit { }

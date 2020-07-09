@@ -1,0 +1,30 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i> Categorie Table
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Categorie Name</th>
+                        <th>Date registered</th>
+                        <th>Date de modification</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let tab of categorietable; let i=index">
+                    <tr>
+                        <td>{{tab.name}}</td>
+                        <td>{{tab.createdAt}}</td>
+                        <td>{{tab.updatedAt}}</td>
+                        <td>
+                            <button class="badge badge-success" routerLink="../updatecategorie/{{tab._id}}">Update</button>
+                            <button (click)='delete(i,tab._id)' class="badge badge-danger">délete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
