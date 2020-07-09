@@ -22,4 +22,9 @@ decoded = jwt_decode(this.adminservice.token);
       this.table = res;
     });
   }
+  delete(i, id) {
+    this.produit.DeleteProduitById(this.decoded.data.pme, id).subscribe((res: any) => {
+    });
+    this.table.splice(i, 1);
+  }
 }

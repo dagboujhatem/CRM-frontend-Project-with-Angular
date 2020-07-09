@@ -34,4 +34,9 @@ export class ProduitService {
     const url = `${this.BaseUrl}/stock/${id}/edit/${idprod}`;
     return this.http.put(url, data);
   }
+  /************ delete produit By Id *********/
+  DeleteProduitById(id, prodId) {
+    const url = `${this.BaseUrl}/stock/${id}/delete/${prodId}`;
+    return this.http.delete(url);
+  }
 }

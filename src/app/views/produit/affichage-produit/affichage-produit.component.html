@@ -1,1 +1,37 @@
-<p>affichage-produit works!</p>
+<div class="row probg">
+    <h1 class="h1 col-md-12" itemprop="name">{{Produit?.name}}
+    </h1>
+    <hr>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sticky">
+        <section class="page-content" id="content">
+            <div class="images-container">
+                <div class="product-cover">
+                    <img id="zoom" class="js-qv-product-cover" src='{{Produit?.imagePath}}' alt="" title=""
+                        style="width:100%; height: 300px;" itemprop="image">
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 propage">
+        <div class="product-reference">
+            <label class="label" class="h3">Référence : </label>
+            <span itemprop="sku" class="h4">{{Produit?.ref}}</span>
+        </div>
+        <br>
+        <div>
+            <label class="label" class="h3">Prix : </label>
+            <span class="h4">{{Produit?.prix}} TND</span>
+        </div>
+        <br>
+        <div>
+            <label class="label" class="h3">Nombre Minimal : </label>
+            <span class="h4">{{Produit?.min}} </span>
+        </div>
+        <br>
+        <div class="product-information">
+            <div id="product-description-short-38008" itemprop="description" class="prodes">
+                <p class="h5">{{Produit?.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
