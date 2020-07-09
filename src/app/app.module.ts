@@ -55,6 +55,7 @@ import { AddcategorieComponent } from './views/categorie/addcategorie/addcategor
 import { UpdatecategorieComponent } from './views/categorie/updatecategorie/updatecategorie.component';
 import { ListcategorieComponent } from './views/categorie/listcategorie/listcategorie.component';
 import { Categorie } from './views/categorie/categorie.module';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { Categorie } from './views/categorie/categorie.module';
     SuperAdmin,
     FournisseurModule,
     Produit,
-    Categorie
+    Categorie,
+    MatButtonToggleModule
   ],
   declarations: [
     AppComponent,
