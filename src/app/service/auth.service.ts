@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
+import { Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import * as jwt_decode from "jwt-decode";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
   BaseUrl = environment.baseuri;
-  responseData = localStorage.getItem('token');
-  constructor( private http: HttpClient , private router: Router) { }
+  id: string;
+
+  constructor(private http: HttpClient, private router: Router) {}
   // connection sur la base de donnée et register societé
   Register(data) {
     const url = `${this.BaseUrl}/admin/register`;
@@ -32,5 +34,14 @@ export class AuthService {
   ValidPasswordToken(body) {
     return this.http.post(`${this.BaseUrl}/admin/valid-password-token`, body);
   }
-}
 
+  getUserId() {
+    const token = this.getToken();
+    return (this.id = jwt_decode(token).data._id);
+  }
+  getToken() {
+    const token = localStorage.getItem("token");
+    if (token != undefined && token != null) return token;
+    else return "";
+  }
+}
