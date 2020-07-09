@@ -1,0 +1,94 @@
+<div class="col-sm-12" *ngIf="data">
+  <div class="card">
+    <div class="card-header">
+      <strong>Company</strong>
+      <small>Form</small>
+    </div>
+    <form class="card-body" [formGroup]="fournisseurForm">
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label>Company</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            id="inputError2"
+            placeholder="Enter your company name"
+          />
+        </div>
+        <div class="form-group col-sm-6">
+          <label>Email Company</label>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Enter your company email"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>ville</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="ville"
+          placeholder="Enter your company ville"
+        />
+      </div>
+      <div class="form-group">
+        <label>Adresse</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="addresse"
+          placeholder="Enter street Adresse"
+        />
+      </div>
+      <!--/.row-->
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label>Code Postal</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="codepostal"
+            placeholder="Enter your Code Postal"
+          />
+        </div>
+        <div class="form-group col-sm-6">
+          <label>Pays</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="pays"
+            placeholder="Enter your Pays"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label>Cell Phone</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="Telportable"
+            placeholder="Enter your Cell Phone number"
+          />
+        </div>
+        <div class="form-group col-sm-6">
+          <label>Land Line</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="fixe"
+            placeholder="Enter your Land Line number"
+          />
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary px-4" (click)="onSubmit()">
+        Update
+      </button>
+    </form>
+  </div>
+</div>
