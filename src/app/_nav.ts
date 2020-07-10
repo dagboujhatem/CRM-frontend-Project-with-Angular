@@ -28,7 +28,7 @@ export const navItems: INavData[] = [
   {
     name: 'Categorie',
     icon: 'icon-puzzle',
-    children:[
+    children: [
       {
         name: 'Add Categorie',
         url: '/home/categorie/addcategorie',
