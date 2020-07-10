@@ -60,6 +60,7 @@ toggleIsAwesome() {
   this.produitform.controls.notifRupture.setValue(this.isAwesome);
   console.log(this.isAwesome);
   console.log(this.produitform.value);
+  
 }
 
 
