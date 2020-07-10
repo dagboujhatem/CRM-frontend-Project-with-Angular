@@ -60,11 +60,9 @@
                     <div class="col-md-3">
                         <label class="col-md-12 col-form-label" for="text-input">Catégories</label>
                         <div>
-                            <select id="select1" name="select1" class="form-control">
+                            <select id="select1" name="select1"  formControlName="categorie" class="form-control">
                                 <option value="0">Please select</option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
+                                <option *ngFor="let t of categorietable ,let i=index;" value="{{t.name}}">{{t.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -73,7 +71,8 @@
                     <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
                     <div class="col-md-9 col-form-label">
                         <label class="switch switch-3d switch-primary">
-                            <input type="checkbox" class="switch-input" checked>
+                            <input type="checkbox" class="switch-input" [checked]="isAwesome"
+                            (change)="toggleIsAwesome()" checked>
                             <span class="switch-slider"></span>
                           </label>
                     </div>

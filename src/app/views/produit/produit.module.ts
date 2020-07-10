@@ -6,6 +6,8 @@ import { AddproduitComponent } from './addproduit/addproduit.component';
 import { ListproduitComponent } from './listproduit/listproduit.component';
 import { UpdateproduitComponent } from './updateproduit/updateproduit.component';
 import { AffichageProduitComponent } from './affichage-produit/affichage-produit.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { AffichageProduitComponent } from './affichage-produit/affichage-produit
       CommonModule,
       FormsModule,
       ProduitRouting,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      MatButtonToggleModule,
+      MatSlideToggleModule
 
     ],
     declarations: [
