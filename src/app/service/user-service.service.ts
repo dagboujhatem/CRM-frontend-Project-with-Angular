@@ -25,5 +25,9 @@ export class UserServiceService {
     const url = `${this.BaseUrl}/user/${id}`;
     return this.http.get(url);
   }
+  removeUser(id){
+    const url = `${this.BaseUrl}/user/deleteuser/${id}`;
+    return this.http.delete(url);
+  }
   
 }
