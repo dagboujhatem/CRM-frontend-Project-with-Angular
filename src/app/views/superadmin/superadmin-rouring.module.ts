@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
 import { AddsocieterComponent } from './addsocieter/addsocieter.component';
 import { UpdatesocieterComponent } from './updatesocieter/updatesocieter.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { ListUSERComponent } from './list-user/list-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 
@@ -33,6 +36,30 @@ const routes: Routes = [
                 data: {
                     title: 'Update Societé'
                 }
+            },
+            {
+                path : 'adduser',
+                component:AdduserComponent,
+                data:{
+                    title:'Add User'
+                }
+                
+            },
+            {
+                path : 'listuser',
+                component:ListUSERComponent,
+                data:{
+                    title:'List User'
+                }
+                
+            },
+            {
+                path : 'updateuser/:id',
+                component:UpdateUserComponent,
+                data:{
+                    title:'Update User'
+                }
+                
             }
         ],
     },

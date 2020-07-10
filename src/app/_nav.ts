@@ -5,19 +5,26 @@ export const navItems: INavData[] = [
   {
     name: 'Administration',
     icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'list Societé',
-        url: '/home/superadmin/listsociete',
-        icon: 'icon-drop',
-      },
-      {
-        name: 'Add Societé',
-        url: '/home/superadmin/addsociete',
-        icon: 'icon-drop',
-      },
-    ],
-  },
+    children: [{
+      name: 'list Societé',
+      url: '/home/superadmin/listsociete',
+      icon: 'icon-drop'
+    },
+    {
+      name: 'Add Societé',
+      url: '/home/superadmin/addsociete',
+      icon: 'icon-drop'
+    },
+    {
+      name:'Add User',
+      url:'/home/superadmin/adduser',
+      icon: 'icon-drop'
+    },
+    {
+      name:'List User',
+      url:'/home/superadmin/listuser',
+      icon: 'icon-drop'
+    },
   {
     name: 'Categorie',
     icon: 'icon-puzzle',
@@ -162,4 +169,4 @@ export const navItems: INavData[] = [
   {
     divider: true,
   },
-];
+]}]
