@@ -3,8 +3,10 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Administration',
-    icon: 'icon-puzzle',
+
+    name: "Administration",
+    url: "/home/superadmin",
+    icon: "icon-puzzle",   
     children: [{
       name: 'list Societé',
       url: '/home/superadmin/listsociete',
@@ -42,8 +44,10 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Produit',
-    icon: 'icon-puzzle',
+    name: "Produit",
+    url: "/home/produit",
+    icon: "icon-puzzle",
+
     children: [
       {
         name: 'Add Produit',
@@ -58,8 +62,11 @@ export const navItems: INavData[] = [
     ],
   },
   {
-    name: 'Fournisseur',
-    icon: 'icon-puzzle',
+
+    name: "Fournisseur",
+    url: "/home/fournisseur",
+    icon: "icon-puzzle",
+
     children: [
       {
         name: 'Add Fournisseur',

@@ -1,44 +1,52 @@
 <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> Combined All Table
-        </div>
-        <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>society</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody *ngFor=" let tab of table; let i=index">
-              <tr>
-                <td>{{tab.name}}</td>
-                <td>{{tab.email}}</td>
-                <td></td>
-                <td>
-                  <button class="badge badge-success" routerLink="../updatesociete/{{tab._id}}">Update</button><button (click)='delete(i)' class="badge badge-danger">délete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <nav>
-            <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-          </nav>
-        </div>
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Combined All Table
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date registered</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor=" let tab of table; let i=index">
+            <tr>
+              <td>{{tab.name}}</td>
+              <td>{{tab.email}}</td>
+              <td>20/1/2655</td>
+              <td>
+                <button
+                  class="badge badge-success"
+                  routerLink="../updatesociete/{{tab._id}}"
+                >
+                  Update</button
+                ><button
+                  (click)="delete(i, tab._id)"
+                  class="badge badge-danger"
+                >
+                  délete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <nav>
+          <mat-paginator
+            [length]="totalPme"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="onChange($event)"
+          ></mat-paginator>
+        </nav>
+
       </div>
     </div>
-    <!--/.col-->
   </div>
+  <!--/.col-->
+</div>

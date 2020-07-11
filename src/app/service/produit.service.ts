@@ -1,18 +1,22 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ProduitService {
   BaseUrl = environment.baseuri;
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient) {}
   /*******************add produit ************** */
   addProduit(id, data) {
     const url = `${this.BaseUrl}/stock/${id}/create`;
     return this.http.post(url, data);
+  }
+  notifRupture(id, prodId, mail) {
+    const url = `${this.BaseUrl}/${id}/notif-rupture/${prodId}`;
+    return this.http.post(url, mail);
   }
   /************upload file ************* */
   upload(data, id) {
@@ -20,8 +24,9 @@ export class ProduitService {
     return this.http.put(url, data);
   }
   /**********get all produit ********** */
-  Getallproduit(id) {
-    const url = `${this.BaseUrl}/stock/${id}`;
+  Getallproduit(id: string, pageSize: number, currentPage: number) {
+    let queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
+    const url = `${this.BaseUrl}/stock/${id}${queryParams}`;
     return this.http.get(url);
   }
   /****************get produit by id **** */
