@@ -1,3 +1,4 @@
+
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
@@ -22,5 +23,6 @@ import { AffichageProduitComponent } from "./affichage-produit/affichage-produit
     UpdateproduitComponent,
     AffichageProduitComponent,
   ],
+
 })
 export class Produit {}

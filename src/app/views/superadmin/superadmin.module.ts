@@ -48,22 +48,40 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 
 // // Components Routing
 // import { BaseRoutingModule } from './base-routing.module';
-import { ListsocieterComponent } from "./listsocieter/listsocieter.component";
-import { SuperAdminRouting } from "./superadmin-rouring.module";
-import { AddsocieterComponent } from "./addsocieter/addsocieter.component";
-import { UpdatesocieterComponent } from "./updatesocieter/updatesocieter.component";
+
+import { ListsocieterComponent } from './listsocieter/listsocieter.component';
+import { SuperAdminRouting } from './superadmin-rouring.module';
+import { AddsocieterComponent } from './addsocieter/addsocieter.component';
+import { UpdatesocieterComponent } from './updatesocieter/updatesocieter.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { MatInputModule } from '@angular/material/input';
+import { ListUSERComponent } from './list-user/list-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+
+
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SuperAdminRouting,
     ReactiveFormsModule,
+
     MatPaginatorModule,
+
+    MatInputModule,
+    
+
   ],
   declarations: [
-    ListsocieterComponent,
-    AddsocieterComponent,
-    UpdatesocieterComponent,
-  ],
+      ListsocieterComponent,
+      AddsocieterComponent,
+      UpdatesocieterComponent,
+      AdduserComponent,
+      ListUSERComponent,
+      UpdateUserComponent
+  ]
+
 })
 export class SuperAdmin {}
