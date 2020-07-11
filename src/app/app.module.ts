@@ -7,6 +7,7 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { PERFECT_SCROLLBAR_CONFIG } from "ngx-perfect-scrollbar";
 import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatPaginatorModule } from "@angular/material/paginator";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { ToastrModule } from "ngx-toastr";
@@ -76,6 +77,7 @@ import { FournisseurModule } from "./views/fournisseur/fournisseur.module";
     SuperAdmin,
     FournisseurModule,
     Produit,
+    MatPaginatorModule,
   ],
   declarations: [
     AppComponent,
