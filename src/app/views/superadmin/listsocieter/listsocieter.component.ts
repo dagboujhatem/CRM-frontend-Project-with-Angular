@@ -15,10 +15,14 @@ export class ListsocieterComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalPme;
   currentPage = 1;
+  superAdminAccess = false;
 
   constructor(private adminservice: AdminService) {}
   ngOnInit(): void {
     this.getallpme();
+    if (this.decoded.data.role === "superAdmin") {
+      this.superAdminAccess = true;
+    }
   }
 
   onChange(pageData: PageEvent) {
@@ -64,8 +68,11 @@ export class ListsocieterComponent implements OnInit {
   }
   /*****************delete pme for supre admin******** */
   delete(i, id) {
-    this.adminservice.deletepme(id).subscribe((res: any) => {
-      this.table.splice(i, 1);
-    });
+    if (this.decoded.data.role === "superAdmin") {
+      this.adminservice.deletepme(id).subscribe((res: any) => {
+        this.getallpme();
+        this.table.splice(i, 1);
+      });
+    }
   }
 }

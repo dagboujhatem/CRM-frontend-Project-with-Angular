@@ -48,7 +48,9 @@ export class ListproduitComponent implements OnInit {
   delete(i, id) {
     this.produit
       .DeleteProduitById(this.decoded.data.pme, id)
-      .subscribe((res: any) => {});
-    this.table.splice(i, 1);
+      .subscribe((res: any) => {
+        this.table.splice(i, 1);
+        this.getproduit();
+      });
   }
 }

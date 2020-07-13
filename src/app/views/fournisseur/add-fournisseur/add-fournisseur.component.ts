@@ -39,9 +39,7 @@ export class AddFournisseurComponent implements OnInit {
     if (this.fournisseurForm.valid) {
       this.fournis
         .createFournisseur(this.fournisseurForm.value, this.id)
-        .subscribe((res) => {
-          console.log(res);
-        });
+        .subscribe((res) => {});
       return this.toastr.success("Hello world!", "Toastr fun!");
     } else return this.toastr.warning("Not Hello world!", "Toastr not fun!");
   }
