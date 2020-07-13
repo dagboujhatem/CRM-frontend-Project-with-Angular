@@ -30,6 +30,16 @@
                     <input type="password" class="form-control" formControlName="password" placeholder="Password" autocomplete="new-password" required>
                   </div>
                   <mat-error *ngIf="userForm.hasError('required','password')"> password is required </mat-error>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label"> send mail to user ?</label>
+                    <div class="col-md-9 col-form-label">
+                        <label class="switch switch-3d switch-primary">
+                            <input type="checkbox" class="switch-input" [checked]="isAwesome"
+                            (change)="toggleIsAwesome()" checked>
+                            <span class="switch-slider"></span>
+                          </label>
+                    </div>
+                </div>
                 </form>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label">Societé</label>

@@ -32,6 +32,7 @@ export class UpdateUserComponent implements OnInit {
       name: new FormControl(""),
       email: new FormControl(""),
       password: new FormControl(""),
+      pme : new FormControl("")
     });
     this.getpme();
   }
