@@ -28,14 +28,21 @@ export class AuthService {
   requestReset(body) {
     return this.http.post(`${this.BaseUrl}/admin/req-reset-password`, body);
   }
-  newPassword(body) {
-    return this.http.post(`${this.BaseUrl}/admin/new-password`, body);
+  newPassword(body, token) {
+    const tokenQuery = `?token=${token}`;
+    return this.http.post(
+      `${this.BaseUrl}/admin/new-password${tokenQuery}`,
+      body
+    );
   }
 
-  ValidPasswordToken(body) {
-    return this.http.post(`${this.BaseUrl}/admin/valid-password-token`, body);
+  ValidPasswordToken(body, token) {
+    const tokenQuery = `?token=${token}`;
+    return this.http.post(
+      `${this.BaseUrl}/admin/valid-password-token${tokenQuery}`,
+      body
+    );
   }
-  
 
   getUserId() {
     const token = this.getToken();
