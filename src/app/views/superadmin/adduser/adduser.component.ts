@@ -11,6 +11,7 @@ import { UserServiceService } from "../../../service/user-service.service";
   styleUrls: ["./adduser.component.css"],
 })
 export class AdduserComponent implements OnInit {
+  isAwesome = false;
   table;
   pme: "";
   pageSize = 1000;
@@ -49,4 +50,12 @@ export class AdduserComponent implements OnInit {
         this.table = res.pme;
       });
   }
+  toggleIsAwesome() {
+    this.isAwesome = !this.isAwesome;
+    this.userForm.controls.notifRupture.setValue(this.isAwesome);
+    console.log(this.isAwesome);
+    console.log(this.userForm.value);   
+  }
+
+
 }
