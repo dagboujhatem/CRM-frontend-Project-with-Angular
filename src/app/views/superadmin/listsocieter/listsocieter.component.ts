@@ -33,9 +33,10 @@ decoded = jwt_decode(this.adminservice.token);
   }
   /*****************delete pme for supre admin******** */
   delete(i) {
-    this.adminservice.deletepme(this.table[i]._id).subscribe((res: any) => {
+    let j=this.table[i]._id
+    this.adminservice.deletepme(j).subscribe((res: any) => {
     });
-    this.table.splice(i, 1);
+
   }
 
 }

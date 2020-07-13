@@ -25,6 +25,8 @@ deleteUser(i){
   let j=this.table[i]._id
   this.usersrvice.removeUser(j).subscribe((res:any) =>{
     console.log(res);
+  },err=>{
+    console.log(err)
   })
 }
 }

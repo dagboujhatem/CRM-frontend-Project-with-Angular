@@ -4,6 +4,7 @@ import { AuthService } from '../../../service/auth.service';
 import { AdminService } from '../../../service/admin.service';
 import * as jwt_decode from 'jwt-decode';
 import { UserServiceService } from '../../../service/user-service.service';
+import { flatten } from '@angular/compiler';
 
 @Component({
   selector: 'app-adduser',
@@ -11,6 +12,7 @@ import { UserServiceService } from '../../../service/user-service.service';
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
+  isAwesome = false;
   table;
   pme :''
 decoded = jwt_decode(this.adminservice.token);
@@ -39,6 +41,12 @@ userForm: FormGroup;
       console.log(this.table);
   
   });
+  }
+  toggleIsAwesome() {
+    this.isAwesome = !this.isAwesome;
+    this.userForm.controls.notifRupture.setValue(this.isAwesome);
+    console.log(this.isAwesome);
+    console.log(this.userForm.value);   
   }
 
 
