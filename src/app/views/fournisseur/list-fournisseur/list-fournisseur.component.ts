@@ -17,12 +17,7 @@ export class ListFournisseurComponent implements OnInit {
   constructor(private fournis: FournisService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.fournis
-      .getAllFournisseur(this.pageSize, this.currentPage)
-      .subscribe((res: { fournis; count }) => {
-        this.list = res.fournis;
-        this.totalFournis = res.count;
-      });
+    this.getFournisPme();
   }
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
@@ -35,10 +30,19 @@ export class ListFournisseurComponent implements OnInit {
       });
   }
 
+  getFournisPme() {
+    this.fournis
+      .getAllFournisseur(this.pageSize, this.currentPage)
+      .subscribe((res: { fournis; count }) => {
+        this.list = res.fournis;
+        this.totalFournis = res.count;
+      });
+  }
+
   delete(id, index) {
     this.fournis.deleteOneFournisseur(id).subscribe((res) => {
-      console.log(res);
       this.list.splice(index, 1);
+      this.getFournisPme();
     });
   }
 }
