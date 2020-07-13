@@ -1,7 +1,8 @@
 // Angular
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgModule } from "@angular/core";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 // import {  } from './cards.component';
 
@@ -47,6 +48,7 @@ import { NgModule } from '@angular/core';
 
 // // Components Routing
 // import { BaseRoutingModule } from './base-routing.module';
+
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
 import { SuperAdminRouting } from './superadmin-rouring.module';
 import { AddsocieterComponent } from './addsocieter/addsocieter.component';
@@ -58,12 +60,16 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SuperAdminRouting,
     ReactiveFormsModule,
+
+    MatPaginatorModule,
+
     MatInputModule,
     
 
@@ -76,5 +82,6 @@ import { UpdateUserComponent } from './update-user/update-user.component';
       ListUSERComponent,
       UpdateUserComponent
   ]
+
 })
-export class SuperAdmin { }
+export class SuperAdmin {}

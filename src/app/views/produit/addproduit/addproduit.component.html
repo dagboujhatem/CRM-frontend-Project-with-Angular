@@ -1,32 +1,52 @@
 <div class="col-md-12">
-    <div class="card">
-        <div class="card-header">
-            <strong>Produit Form</strong>
+  <div class="card">
+    <div class="card-header">
+      <strong>Produit Form</strong>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="produitform" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="nameP"
+            >Produit Name</label
+          >
+          <div class="col-md-9">
+            <input
+              type="text"
+              id="nameP"
+              formControlName="name"
+              name="nameP"
+              class="form-control"
+              placeholder="Produit Name"
+            />
+          </div>
         </div>
-        <div class="card-body">
-            <form [formGroup]="produitform" class="form-horizontal" >
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Produit Name</label>
-                    <div class="col-md-9">
-                        <input type="text" id="text-input" formControlName="name" name="text-input" class="form-control"
-                            placeholder="Produit Name">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label"  >Refferance de Produit</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control"
-                            placeholder="Enter Refferance" formControlName="ref" >
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
-                    <div class="col-md-9">
-                        <textarea id="textarea-input" formControlName="description" name="textarea-input" rows="3" class="form-control"
-                            placeholder="Content.."></textarea>
-                    </div>
-                </div>
-                <!-- <div class="form-group row">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Refferance de Produit</label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Refferance"
+              formControlName="ref"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="textarea-input"
+            >Description</label
+          >
+          <div class="col-md-9">
+            <textarea
+              id="textarea-input"
+              formControlName="description"
+              name="textarea-input"
+              rows="3"
+              class="form-control"
+              placeholder="Content.."
+            ></textarea>
+          </div>
+        </div>
+        <!-- <div class="form-group row">
                     <label class="col-md-3 col-form-label">Societé</label>
                     <div class="col-md-9 col-form-label">
                         <div class="form-check" *ngFor="let t of table ,let i=index;">
@@ -41,53 +61,103 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <label class="col-md-12 col-form-label" for="text-input">Prix de Produit</label>
-                        <input type="number" id="text-input" formControlName="prix" name="text-input" class="form-control"
-                            placeholder="Prix de Produit">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="col-md-12 col-form-label" for="text-input">stock de Produit</label>
-                        <input type="number" id="text-input" formControlName="stock" name="text-input" class="form-control"
-                            placeholder="Prix de Produit">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="col-md-12 col-form-label" for="text-input">NB de pieces de rupture</label>
-                        <input type="number" id="text-input" formControlName="min" name="text-input" class="form-control"
-                            placeholder="NB de pieces">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="col-md-12 col-form-label" for="text-input">Catégories</label>
-                        <div>
-                            <select id="select1" name="select1"  formControlName="categorie" class="form-control">
-                                <option value="0">Please select</option>
-                                <option *ngFor="let t of categorietable ,let i=index;" value="{{t.name}}">{{t.name}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
-                    <div class="col-md-9 col-form-label">
-                        <label class="switch switch-3d switch-primary">
-                            <input type="checkbox" class="switch-input" [checked]="isAwesome"
-                            (change)="toggleIsAwesome()" checked>
-                            <span class="switch-slider"></span>
-                          </label>
-                    </div>
-                </div>
-            </form>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="file-input">Produit Image</label>
-                        <div class="col-md-9">
-                            <input type="file" id="file-input" (change)="onFileChange($event)" name="file-input">
-                        </div>
-                    </div>
+
+        <div class="form-group row">
+          <div class="col-md-3">
+            <label class="col-md-12 col-form-label" for="prix"
+              >Prix de Produit</label
+            >
+            <input
+              type="number"
+              id="prix"
+              formControlName="prix"
+              name="prix"
+              class="form-control"
+              placeholder="Prix de Produit"
+            />
+          </div>
+          <div class="col-md-3">
+            <label class="col-md-12 col-form-label" for="stock"
+              >stock de Produit</label
+            >
+            <input
+              type="number"
+              id="stock"
+              formControlName="stock"
+              name="stock"
+              class="form-control"
+              placeholder="Prix de Produit"
+            />
+          </div>
+          <div class="col-md-3">
+            <label class="col-md-12 col-form-label" for="min"
+              >NB de pieces de rupture</label
+            >
+            <input
+              type="number"
+              id="min"
+              formControlName="min"
+              name="min"
+              class="form-control"
+              placeholder="NB de pieces"
+            />
+          </div>
+          <div class="col-md-3">
+            <label class="col-md-12 col-form-label" for="categorie"
+              >Catégories</label
+            >
+            <div>
+              <select
+                id="categorie"
+                name="categorie"
+                formControlName="categorie"
+                class="form-control"
+              >
+                <option value="0">Please select</option>
+                <option value="val1">Option #1</option>
+                <option value="val2">Option #2</option>
+                <option value="val3">Option #3</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div class="card-footer">
-            <button type="submit" (click)="addproduit()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Add Produit</button>
-            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+            >Recevoire mail en cas rupture de Produit</label
+          >
+          <div class="col-md-9 col-form-label">
+            <label class="switch switch-3d switch-primary">
+              <input type="checkbox" class="switch-input" checked />
+              <span class="switch-slider"></span>
+            </label>
+          </div>
         </div>
+      </form>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="file-input"
+          >Produit Image</label
+        >
+        <div class="col-md-9">
+          <input
+            type="file"
+            id="file-input"
+            (change)="onFileChange($event)"
+            name="file-input"
+          />
+        </div>
+      </div>
     </div>
+    <div class="card-footer">
+      <button
+        type="submit"
+        (click)="addproduit()"
+        class="btn btn-sm btn-primary"
+      >
+        <i class="fa fa-dot-circle-o"></i> Add Produit
+      </button>
+      <button type="reset" class="btn btn-sm btn-danger">
+        <i class="fa fa-ban"></i> Reset
+      </button>
+    </div>
+  </div>
 </div>
