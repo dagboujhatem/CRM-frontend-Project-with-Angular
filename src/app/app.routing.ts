@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
 // Import Containers
-import { DefaultLayoutComponent } from './containers';
+import { DefaultLayoutComponent } from "./containers";
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -20,49 +20,49 @@ export const routes: Routes = [
   
   },
   {
-    path: 'response-reset-password/:token',
+    path: "reset-password",
     component: ResetComponent,
     data: {
-      title: 'Page reset',
+      title: "Page reset",
     },
   },
   {
-    path: 'forget',
+    path: "forget",
     component: ForgetComponent,
     data: {
-      title: 'Page forget',
+      title: "Page forget",
     },
   },
   {
-    path: 'register',
+    path: "register",
     component: RegisterComponent,
     data: {
-      title: 'Page register',
+      title: "Page register",
     },
   },
   {
-    path: '404',
+    path: "404",
     component: P404Component,
     data: {
-      title: 'Page 404',
+      title: "Page 404",
     },
   },
   {
-    path: '500',
+    path: "500",
     component: P500Component,
     data: {
-      title: 'Page 500',
+      title: "Page 500",
     },
   },
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent,
     data: {
-      title: 'Login Page',
+      title: "Login Page",
     },
   },
   {
-    path: 'home',
+    path: "home",
     component: DefaultLayoutComponent,
     data: {
       title: 'Home',
@@ -73,7 +73,7 @@ export const routes: Routes = [
         path: 'superadmin',
         canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import('./views/superadmin/superadmin.module').then(
+          import("./views/superadmin/superadmin.module").then(
             (module) => module.SuperAdmin
           ),
       },
@@ -81,13 +81,13 @@ export const routes: Routes = [
         path: 'produit',
         canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import('./views/produit/produit.module').then((m) => m.Produit),
+          import("./views/produit/produit.module").then((m) => m.Produit),
       },
       {
         path: 'fournisseur',
         canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import('./views/fournisseur/fournisseur.module').then(
+          import("./views/fournisseur/fournisseur.module").then(
             (m) => m.FournisseurModule
           ),
       },
@@ -95,41 +95,41 @@ export const routes: Routes = [
         path: 'categorie',
         canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import('./views/categorie/categorie.module').then((m) => m.Categorie),
+          import("./views/categorie/categorie.module").then((m) => m.Categorie),
       },
       {
         path: 'dashboard',
         
         loadChildren: () =>
-          import('./views/dashboard/dashboard.module').then(
+          import("./views/dashboard/dashboard.module").then(
             (m) => m.DashboardModule
           ),
       },
       {
-        path: 'icons',
+        path: "icons",
         loadChildren: () =>
-          import('./views/icons/icons.module').then((m) => m.IconsModule),
+          import("./views/icons/icons.module").then((m) => m.IconsModule),
       },
       {
-        path: 'notifications',
+        path: "notifications",
         loadChildren: () =>
-          import('./views/notifications/notifications.module').then(
+          import("./views/notifications/notifications.module").then(
             (m) => m.NotificationsModule
           ),
       },
       {
-        path: 'theme',
+        path: "theme",
         loadChildren: () =>
-          import('./views/theme/theme.module').then((m) => m.ThemeModule),
+          import("./views/theme/theme.module").then((m) => m.ThemeModule),
       },
       {
-        path: 'widgets',
+        path: "widgets",
         loadChildren: () =>
-          import('./views/widgets/widgets.module').then((m) => m.WidgetsModule),
+          import("./views/widgets/widgets.module").then((m) => m.WidgetsModule),
       },
     ],
   },
-  { path: '**', component: P404Component },
+  { path: "**", component: P404Component },
 ];
 
 @NgModule({
