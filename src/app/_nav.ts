@@ -16,13 +16,13 @@ export const navItems: INavData[] = [
       icon: 'icon-drop'
     },
     {
-      name:'Add User',
-      url:'/home/superadmin/adduser',
+      name: 'Add User',
+      url: '/home/superadmin/adduser',
       icon: 'icon-drop'
     },
     {
-      name:'List User',
-      url:'/home/superadmin/listuser',
+      name: 'List User',
+      url: '/home/superadmin/listuser',
       icon: 'icon-drop'
     },
   {
@@ -169,4 +169,4 @@ export const navItems: INavData[] = [
   {
     divider: true,
   },
-]}]
+]}];
