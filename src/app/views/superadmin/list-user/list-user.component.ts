@@ -3,6 +3,7 @@ import * as jwt_decode from "jwt-decode";
 import { AdminService } from "../../../service/admin.service";
 import { UserServiceService } from "../../../service/user-service.service";
 import { PageEvent } from "@angular/material/paginator";
+import { CheckpipePipe } from '../../../pipes/checkpipe.pipe';
 
 @Component({
   selector: "app-list-user",
@@ -19,6 +20,12 @@ export class ListUSERComponent implements OnInit {
   currentPage = 1;
   pme;
   pmeTable;
+  profils;
+  j ;
+  fileToUpload :File= null;
+  Search:"";
+  boxes = ['SUV', 'compact'];
+  selectedCheckboxes = [];
 
   constructor(
     private adminservice: AdminService,
@@ -79,5 +86,18 @@ export class ListUSERComponent implements OnInit {
           this.totalUsers = res.count;
         });
     }
+  }
+  filterCheck(checkbox) {
+
+    if (!this.selectedCheckboxes.includes(checkbox)) {
+      this.selectedCheckboxes.push(checkbox);
+      console.log(this.selectedCheckboxes);
+    } else {
+      const i = this.selectedCheckboxes.indexOf(checkbox);
+      this.selectedCheckboxes.splice(i, 1);
+      console.log(this.selectedCheckboxes);
+    }
+    const p = new CheckpipePipe();
+    this.table = p.transform(this.profils , this.selectedCheckboxes);
   }
 }

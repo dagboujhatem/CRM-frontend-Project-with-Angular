@@ -10,12 +10,14 @@ import { LoginComponent } from './common/login/login.component';
 import { RegisterComponent } from './common/register/register.component';
 import { ForgetComponent } from './common/forget/forget.component';
 import { ResetComponent } from './common/reset/reset.component';
+import { AuthguardGuard } from './guards/authguard.guard';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  
   },
   {
     path: 'response-reset-password/:token',
@@ -64,10 +66,12 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     data: {
       title: 'Home',
+      canActivate:[AuthguardGuard],
     },
     children: [
       {
         path: 'superadmin',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
           import('./views/superadmin/superadmin.module').then(
             (module) => module.SuperAdmin
@@ -75,11 +79,13 @@ export const routes: Routes = [
       },
       {
         path: 'produit',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
           import('./views/produit/produit.module').then((m) => m.Produit),
       },
       {
         path: 'fournisseur',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
           import('./views/fournisseur/fournisseur.module').then(
             (m) => m.FournisseurModule
@@ -87,11 +93,13 @@ export const routes: Routes = [
       },
       {
         path: 'categorie',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
           import('./views/categorie/categorie.module').then((m) => m.Categorie),
       },
       {
         path: 'dashboard',
+        
         loadChildren: () =>
           import('./views/dashboard/dashboard.module').then(
             (m) => m.DashboardModule
