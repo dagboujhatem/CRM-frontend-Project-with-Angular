@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 import { AuthService } from "../../service/auth.service";
 
 @Component({
@@ -9,7 +10,6 @@ import { AuthService } from "../../service/auth.service";
   styleUrls: ["./reset.component.css"],
 })
 export class ResetComponent implements OnInit {
-  // codeForm: FormGroup;
   ResponseResetForm: FormGroup;
   errorMessage: string;
   successMessage: string;
@@ -19,64 +19,38 @@ export class ResetComponent implements OnInit {
   token;
   validCode;
   code: number;
-  doesNotMatch = false;
+
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {
-    // this.CurrentState = 'Wait';
-    // this.route.params.subscribe(params => {
-    //   this.resetToken = params.token;
-    //   console.log(this.resetToken);
-    //   this.VerifyToken();
-    // });
-  }
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
-    // this.route.params.subscribe(params => {
-    //   this.resetToken = params.token;
-    //   console.log(this.resetToken);
-    //   this.VerifyToken();
-    // });
     this.Init();
     this.route.queryParams.subscribe((param) => {
       this.token = param["token"];
     });
   }
 
-  // VerifyToken() {
-  //   this.authService.ValidPasswordToken({ resetToken: this.resetToken }).subscribe(
-  //     data => {
-  //       this.CurrentState = 'Verified';
-  //     },
-  //     err => {
-  //       this.CurrentState = 'NotVerified';
-  //     }
-  //   );
-  // }
-
-  // verifCode() {
-  //   this.codeForm = new FormGroup({
-
-  //   });
-  // }
-
   onCodeSubmit(f) {
     this.code = Number(f.value.code);
     this.authService
       .ValidPasswordToken({ code: this.code }, this.token)
-      .subscribe((res) => {
-        console.log(res);
-        this.CurrentState = true;
-        console.log(this.CurrentState);
-      });
+      .subscribe(
+        (res: { message: string }) => {
+          this.CurrentState = true;
+          return this.toastr.success(res.message);
+        },
+        (err) => {
+          return this.toastr.warning("Code does not match");
+        }
+      );
   }
 
   Init() {
     this.ResponseResetForm = new FormGroup({
-      // resettoken: new FormControl( this.resetToken),
-      // code: new FormControl(null, Validators.required),
       newPassword: new FormControl("", [
         Validators.required,
         Validators.minLength(4),
@@ -93,52 +67,27 @@ export class ResetComponent implements OnInit {
     const confirm_password = this.ResponseResetForm.value.confirmPassword;
 
     if (confirm_password.length <= 0) {
-      return null;
+      return false;
     }
 
     if (confirm_password !== new_password) {
-      this.doesNotMatch = true;
-      return {
-        doesNotMatch: true,
-      };
+      return true;
     }
 
-    return null;
+    return false;
   }
 
   ResetPassword() {
-    this.Validate();
-    if (this.ResponseResetForm.valid && this.doesNotMatch == false) {
+    if (this.Validate()) return this.toastr.warning("Password does not match");
+    else {
       this.authService
         .newPassword(
           { newPassword: this.ResponseResetForm.value.newPassword },
           this.token
         )
-        .subscribe((res) => {
-          console.log(res);
+        .subscribe((res: { message: string }) => {
+          return this.toastr.success(res.message);
         });
     }
   }
-
-  // ResetPassword(form) {
-  //   console.log(form.get('confirmPassword'));
-  //   if (form.valid) {
-  //     this.IsResetFormValid = true;
-  //     this.authService.newPassword(this.ResponseResetForm.value).subscribe(
-  //      ( data:any )=> {
-  //         this.ResponseResetForm.reset();
-  //         this.successMessage = data.message;
-  //         setTimeout(() => {
-  //           this.successMessage = null;
-  //           this.router.navigate(['login']);
-  //         }, 3000);
-  //       },
-  //       err => {
-  //         if (err.error.message) {
-  //           this.errorMessage = err.error.message;
-  //         }
-  //       }
-  //     );
-  //   } else { this.IsResetFormValid = false; }
-  // }
 }
