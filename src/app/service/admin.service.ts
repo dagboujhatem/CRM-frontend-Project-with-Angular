@@ -43,7 +43,13 @@ export class AdminService {
     return this.http.put(url, data);
   }
   /****************update super admin ************ */
-  updatesuperadminnotif() {
-    
+  updatesuperadminnotif(data) {
+    const url = `${this.BaseUrl}/setting/desactivmail`;
+    return this.http.put(url, data);
+  }
+  /************get setting ********** */
+  getsetting() {
+    const url = `${this.BaseUrl}/setting/activemail`;
+    return this.http.get(url);
   }
 }
