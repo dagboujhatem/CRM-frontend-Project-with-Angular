@@ -60,6 +60,7 @@ import { ListcategorieComponent } from './views/categorie/listcategorie/listcate
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
+
 @NgModule({
   imports: [
     BrowserModule,

@@ -1,24 +1,24 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "../../environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AdminService {
   constructor(private http: HttpClient) {}
   BaseUrl = environment.baseuri;
-  token = localStorage.getItem("token");
+  token = localStorage.getItem('token');
   // *********get all pme for super admin******** */
   getall(pageSize: number, currentPage: number) {
     // tslint:disable-next-line: no-shadowed-variable
-    let queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
+    const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
     const url = `${this.BaseUrl}/pme${queryParams}`;
     return this.http.get(url);
   }
   /**************get pme by idadmin ************ */
   getPmeByAdminId(idadmin, pageSize: number, currentPage: number) {
-    let queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
+    const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
     const url = `${this.BaseUrl}/pme/list-pme/${idadmin}${queryParams}`;
     return this.http.get(url);
   }
@@ -41,5 +41,9 @@ export class AdminService {
   updatesociete(id, data) {
     const url = `${this.BaseUrl}/pme/edit/${id}`;
     return this.http.put(url, data);
+  }
+  /****************update super admin ************ */
+  updatesuperadminnotif() {
+    
   }
 }

@@ -1,8 +1,8 @@
 // Angular
-import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgModule } from "@angular/core";
-import { MatPaginatorModule } from "@angular/material/paginator";
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // import {  } from './cards.component';
 
@@ -71,7 +71,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     MatPaginatorModule,
 
     MatInputModule,
-    
+
 
   ],
   declarations: [

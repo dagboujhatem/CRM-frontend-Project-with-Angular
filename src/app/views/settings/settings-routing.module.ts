@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SettingsComponent } from './settings/settings.component';
+import { SettingsuperadminComponent } from './settingsuperadmin/settingsuperadmin.component';
+
 
 
 
@@ -10,15 +11,7 @@ const routes: Routes = [
         data: {
             title: 'Settings'
         },
-        children: [
-            {
-                path: 'settings',
-                component: SettingsComponent,
-                data: {
-                    title: 'settings societé'
-                }
-            },
-        ],
+        component: SettingsuperadminComponent
     },
 
 ];

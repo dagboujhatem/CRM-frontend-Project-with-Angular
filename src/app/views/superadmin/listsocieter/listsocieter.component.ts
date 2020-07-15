@@ -20,6 +20,8 @@ export class ListsocieterComponent implements OnInit {
   constructor(private adminservice: AdminService) {}
   ngOnInit(): void {
     this.getallpme();
+    console.log(this.decoded);
+    
     if (this.decoded.data.role === "superAdmin") {
       this.superAdminAccess = true;
     }
