@@ -8,6 +8,9 @@ import { AddFournisseurComponent } from "./add-fournisseur/add-fournisseur.compo
 import { ListFournisseurComponent } from "./list-fournisseur/list-fournisseur.component";
 import { DetailFournisseurComponent } from "./detail-fournisseur/detail-fournisseur.component";
 import { UpdateFournisseurComponent } from "./update-fournisseur/update-fournisseur.component";
+import { FournpipePipe } from '../../pipes/fournpipe.pipe';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -16,12 +19,16 @@ import { UpdateFournisseurComponent } from "./update-fournisseur/update-fourniss
     FournisseurRouting,
     ReactiveFormsModule,
     MatPaginatorModule,
+    MatInputModule,
+    MatIconModule
   ],
   declarations: [
     AddFournisseurComponent,
     ListFournisseurComponent,
     DetailFournisseurComponent,
     UpdateFournisseurComponent,
+    FournpipePipe
+
   ],
 })
 export class FournisseurModule {}

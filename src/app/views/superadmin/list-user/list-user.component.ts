@@ -3,8 +3,10 @@ import * as jwt_decode from "jwt-decode";
 import { AdminService } from "../../../service/admin.service";
 import { UserServiceService } from "../../../service/user-service.service";
 import { PageEvent } from "@angular/material/paginator";
+
 import { CheckpipePipe } from "../../../pipes/checkpipe.pipe";
 import { ToastrService } from "ngx-toastr";
+
 
 @Component({
   selector: "app-list-user",
@@ -23,11 +25,13 @@ export class ListUSERComponent implements OnInit {
   pme;
   pmeTable;
   profils;
+
   j;
   fileToUpload: File = null;
   Search: "";
   boxes = ["ingenieur", "technicen"];
   selectedCheckboxes = [];
+
 
   constructor(
     private adminservice: AdminService,
@@ -43,6 +47,7 @@ export class ListUSERComponent implements OnInit {
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSizeU = pageData.pageSize;
+
     this.usersrvice
       .getUsersByPme(this.pme, this.pageSizeU, this.currentPage)
       .subscribe((res: { users; count }) => {
@@ -84,6 +89,7 @@ export class ListUSERComponent implements OnInit {
         });
     }
   }
+
   /*****************delete user for admin******** */
   delete(i, id) {
     if (
@@ -117,4 +123,5 @@ export class ListUSERComponent implements OnInit {
   //     return this.toastr.success("user deleted successfully")
   //   })
   // }
+
 }

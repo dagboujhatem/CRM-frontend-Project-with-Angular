@@ -14,6 +14,7 @@ export class ListcategorieComponent implements OnInit {
   constructor(private categorie: CategorieService,    private toastr: ToastrService,private adminservice: AdminService) { }
   decoded = jwt_decode(this.adminservice.token);
   categorietable;
+  Search : '';
   ngOnInit(): void {
     this.getcategorie();
   }
