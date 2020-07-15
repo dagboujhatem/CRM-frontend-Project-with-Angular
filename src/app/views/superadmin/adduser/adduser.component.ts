@@ -7,14 +7,14 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-adduser",
-  templateUrl: "./adduser.component.html",
-  styleUrls: ["./adduser.component.css"],
+  selector: 'app-adduser',
+  templateUrl: './adduser.component.html',
+  styleUrls: ['./adduser.component.css'],
 })
 export class AdduserComponent implements OnInit {
   isAwesome = false;
   table;
-  pme: "";
+  pme: '';
   pageSize = 1000;
   currentPage = 1;
   decoded = jwt_decode(this.adminservice.token);
@@ -64,7 +64,7 @@ export class AdduserComponent implements OnInit {
     this.isAwesome = !this.isAwesome;
     this.userForm.controls.notifRupture.setValue(this.isAwesome);
     console.log(this.isAwesome);
-    console.log(this.userForm.value);   
+    console.log(this.userForm.value);
   }
 
 

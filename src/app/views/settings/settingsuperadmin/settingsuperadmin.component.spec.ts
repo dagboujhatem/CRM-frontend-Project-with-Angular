@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingsComponent } from './settings.component';
+import { SettingsuperadminComponent } from './settingsuperadmin.component';
 
-describe('SettingsComponent', () => {
-  let component: SettingsComponent;
-  let fixture: ComponentFixture<SettingsComponent>;
+describe('SettingsuperadminComponent', () => {
+  let component: SettingsuperadminComponent;
+  let fixture: ComponentFixture<SettingsuperadminComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ]
+      declarations: [ SettingsuperadminComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsComponent);
+    fixture = TestBed.createComponent(SettingsuperadminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

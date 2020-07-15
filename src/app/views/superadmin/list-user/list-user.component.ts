@@ -7,16 +7,16 @@ import { CheckpipePipe } from '../../../pipes/checkpipe.pipe';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: "app-list-user",
-  templateUrl: "./list-user.component.html",
-  styleUrls: ["./list-user.component.css"],
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.css'],
 })
 export class ListUSERComponent implements OnInit {
   table;
   user;
   pageSize = 1000;
   decoded = jwt_decode(this.adminservice.token);
-  pageSizeU = 2;
+  pageSizeU = 5;
   pageSizeOptions = [2, 5, 10];
   totalUsers;
   currentPage = 1;
@@ -33,7 +33,7 @@ export class ListUSERComponent implements OnInit {
     private adminservice: AdminService,
     private toastr: ToastrService,
     private usersrvice: UserServiceService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.adminservice
@@ -42,13 +42,13 @@ export class ListUSERComponent implements OnInit {
         this.pmeTable = res.pme;
       
       });
-    if (this.decoded.data.role === "superAdmin") this.getallUser();
+    if (this.decoded.data.role === 'superAdmin') this.getallUser();
   }
 
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSizeU = pageData.pageSize;
-    if (this.decoded.data.role === "superAdmin") {
+    if (this.decoded.data.role === 'superAdmin') {
       this.usersrvice
         .getAllUsers(this.decoded.data._id, this.pageSizeU, this.currentPage)
         .subscribe((res: { users: []; count: number }) => {
@@ -57,7 +57,7 @@ export class ListUSERComponent implements OnInit {
           this.user = res.users
         
         });
-    } else if (this.decoded.data.role === "admin") {
+    } else if (this.decoded.data.role === 'admin') {
       this.usersrvice
         .getUsersByPme(this.pme, this.pageSizeU, this.currentPage)
         .subscribe((res: { users; count }) => {

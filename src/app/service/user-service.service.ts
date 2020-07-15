@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { environment } from "../../environments/environment";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class UserServiceService {
   BaseUrl = environment.baseuri;
@@ -28,6 +28,11 @@ export class UserServiceService {
   updateUser(id, data) {
     const url = `${this.BaseUrl}/user/putuser/${id}`;
     return this.http.put(url, data);
+  }
+  /*****************delete user by (admin) *********** */
+  deleteuser(id) {
+    const url = `${this.BaseUrl}/user/delete/${id}`;
+    return this.http.delete(url);
   }
   getUsrById(id) {
     const url = `${this.BaseUrl}/user/${id}`;
