@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+
 
 
 import { ToastrModule } from 'ngx-toastr';
@@ -21,7 +19,6 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './common/login/login.component';
@@ -52,11 +49,7 @@ import { AuthInterceptor } from './common/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
 import { ResetComponent } from './common/reset/reset.component';
 import { Produit } from './views/produit/produit.module';
-import { UpdateUserComponent } from './views/superadmin/update-user/update-user.component';
 import { FournisseurModule } from './views/fournisseur/fournisseur.module';
-import { AddcategorieComponent } from './views/categorie/addcategorie/addcategorie.component';
-import { UpdatecategorieComponent } from './views/categorie/updatecategorie/updatecategorie.component';
-import { ListcategorieComponent } from './views/categorie/listcategorie/listcategorie.component';
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 

@@ -108,6 +108,7 @@ export const navItems: INavData[] = [
 
     children: [
       {
+
         name: 'Add Fournisseur',
         url: '/home/fournisseur/add-fournisseur',
         icon: 'icon-puzzle',
@@ -122,6 +123,7 @@ export const navItems: INavData[] = [
     name: 'Setting',
     url: '/home/setting',
     icon: 'icon-puzzle',
+
   },
   {
     divider: true,
