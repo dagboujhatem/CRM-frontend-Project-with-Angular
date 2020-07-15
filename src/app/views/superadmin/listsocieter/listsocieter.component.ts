@@ -24,6 +24,8 @@ export class ListsocieterComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.getallpme();
+    console.log(this.decoded);
+    
     if (this.decoded.data.role === "superAdmin") {
       this.superAdminAccess = true;
     }

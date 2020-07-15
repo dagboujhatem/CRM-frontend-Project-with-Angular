@@ -4,6 +4,8 @@ import * as jwt_decode from 'jwt-decode';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProduitService } from '../../../service/produit.service';
 import { CategorieService } from '../../../service/categorie.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-addproduit',
   templateUrl: './addproduit.component.html',
@@ -11,7 +13,9 @@ import { CategorieService } from '../../../service/categorie.service';
 })
 export class AddproduitComponent implements OnInit {
   data: FormData;
-  constructor(private adminservice: AdminService, private produit: ProduitService, private categorie: CategorieService) {
+  constructor(private adminservice: AdminService, private router: Router,
+     private produit: ProduitService, private categorie: CategorieService,
+    private toastr: ToastrService) {
     this.data = new FormData();
   }
   isAwesome = false;
@@ -21,6 +25,7 @@ export class AddproduitComponent implements OnInit {
   produitform: FormGroup;
   categorietable;
   ngOnInit(): void {
+    console.log(this.decoded);
     this.getcatigorie();
     this.produitform = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -39,9 +44,12 @@ export class AddproduitComponent implements OnInit {
   }
 }
 addproduit() {
-  this.produit.addProduit(this.decoded.data.pme, this.produitform.value).subscribe((res: any) => {
-    this.upload(res._id);
-  });
+  if (this.produitform.valid) {
+    this.produit.addProduit(this.decoded.data.pme, this.produitform.value).subscribe((res: any) => {
+      this.upload(res._id);
+      return this.toastr.success('Produit Add with successfully') && this.router.navigateByUrl('/home/produit/listproduit');
+    });
+  } else {return this.toastr.warning('Produit invalid'); }
 }
 upload(id) {
   this.data.set('image', this.file);
@@ -60,7 +68,6 @@ toggleIsAwesome() {
   this.produitform.controls.notifRupture.setValue(this.isAwesome);
   console.log(this.isAwesome);
   console.log(this.produitform.value);
-  
 }
 
 
