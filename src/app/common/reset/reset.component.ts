@@ -86,7 +86,7 @@ export class ResetComponent implements OnInit {
           this.token
         )
         .subscribe((res: { message: string }) => {
-          return this.toastr.success(res.message);
+          return this.toastr.success(res.message) && this.router.navigateByUrl('/login');
         });
     }
   }
