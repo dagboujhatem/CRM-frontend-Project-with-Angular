@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../../../service/admin.service";
 import * as jwt_decode from "jwt-decode";
+import { ToastrService } from "ngx-toastr";
 import { PageEvent } from "@angular/material/paginator";
 
 @Component({
@@ -17,7 +18,10 @@ export class ListsocieterComponent implements OnInit {
   currentPage = 1;
   superAdminAccess = false;
 
-  constructor(private adminservice: AdminService) {}
+  constructor(
+    private adminservice: AdminService,
+    private toastr: ToastrService
+  ) {}
   ngOnInit(): void {
     this.getallpme();
     console.log(this.decoded);
@@ -63,18 +67,20 @@ export class ListsocieterComponent implements OnInit {
           this.totalPme = res.count;
         });
     }
-    // this.adminservice.getall().subscribe((res: any) => {
-    //   this.table = res;
-    //   console.log(this.table);
-    // });
   }
   /*****************delete pme for supre admin******** */
   delete(i, id) {
     if (this.decoded.data.role === "superAdmin") {
-      this.adminservice.deletepme(id).subscribe((res: any) => {
-        this.getallpme();
-        this.table.splice(i, 1);
-      });
+      this.adminservice.deletepme(id).subscribe(
+        (res: any) => {
+          this.getallpme();
+          this.table.splice(i, 1);
+          return this.toastr.success("Pme Deleted Successfully");
+        },
+        (err) => {
+          return this.toastr.warning(err.message);
+        }
+      );
     }
   }
 }
