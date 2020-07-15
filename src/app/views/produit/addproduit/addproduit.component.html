@@ -41,21 +41,10 @@
             <input type="number" id="min" formControlName="min" name="min" class="form-control"
               placeholder="NB de pieces" />
           </div>
-            <div class="col-md-3"> 
-            <label class="col-md-12 col-form-label" for="categorie">Catégories</label> -->
-            <div> 
-              <!-- <select
-                id="categorie"
-                name="categorie"
-                formControlName="categorie"
-                class="form-control"
-              >
-                <option value="0">Please select</option>
-                <option value="val1">Option #1</option>
-                <option value="val2">Option #2</option>
-                <option value="val3">Option #3</option>
-              </select> -->
-            <label class="col-md-3 col-form-label">categorie</label>
+          <div class="col-md-3">
+            <label class="col-md-12 col-form-label" for="categorie">Catégories</label>
+            <div>
+              <label class="col-md-3 col-form-label">categorie</label>
               <div class="col-md-9 col-form-label">
                 <select id="categorie" name="categorie" class="form-control" formConrolName="categorie">
                   <option *ngFor="let t of table ,let i=index;" value="{{t._id}}">{{t.name}}</option>
@@ -63,18 +52,18 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label"
-            >Recevoire mail en cas rupture de Produit</label
-          >
-          <div class="col-md-9 col-form-label">
-            <label class="switch switch-3d switch-primary">
-              <input type="checkbox" class="switch-input" (change)="toggleIsAwesome()" checked />
-              <span class="switch-slider"></span>
-            </label>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
+            <div class="col-md-9 col-form-label">
+              <label class="switch switch-3d switch-primary">
+                <input type="checkbox" class="switch-input" checked />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
           </div>
+        </div>
       </form>
+
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="file-input">Produit Image</label>
         <div class="col-md-9">
