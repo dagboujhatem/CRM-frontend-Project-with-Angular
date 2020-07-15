@@ -3,7 +3,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UserServiceService } from "../../../service/user-service.service";
 import { AdminService } from "../../../service/admin.service";
 import * as jwt_decode from "jwt-decode";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-update-user",
@@ -22,6 +23,8 @@ export class UpdateUserComponent implements OnInit {
   constructor(
     private userservice: UserServiceService,
     private adminservice: AdminService,
+    private toastr: ToastrService,
+    private router :Router,
     private activateroute: ActivatedRoute
   ) {}
 
@@ -53,10 +56,15 @@ export class UpdateUserComponent implements OnInit {
       });
   }
   updateUserById() {
-    this.userservice
-      .updateUser(this.Id, this.updateUserForm.value)
-      .subscribe((res: any) => {
-        console.log(res);
-      });
+    if(this.updateUserForm.valid){
+      this.userservice
+        .updateUser(this.Id, this.updateUserForm.value)
+        .subscribe((res: any) => {
+          return this.toastr.success("user updated succesfully") && this.router.navigateByUrl("/home/superadmin/listuser")
+        });
+    }
+    else {
+      return this.toastr.warning("user could not be updated")
+    }
   }
 }

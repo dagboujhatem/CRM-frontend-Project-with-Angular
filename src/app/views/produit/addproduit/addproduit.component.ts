@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './addproduit.component.html',
   styleUrls: ['./addproduit.component.css']
 })
-export class AddproduitComponent implements OnInit {
+export class AddproduitComponent implements  OnInit {
   data: FormData;
   constructor(private adminservice: AdminService, private router: Router,
      private produit: ProduitService, private categorie: CategorieService,
@@ -38,6 +38,7 @@ export class AddproduitComponent implements OnInit {
       notifRupture: new FormControl(this.isAwesome)
     });
   }
+ 
   onFileChange(event) {
     if (event.target.files && event.target.files.length) {
       this.file = event.target.files[0];
