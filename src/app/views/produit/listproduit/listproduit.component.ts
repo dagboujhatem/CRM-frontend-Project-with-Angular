@@ -1,13 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { ProduitService } from "../../../service/produit.service";
-import * as jwt_decode from "jwt-decode";
-import { AdminService } from "../../../service/admin.service";
-import { PageEvent } from "@angular/material/paginator";
+import { Component, OnInit } from '@angular/core';
+import { ProduitService } from '../../../service/produit.service';
+import * as jwt_decode from 'jwt-decode';
+import { AdminService } from '../../../service/admin.service';
+import { PageEvent } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-listproduit",
-  templateUrl: "./listproduit.component.html",
-  styleUrls: ["./listproduit.component.css"],
+  selector: 'app-listproduit',
+  templateUrl: './listproduit.component.html',
+  styleUrls: ['./listproduit.component.css'],
 })
 export class ListproduitComponent implements OnInit {
   table;
@@ -16,9 +18,12 @@ export class ListproduitComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalProd;
   currentPage = 1;
+  Search : "";
   constructor(
     private produit: ProduitService,
-    private adminservice: AdminService
+    private adminservice: AdminService,
+    private toastr: ToastrService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +56,7 @@ export class ListproduitComponent implements OnInit {
       .subscribe((res: any) => {
         this.table.splice(i, 1);
         this.getproduit();
+        return this.toastr.success('Produit Deleted with succesfully');
       });
   }
 }

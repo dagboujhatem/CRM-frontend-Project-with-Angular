@@ -67,10 +67,17 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: "dashboard",
+        loadChildren: () =>
+          import("./views/dashboard/dashboard.module").then(
+            (m) => m.DashboardModule
+          ),
+      },
+      {
         path: "superadmin",
         loadChildren: () =>
           import("./views/superadmin/superadmin.module").then(
-            (module) => module.SuperAdmin
+            (m) => m.SuperAdmin
           ),
       },
       {
@@ -90,35 +97,16 @@ export const routes: Routes = [
         loadChildren: () =>
           import("./views/categorie/categorie.module").then((m) => m.Categorie),
       },
+
       {
-        path: "dashboard",
+        path: "setting",
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module").then(
-            (m) => m.DashboardModule
+          import("./views/settings/settings.module").then(
+            (m) => m.SettingsModule
           ),
       },
-      {
-        path: "icons",
-        loadChildren: () =>
-          import("./views/icons/icons.module").then((m) => m.IconsModule),
-      },
-      {
-        path: "notifications",
-        loadChildren: () =>
-          import("./views/notifications/notifications.module").then(
-            (m) => m.NotificationsModule
-          ),
-      },
-      {
-        path: "theme",
-        loadChildren: () =>
-          import("./views/theme/theme.module").then((m) => m.ThemeModule),
-      },
-      {
-        path: "widgets",
-        loadChildren: () =>
-          import("./views/widgets/widgets.module").then((m) => m.WidgetsModule),
-      },
+
+      ,
     ],
   },
   { path: "**", component: P404Component },

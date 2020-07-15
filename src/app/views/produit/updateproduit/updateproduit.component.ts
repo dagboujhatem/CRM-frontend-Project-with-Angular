@@ -5,7 +5,8 @@ import { ProduitService } from '../../../service/produit.service';
 import * as jwt_decode from 'jwt-decode';
 import { ActivatedRoute } from '@angular/router';
 import { CategorieService } from '../../../service/categorie.service';
-
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-updateproduit',
@@ -15,7 +16,10 @@ import { CategorieService } from '../../../service/categorie.service';
 export class UpdateproduitComponent implements OnInit {
   data: FormData;
   // tslint:disable-next-line: max-line-length
-  constructor(private adminservice: AdminService, private categorie: CategorieService, private produit: ProduitService, private activateroute: ActivatedRoute) {
+  constructor(private adminservice: AdminService,
+    private toastr: ToastrService,
+    private router: Router,
+     private categorie: CategorieService, private produit: ProduitService, private activateroute: ActivatedRoute) {
     this.data = new FormData();
    }
    updateproduitform: FormGroup;
@@ -58,9 +62,14 @@ export class UpdateproduitComponent implements OnInit {
   }
 }
   updateproduitById() {
-    this.produit.UpdateproduitById(this.decoded.data.pme, this.Id, this.updateproduitform.value).subscribe((res: any) => {
-    this.upload(res._id);
-    });
+    if (this.updateproduitform.valid) {
+      this.produit.UpdateproduitById(this.decoded.data.pme, this.Id, this.updateproduitform.value).subscribe((res: any) => {
+      this.upload(res._id);
+      });
+      return this.toastr.success('update succesfully') && this.router.navigateByUrl('/home/produit/listproduit');
+    } else {
+      return this.toastr.warning('Can\'t Update');
+    }
   }
   upload(id) {
     this.data.set('image', this.file);

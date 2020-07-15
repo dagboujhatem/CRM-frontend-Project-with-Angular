@@ -1,8 +1,8 @@
 // Angular
-import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgModule } from "@angular/core";
-import { MatPaginatorModule } from "@angular/material/paginator";
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // import {  } from './cards.component';
 
@@ -30,25 +30,19 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 // // Pagination Component
 // import { PaginationModule } from 'ngx-bootstrap/pagination';
 // import { PopoversComponent } from './popovers.component';
-
 // // Popover Component
 // import { PopoverModule } from 'ngx-bootstrap/popover';
 // import { PaginationsComponent } from './paginations.component';
-
 // // Progress Component
 // import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 // import { ProgressComponent } from './progress.component';
-
 // // Tooltip Component
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
-// import { TooltipsComponent } from './tooltips.component';
-
+// import { TooltipsComponent } from './tooltips.component'
 // // navbars
 // import { NavbarsComponent } from './navbars/navbars.component';
-
 // // Components Routing
 // import { BaseRoutingModule } from './base-routing.module';
-
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
 import { SuperAdminRouting } from './superadmin-rouring.module';
 import { AddsocieterComponent } from './addsocieter/addsocieter.component';
@@ -57,10 +51,8 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { MatInputModule } from '@angular/material/input';
 import { ListUSERComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
-
-
-
-
+import { PipesearchPipe } from '../../pipes/pipesearch.pipe';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   imports: [
     CommonModule,
@@ -71,6 +63,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     MatPaginatorModule,
 
     MatInputModule,
+    MatCheckboxModule
     
 
   ],
@@ -80,7 +73,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
       UpdatesocieterComponent,
       AdduserComponent,
       ListUSERComponent,
-      UpdateUserComponent
+      UpdateUserComponent,
+      PipesearchPipe,
+    
   ]
 
 })
