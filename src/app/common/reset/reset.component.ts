@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, Validators, FormControl } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
-import { AuthService } from "../../service/auth.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
-  selector: "app-reset",
-  templateUrl: "./reset.component.html",
-  styleUrls: ["./reset.component.css"],
+  selector: 'app-reset',
+  templateUrl: './reset.component.html',
+  styleUrls: ['./reset.component.css'],
 })
 export class ResetComponent implements OnInit {
   ResponseResetForm: FormGroup;
@@ -30,7 +30,7 @@ export class ResetComponent implements OnInit {
   ngOnInit() {
     this.Init();
     this.route.queryParams.subscribe((param) => {
-      this.token = param["token"];
+      this.token = param['token'];
     });
   }
 
@@ -44,18 +44,18 @@ export class ResetComponent implements OnInit {
           return this.toastr.success(res.message);
         },
         (err) => {
-          return this.toastr.warning("Code does not match");
+          return this.toastr.warning('Code does not match');
         }
       );
   }
 
   Init() {
     this.ResponseResetForm = new FormGroup({
-      newPassword: new FormControl("", [
+      newPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
       ]),
-      confirmPassword: new FormControl("", [
+      confirmPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
       ]),
@@ -78,8 +78,7 @@ export class ResetComponent implements OnInit {
   }
 
   ResetPassword() {
-    if (this.Validate()) return this.toastr.warning("Password does not match");
-    else {
+    if (this.Validate()) { return this.toastr.warning('Password does not match'); } else {
       this.authService
         .newPassword(
           { newPassword: this.ResponseResetForm.value.newPassword },
