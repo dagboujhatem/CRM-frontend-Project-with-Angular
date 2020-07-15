@@ -31,8 +31,8 @@ export class CategorieService {
   }
   /************update categorie *********** */
   UpdatecategorieById(id, idcat, data) {
-    const url = `${this.BaseUrl}/categorie/${id}/update/${idcat}`;
-    return this.http.put(url,data)
+    const url = `${this.BaseUrl}/categorie/${id}/edit/${idcat}`;
+    return this.http.put(url, data);
   }
 
 }
