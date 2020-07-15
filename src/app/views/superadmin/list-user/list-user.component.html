@@ -1,58 +1,80 @@
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
-        <i class="fa fa-align-justify"></i> Combined All Table
-      </div>
-      <div class="card-body">
-        <select
-          id="select1"
-          name="select1"
-          class="form-control"
-          (change)="onChangePme($event)"
+<mat-form-field appearance="outline" style="margin-left: 300px;">
+  <mat-label>Search</mat-label>
+  <input matInput type="text" [(ngModel)]="Search" />
+</mat-form-field>
+<br />
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="container">
+      <div *ngFor="let checkbox of boxes; let i = index">
+        <mat-checkbox (click)="filterCheck(checkbox)"
+          >{{checkbox}}</mat-checkbox
         >
-          <option value="">Select a Pme</option>
-          <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}"
-            >{{pme.name}}</option
-          >
-        </select>
-        <table class="table table-bordered table-striped table-sm">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Date registered</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody *ngFor=" let tab of table; let i=index">
-            <tr>
-              <td>{{tab.name}}</td>
-              <td>{{tab.email}}</td>
-              <td>20/1/2655</td>
-              <td>
-                <button
-                  class="badge badge-success"
-                  routerLink="../updateuser/{{tab._id}}"
-                >
-                  Update</button
-                ><button (click)="delete(i, tab._id)" class="badge badge-danger">
-                  delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <nav>
-          <mat-paginator
-            [length]="totalUsers"
-            [pageSize]="pageSizeU"
-            [pageSizeOptions]="pageSizeOptions"
-            (page)="onChange($event)"
-          ></mat-paginator>
-        </nav>
+        <br />
       </div>
     </div>
+    <br />
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Combined All Table
+          </div>
+          <div class="card-body">
+            <select
+              id="select1"
+              name="select1"
+              class="form-control"
+              (change)="onChangePme($event)"
+            >
+              <option value="">Select a Pme</option>
+              <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}"
+                >{{pme.name}}</option
+              >
+            </select>
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody *ngFor=" let tab of table|pipesearch: Search; let i=index">
+                <tr>
+                  <td>{{tab.name}}</td>
+                  <td>{{tab.email}}</td>
+                  <td>{{tab.role}}</td>
+                  <td>
+                    <button
+                      class="badge badge-success"
+                      routerLink="../updateuser/{{tab._id}}"
+                    >
+                      Update</button
+                    ><button
+                      (click)="delete(i, tab._id)"
+                      class="badge badge-danger"
+                    >
+                      delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <nav>
+              <mat-paginator
+                [length]="totalUsers"
+                [pageSize]="pageSizeU"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="onChange($event)"
+              ></mat-paginator>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--/.col-->
+    </div>
   </div>
-  <!--/.col-->
 </div>
