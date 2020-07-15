@@ -15,8 +15,9 @@ export class FournisService {
     return this.http.post(url, data);
   }
 
-  getAllFournisseur() {
-    const url = `${this.BaseUrl}/fournis/list-fourn`;
+  getAllFournisseur(pageSize, currentPage) {
+    let queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
+    const url = `${this.BaseUrl}/fournis/list-fourn${queryParams}`;
     return this.http.get(url);
   }
 

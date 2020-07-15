@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -58,6 +60,7 @@ import { ListcategorieComponent } from './views/categorie/listcategorie/listcate
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -82,8 +85,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     SuperAdmin,
     FournisseurModule,
     Produit,
+
     Categorie,
     MatButtonToggleModule
+
   ],
   declarations: [
     AppComponent,

@@ -18,7 +18,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'response-reset-password/:token',
+    path: 'reset-password',
     component: ResetComponent,
     data: {
       title: 'Page reset',
@@ -84,6 +84,13 @@ export const routes: Routes = [
           import('./views/fournisseur/fournisseur.module').then(
             (m) => m.FournisseurModule
           ),
+      },
+      {
+        path: 'setting',
+        loadChildren: () =>
+        import('./views/settings/settings.module').then(
+          (m) => m.SettingsModule
+        )
       },
       {
         path: 'categorie',
