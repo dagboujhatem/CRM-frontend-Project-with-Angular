@@ -14,6 +14,7 @@ export class ListFournisseurComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalFournis;
   currentPage = 1;
+  Search :""
   constructor(private fournis: FournisService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {

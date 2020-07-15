@@ -52,13 +52,10 @@ import { AuthInterceptor } from './common/interceptor';
 import { SuperAdmin } from './views/superadmin/superadmin.module';
 import { ResetComponent } from './common/reset/reset.component';
 import { Produit } from './views/produit/produit.module';
-import { UpdateUserComponent } from './views/superadmin/update-user/update-user.component';
 import { FournisseurModule } from './views/fournisseur/fournisseur.module';
-import { AddcategorieComponent } from './views/categorie/addcategorie/addcategorie.component';
-import { UpdatecategorieComponent } from './views/categorie/updatecategorie/updatecategorie.component';
-import { ListcategorieComponent } from './views/categorie/listcategorie/listcategorie.component';
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 @NgModule({
@@ -87,6 +84,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     Produit,
     Categorie,
     MatButtonToggleModule
+ 
 
   ],
   declarations: [
@@ -98,6 +96,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ForgetComponent,
     RegisterComponent,
     ResetComponent,
+
   ],
   providers: [
     {

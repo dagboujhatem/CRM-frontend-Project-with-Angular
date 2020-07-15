@@ -3,7 +3,7 @@ import * as jwt_decode from "jwt-decode";
 import { AdminService } from "../../../service/admin.service";
 import { UserServiceService } from "../../../service/user-service.service";
 import { PageEvent } from "@angular/material/paginator";
-import { CheckpipePipe } from '../../../pipes/checkpipe.pipe';
+
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -26,9 +26,6 @@ export class ListUSERComponent implements OnInit {
   j ;
   fileToUpload :File= null;
   Search:"";
-  boxes = ['ingenieur', 'technicen'];
-  selectedCheckboxes = [];
-
   constructor(
     private adminservice: AdminService,
     private toastr: ToastrService,
@@ -54,7 +51,7 @@ export class ListUSERComponent implements OnInit {
         .subscribe((res: { users: []; count: number }) => {
           this.table = res.users;
           this.totalUsers = res.count;
-          this.user = res.users
+    
         
         });
     } else if (this.decoded.data.role === 'admin') {
@@ -92,19 +89,6 @@ export class ListUSERComponent implements OnInit {
           this.totalUsers = res.count;
         });
     }
-  }
-  filterCheck(checkbox) {
-
-    if (!this.selectedCheckboxes.includes(checkbox)) {
-      this.selectedCheckboxes.push(checkbox);
-      console.log(this.selectedCheckboxes);
-    } else {
-      const i = this.selectedCheckboxes.indexOf(checkbox);
-      this.selectedCheckboxes.splice(i, 1);
-      console.log(this.selectedCheckboxes);
-    }
-    const p = new CheckpipePipe();
-    this.table = p.transform(this.user , this.selectedCheckboxes);
   }
   delete(i){
     let j=this.table[i]._id
