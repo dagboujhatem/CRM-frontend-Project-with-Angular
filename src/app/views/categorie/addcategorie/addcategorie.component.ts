@@ -15,7 +15,7 @@ export class AddcategorieComponent implements OnInit {
   constructor(private categorie: CategorieService,
      private adminservice: AdminService,
      private toastr: ToastrService,
-    private router :Router) { }
+    private router: Router) { }
   decoded = jwt_decode(this.adminservice.token);
 
   categorieForm: FormGroup;
@@ -27,15 +27,14 @@ export class AddcategorieComponent implements OnInit {
   }
   /****************add categorie ************** */
   AddCategorie() {
-    if(this.categorieForm.valid){
+    if (this.categorieForm.valid) {
 
       this.categorie.ajoutCategorie(this.categorieForm.value, this.decoded.data.pme).subscribe((res: any) => {
 
       });
-      return this.toastr.success("categorie added successfully") && this.router.navigateByUrl('/home/categorie/listcategorie')
-    }
-    else{
-      return this.toastr.warning("categorie could not be added");
+      return this.toastr.success('categorie added successfully') && this.router.navigateByUrl('/home/categorie/listcategorie');
+    } else {
+      return this.toastr.warning('categorie could not be added');
     }
   }
 

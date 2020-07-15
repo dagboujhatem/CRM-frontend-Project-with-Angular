@@ -42,24 +42,21 @@
               placeholder="NB de pieces" />
           </div>
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="categorie">Catégories</label>
+            <label class="col-md-12 col-form-label" for="categorie">Catégories</label> 
             <div>
-              <label class="col-md-3 col-form-label">categorie</label>
-              <div class="col-md-9 col-form-label">
-                <select id="categorie" name="categorie" class="form-control" formConrolName="categorie">
-                  <option *ngFor="let t of table ,let i=index;" value="{{t._id}}">{{t.name}}</option>
-                </select>
-              </div>
+              <select id="categorie" name="categorie" formControlName="categorie" class="form-control">
+                <option *ngFor="let t of categorietable" value="t.name">{{t.name}}</option>
+              </select>
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
-            <div class="col-md-9 col-form-label">
-              <label class="switch switch-3d switch-primary">
-                <input type="checkbox" class="switch-input" checked />
-                <span class="switch-slider"></span>
-              </label>
-            </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
+          <div class="col-md-9 col-form-label">
+            <label class="switch switch-3d switch-primary">
+              <input type="checkbox" class="switch-input" (change)="toggleIsAwesome()" checked />
+              <span class="switch-slider"></span>
+            </label>
           </div>
         </div>
       </form>
@@ -74,9 +71,6 @@
     <div class="card-footer">
       <button type="submit" (click)="addproduit()" class="btn btn-sm btn-primary">
         <i class="fa fa-dot-circle-o"></i> Add Produit
-      </button>
-      <button type="reset" class="btn btn-sm btn-danger">
-        <i class="fa fa-ban"></i> Reset
       </button>
     </div>
   </div>

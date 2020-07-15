@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { AdminService } from "../../../service/admin.service";
-import * as jwt_decode from "jwt-decode";
-import { UserServiceService } from "../../../service/user-service.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AdminService } from '../../../service/admin.service';
+import * as jwt_decode from 'jwt-decode';
+import { UserServiceService } from '../../../service/user-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -23,15 +23,15 @@ export class AdduserComponent implements OnInit {
     private userservice: UserServiceService,
     private adminservice: AdminService,
     private toastr: ToastrService,
-    private router :Router
+    private router: Router
   ) {}
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     this.userForm = new FormGroup({
-      name: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      role: new FormControl("",Validators.required),
-      password: new FormControl("", [
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      role: new FormControl('', Validators.required),
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
       ]),
@@ -41,15 +41,14 @@ export class AdduserComponent implements OnInit {
   }
   // faire click button sur creat account
   addUser() {
-    if (this.userForm.valid){
+    if (this.userForm.valid) {
       this.userservice
         .addUsr(this.pme, this.userForm.value)
         .subscribe((res: any) => {
           console.log(res);
         });
-        return this.toastr.success('User added succesfully') && this.router.navigateByUrl('/home/superadmin/listuser')
-    }
-    else{
+        return this.toastr.success('User added succesfully') && this.router.navigateByUrl('/home/superadmin/listuser');
+    } else {
       return this.toastr.warning('add user invalid');
     }
   }

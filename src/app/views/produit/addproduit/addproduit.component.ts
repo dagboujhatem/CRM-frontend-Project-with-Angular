@@ -38,7 +38,7 @@ export class AddproduitComponent implements  OnInit {
       notifRupture: new FormControl(this.isAwesome)
     });
   }
- 
+
   onFileChange(event) {
     if (event.target.files && event.target.files.length) {
       this.file = event.target.files[0];
