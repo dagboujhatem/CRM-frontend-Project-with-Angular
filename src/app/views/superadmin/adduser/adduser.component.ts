@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../../service/auth.service';
-import { AdminService } from '../../../service/admin.service';
-import * as jwt_decode from 'jwt-decode';
-import { UserServiceService } from '../../../service/user-service.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "../../../service/auth.service";
+import { AdminService } from "../../../service/admin.service";
+import * as jwt_decode from "jwt-decode";
+import { UserServiceService } from "../../../service/user-service.service";
 
 @Component({
-  selector: 'app-adduser',
-  templateUrl: './adduser.component.html',
-  styleUrls: ['./adduser.component.css'],
+  selector: "app-adduser",
+  templateUrl: "./adduser.component.html",
+  styleUrls: ["./adduser.component.css"],
 })
 export class AdduserComponent implements OnInit {
   isAwesome = false;
   table;
-  pme: '';
+  pme: "";
   pageSize = 1000;
   currentPage = 1;
   decoded = jwt_decode(this.adminservice.token);
@@ -25,9 +25,9 @@ export class AdduserComponent implements OnInit {
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     this.userForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
+      name: new FormControl("", [Validators.required]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [
         Validators.required,
         Validators.minLength(8),
       ]),
@@ -44,11 +44,19 @@ export class AdduserComponent implements OnInit {
       });
   }
   getpme() {
-    this.adminservice
-      .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
-      .subscribe((res: { pme; count }) => {
-        this.table = res.pme;
-      });
+    if (this.decoded.data.role === "superAdmin") {
+      this.adminservice
+        .getall(this.pageSize, this.currentPage)
+        .subscribe((res: { pme; count }) => {
+          this.table = res.pme;
+        });
+    } else if (this.decoded.data.role === "admin") {
+      this.adminservice
+        .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
+        .subscribe((res: { pme; count }) => {
+          this.table = res.pme;
+        });
+    }
   }
   toggleIsAwesome() {
     this.isAwesome = !this.isAwesome;
@@ -56,6 +64,4 @@ export class AdduserComponent implements OnInit {
     console.log(this.isAwesome);
     console.log(this.userForm.value);
   }
-
-
 }
