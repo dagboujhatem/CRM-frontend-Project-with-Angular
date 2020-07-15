@@ -22,7 +22,7 @@ export class AuthService {
 
   signin(data) {
     const url = `${this.BaseUrl}/admin/login`;
-    console.log(data);
+
     return this.http.post(url, data);
   }
   requestReset(body) {

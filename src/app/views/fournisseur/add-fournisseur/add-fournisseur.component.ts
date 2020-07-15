@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { FournisService } from "../../../service/fournis.service";
 import { ToastrService } from "ngx-toastr";
 import { AuthService } from "../../../service/auth.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-add-fournisseur",
@@ -18,7 +19,9 @@ export class AddFournisseurComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private fournis: FournisService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +43,8 @@ export class AddFournisseurComponent implements OnInit {
       this.fournis
         .createFournisseur(this.fournisseurForm.value, this.id)
         .subscribe((res) => {});
-      return this.toastr.success("Hello world!", "Toastr fun!");
-    } else return this.toastr.warning("Not Hello world!", "Toastr not fun!");
+      this.router.navigate(["../list-fournisseur"], { relativeTo: this.route });
+      return this.toastr.success("Fournisseur Added Successfully");
+    } else return this.toastr.warning("Operation not successfull");
   }
 }
