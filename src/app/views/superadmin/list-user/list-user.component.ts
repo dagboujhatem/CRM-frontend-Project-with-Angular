@@ -4,6 +4,7 @@ import { AdminService } from "../../../service/admin.service";
 import { UserServiceService } from "../../../service/user-service.service";
 import { PageEvent } from "@angular/material/paginator";
 import { CheckpipePipe } from '../../../pipes/checkpipe.pipe';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-list-user",
@@ -12,6 +13,7 @@ import { CheckpipePipe } from '../../../pipes/checkpipe.pipe';
 })
 export class ListUSERComponent implements OnInit {
   table;
+  user;
   pageSize = 1000;
   decoded = jwt_decode(this.adminservice.token);
   pageSizeU = 2;
@@ -24,11 +26,12 @@ export class ListUSERComponent implements OnInit {
   j ;
   fileToUpload :File= null;
   Search:"";
-  boxes = ['SUV', 'compact'];
+  boxes = ['ingenieur', 'technicen'];
   selectedCheckboxes = [];
 
   constructor(
     private adminservice: AdminService,
+    private toastr: ToastrService,
     private usersrvice: UserServiceService
   ) {}
 
@@ -37,6 +40,7 @@ export class ListUSERComponent implements OnInit {
       .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
       .subscribe((res: { pme; count }) => {
         this.pmeTable = res.pme;
+      
       });
     if (this.decoded.data.role === "superAdmin") this.getallUser();
   }
@@ -50,6 +54,8 @@ export class ListUSERComponent implements OnInit {
         .subscribe((res: { users: []; count: number }) => {
           this.table = res.users;
           this.totalUsers = res.count;
+          this.user = res.users
+        
         });
     } else if (this.decoded.data.role === "admin") {
       this.usersrvice
@@ -98,6 +104,16 @@ export class ListUSERComponent implements OnInit {
       console.log(this.selectedCheckboxes);
     }
     const p = new CheckpipePipe();
-    this.table = p.transform(this.profils , this.selectedCheckboxes);
+    this.table = p.transform(this.user , this.selectedCheckboxes);
   }
+  delete(i){
+    let j=this.table[i]._id
+    this.usersrvice.removeUser(j).subscribe((res:any) =>{
+     
+      // console.log(res);
+      this.table.splice(i,1);
+      return this.toastr.success("user deleted successfully")
+    })
+  }
+  
 }

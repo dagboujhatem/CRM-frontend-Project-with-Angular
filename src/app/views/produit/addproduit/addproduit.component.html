@@ -6,108 +6,45 @@
     <div class="card-body">
       <form [formGroup]="produitform" class="form-horizontal">
         <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="nameP"
-            >Produit Name</label
-          >
+          <label class="col-md-3 col-form-label" for="nameP">Produit Name</label>
           <div class="col-md-9">
-            <input
-              type="text"
-              id="nameP"
-              formControlName="name"
-              name="nameP"
-              class="form-control"
-              placeholder="Produit Name"
-            />
+            <input type="text" id="nameP" formControlName="name" name="nameP" class="form-control"
+              placeholder="Produit Name" />
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label">Refferance de Produit</label>
           <div class="col-md-9">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter Refferance"
-              formControlName="ref"
-            />
+            <input type="text" class="form-control" placeholder="Enter Refferance" formControlName="ref" />
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="textarea-input"
-            >Description</label
-          >
+          <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
           <div class="col-md-9">
-            <textarea
-              id="textarea-input"
-              formControlName="description"
-              name="textarea-input"
-              rows="3"
-              class="form-control"
-              placeholder="Content.."
-            ></textarea>
+            <textarea id="textarea-input" formControlName="description" name="textarea-input" rows="3"
+              class="form-control" placeholder="Content.."></textarea>
           </div>
         </div>
-        <!-- <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Societé</label>
-                    <div class="col-md-9 col-form-label">
-                        <div class="form-check" *ngFor="let t of table ,let i=index;">
-                            <input class="form-check-input" type="radio" name="radios" id="radio1" value="{{t._id}}"
-                                checked>
-                            <label class="form-check-label" for="radio1">
-                                {{t.name}}
-                            </label>
-                            <select id="select1" name="select1" class="form-control" formControlName="pme" >
-                                <option *ngFor="let t of table ,let i=index;" value="{{t._id}}">{{t.name}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div> -->
-
         <div class="form-group row">
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="prix"
-              >Prix de Produit</label
-            >
-            <input
-              type="number"
-              id="prix"
-              formControlName="prix"
-              name="prix"
-              class="form-control"
-              placeholder="Prix de Produit"
-            />
+            <label class="col-md-12 col-form-label" for="prix">Prix de Produit</label>
+            <input type="number" id="prix" formControlName="prix" name="prix" class="form-control"
+              placeholder="Prix de Produit" />
           </div>
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="stock"
-              >stock de Produit</label
-            >
-            <input
-              type="number"
-              id="stock"
-              formControlName="stock"
-              name="stock"
-              class="form-control"
-              placeholder="Prix de Produit"
-            />
+            <label class="col-md-12 col-form-label" for="stock">stock de Produit</label>
+            <input type="number" id="stock" formControlName="stock" name="stock" class="form-control"
+              placeholder="Prix de Produit" />
           </div>
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="min"
-              >NB de pieces de rupture</label
-            >
-            <input
-              type="number"
-              id="min"
-              formControlName="min"
-              name="min"
-              class="form-control"
-              placeholder="NB de pieces"
-            />
+            <label class="col-md-12 col-form-label" for="min">NB de pieces de rupture</label>
+            <input type="number" id="min" formControlName="min" name="min" class="form-control"
+              placeholder="NB de pieces" />
           </div>
-          <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="categorie"
-              >Catégories</label
-            >
-            <div>
-              <select
+            <div class="col-md-3"> 
+            <label class="col-md-12 col-form-label" for="categorie">Catégories</label> -->
+            <div> 
+              <!-- <select
                 id="categorie"
                 name="categorie"
                 formControlName="categorie"
@@ -117,42 +54,35 @@
                 <option value="val1">Option #1</option>
                 <option value="val2">Option #2</option>
                 <option value="val3">Option #3</option>
-              </select>
+              </select> -->
+            <label class="col-md-3 col-form-label">categorie</label>
+              <div class="col-md-9 col-form-label">
+                <select id="categorie" name="categorie" class="form-control" formConrolName="categorie">
+                  <option *ngFor="let t of table ,let i=index;" value="{{t._id}}">{{t.name}}</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label"
-            >Recevoire mail en cas rupture de Produit</label
-          >
-          <div class="col-md-9 col-form-label">
-            <label class="switch switch-3d switch-primary">
-              <input type="checkbox" class="switch-input" checked />
-              <span class="switch-slider"></span>
-            </label>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
+            <div class="col-md-9 col-form-label">
+              <label class="switch switch-3d switch-primary">
+                <input type="checkbox" class="switch-input" checked />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
           </div>
-        </div>
       </form>
       <div class="form-group row">
-        <label class="col-md-3 col-form-label" for="file-input"
-          >Produit Image</label
-        >
+        <label class="col-md-3 col-form-label" for="file-input">Produit Image</label>
         <div class="col-md-9">
-          <input
-            type="file"
-            id="file-input"
-            (change)="onFileChange($event)"
-            name="file-input"
-          />
+          <input type="file" id="file-input" (change)="onFileChange($event)" name="file-input" />
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <button
-        type="submit"
-        (click)="addproduit()"
-        class="btn btn-sm btn-primary"
-      >
+      <button type="submit" (click)="addproduit()" class="btn btn-sm btn-primary">
         <i class="fa fa-dot-circle-o"></i> Add Produit
       </button>
       <button type="reset" class="btn btn-sm btn-danger">

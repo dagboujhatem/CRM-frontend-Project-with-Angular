@@ -9,7 +9,7 @@ export class CheckpipePipe implements PipeTransform {
     if (value.length === 0 || selectedCheckboxes.length === 0 ) {
     return value;
     }
-    return value.filter(item  => item.class.includes(selectedCheckboxes));
+    return value.filter(item  => item.role.includes(selectedCheckboxes));
   }
 
 }

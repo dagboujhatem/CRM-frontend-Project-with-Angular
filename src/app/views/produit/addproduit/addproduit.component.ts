@@ -9,7 +9,7 @@ import { CategorieService } from '../../../service/categorie.service';
   templateUrl: './addproduit.component.html',
   styleUrls: ['./addproduit.component.css']
 })
-export class AddproduitComponent implements OnInit {
+export class AddproduitComponent implements  OnInit {
   data: FormData;
   constructor(private adminservice: AdminService, private produit: ProduitService, private categorie: CategorieService) {
     this.data = new FormData();
@@ -33,6 +33,7 @@ export class AddproduitComponent implements OnInit {
       notifRupture: new FormControl(this.isAwesome)
     });
   }
+ 
   onFileChange(event) {
     if (event.target.files && event.target.files.length) {
       this.file = event.target.files[0];

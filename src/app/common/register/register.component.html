@@ -68,7 +68,6 @@
               <mat-error *ngIf="registerform.hasError('minlength','password')" >Password  must be at least 8 characters</mat-error>
               <mat-error *ngIf="registerform.hasError('pattern','password')" >Password  must have at least one letter </mat-error> 
             </mat-form-field>
-
                 <button  [disabled]="!registerform.valid" type="submit" (click)="register()" class="btn btn-block btn-success">Create Account</button>
               </form>
             </div>
