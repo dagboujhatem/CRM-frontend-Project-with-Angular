@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import * as jwt_decode from "jwt-decode";
-import { AdminService } from "../../../service/admin.service";
-import { UserServiceService } from "../../../service/user-service.service";
-import { PageEvent } from "@angular/material/paginator";
+import { Component, OnInit } from '@angular/core';
+import * as jwt_decode from 'jwt-decode';
+import { AdminService } from '../../../service/admin.service';
+import { UserServiceService } from '../../../service/user-service.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: "app-list-user",
-  templateUrl: "./list-user.component.html",
-  styleUrls: ["./list-user.component.css"],
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.css'],
 })
 export class ListUSERComponent implements OnInit {
   table;
   pageSize = 1000;
   decoded = jwt_decode(this.adminservice.token);
-  pageSizeU = 2;
+  pageSizeU = 5;
   pageSizeOptions = [2, 5, 10];
   totalUsers;
   currentPage = 1;
@@ -23,7 +23,7 @@ export class ListUSERComponent implements OnInit {
   constructor(
     private adminservice: AdminService,
     private usersrvice: UserServiceService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.adminservice
@@ -31,20 +31,20 @@ export class ListUSERComponent implements OnInit {
       .subscribe((res: { pme; count }) => {
         this.pmeTable = res.pme;
       });
-    if (this.decoded.data.role === "superAdmin") this.getallUser();
+    if (this.decoded.data.role === 'superAdmin') this.getallUser();
   }
 
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSizeU = pageData.pageSize;
-    if (this.decoded.data.role === "superAdmin") {
+    if (this.decoded.data.role === 'superAdmin') {
       this.usersrvice
         .getAllUsers(this.decoded.data._id, this.pageSizeU, this.currentPage)
         .subscribe((res: { users: []; count: number }) => {
           this.table = res.users;
           this.totalUsers = res.count;
         });
-    } else if (this.decoded.data.role === "admin") {
+    } else if (this.decoded.data.role === 'admin') {
       this.usersrvice
         .getUsersByPme(this.pme, this.pageSizeU, this.currentPage)
         .subscribe((res: { users; count }) => {
@@ -78,6 +78,15 @@ export class ListUSERComponent implements OnInit {
 
           this.totalUsers = res.count;
         });
+    }
+  }
+  /*****************delete user for admin******** */
+  delete(i, id) {
+    if (this.decoded.data.role === 'admin') {
+      this.usersrvice.deleteuser(id).subscribe((res: any) => {
+        this.getUsersByPme();
+        this.table.splice(i, 1);
+      });
     }
   }
 }
