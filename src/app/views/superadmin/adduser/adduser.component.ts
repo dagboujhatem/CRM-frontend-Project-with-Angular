@@ -1,33 +1,37 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { AuthService } from "../../../service/auth.service";
-import { AdminService } from "../../../service/admin.service";
-import * as jwt_decode from "jwt-decode";
-import { UserServiceService } from "../../../service/user-service.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AdminService } from '../../../service/admin.service';
+import * as jwt_decode from 'jwt-decode';
+import { UserServiceService } from '../../../service/user-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-adduser",
-  templateUrl: "./adduser.component.html",
-  styleUrls: ["./adduser.component.css"],
+  selector: 'app-adduser',
+  templateUrl: './adduser.component.html',
+  styleUrls: ['./adduser.component.css'],
 })
 export class AdduserComponent implements OnInit {
   isAwesome = false;
   table;
-  pme: "";
+  pme: '';
   pageSize = 1000;
   currentPage = 1;
   decoded = jwt_decode(this.adminservice.token);
   userForm: FormGroup;
   constructor(
     private userservice: UserServiceService,
-    private adminservice: AdminService
+    private adminservice: AdminService,
+    private toastr: ToastrService,
+    private router: Router
   ) {}
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     this.userForm = new FormGroup({
-      name: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      password: new FormControl("", [
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      role: new FormControl('', Validators.required),
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
       ]),
@@ -37,11 +41,16 @@ export class AdduserComponent implements OnInit {
   }
   // faire click button sur creat account
   addUser() {
-    this.userservice
-      .addUsr(this.pme, this.userForm.value)
-      .subscribe((res: any) => {
-        console.log(res);
-      });
+    if (this.userForm.valid) {
+      this.userservice
+        .addUsr(this.pme, this.userForm.value)
+        .subscribe((res: any) => {
+          console.log(res);
+        });
+        return this.toastr.success('User added succesfully') && this.router.navigateByUrl('/home/superadmin/listuser');
+    } else {
+      return this.toastr.warning('add user invalid');
+    }
   }
   getpme() {
     this.adminservice
@@ -54,7 +63,7 @@ export class AdduserComponent implements OnInit {
     this.isAwesome = !this.isAwesome;
     this.userForm.controls.notifRupture.setValue(this.isAwesome);
     console.log(this.isAwesome);
-    console.log(this.userForm.value);   
+    console.log(this.userForm.value);
   }
 
 

@@ -4,7 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+
+
+
 import { ToastrModule } from 'ngx-toastr';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -48,6 +52,7 @@ import { Produit } from './views/produit/produit.module';
 import { FournisseurModule } from './views/fournisseur/fournisseur.module';
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 @NgModule({
   imports: [

@@ -1,8 +1,8 @@
 // Angular
-import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgModule } from "@angular/core";
-import { MatPaginatorModule } from "@angular/material/paginator";
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // import {  } from './cards.component';
 
@@ -57,6 +57,9 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { MatInputModule } from '@angular/material/input';
 import { ListUSERComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { PipesearchPipe } from '../../pipes/pipesearch.pipe';
+import { CheckpipePipe } from '../../pipes/checkpipe.pipe';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -71,6 +74,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     MatPaginatorModule,
 
     MatInputModule,
+    MatCheckboxModule
     
 
   ],
@@ -80,7 +84,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
       UpdatesocieterComponent,
       AdduserComponent,
       ListUSERComponent,
-      UpdateUserComponent
+      UpdateUserComponent,
+      PipesearchPipe,
+      CheckpipePipe
   ]
 
 })

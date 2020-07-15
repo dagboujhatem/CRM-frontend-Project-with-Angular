@@ -39,27 +39,27 @@ const routes: Routes = [
             },
             {
                 path : 'adduser',
-                component:AdduserComponent,
-                data:{
-                    title:'Add User'
+                component: AdduserComponent,
+                data: {
+                    title: 'Add User'
                 }
-                
+
             },
             {
                 path : 'listuser',
-                component:ListUSERComponent,
-                data:{
-                    title:'List User'
+                component: ListUSERComponent,
+                data: {
+                    title: 'List User'
                 }
-                
+
             },
             {
                 path : 'updateuser/:id',
-                component:UpdateUserComponent,
-                data:{
-                    title:'Update User'
+                component: UpdateUserComponent,
+                data: {
+                    title: 'Update User'
                 }
-                
+
             }
         ],
     },

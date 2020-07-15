@@ -8,6 +8,7 @@ import * as jwt_decode from "jwt-decode";
   providedIn: "root",
 })
 export class AuthService {
+  [x: string]: any;
   BaseUrl = environment.baseuri;
   id: string;
 
@@ -22,7 +23,7 @@ export class AuthService {
 
   signin(data) {
     const url = `${this.BaseUrl}/admin/login`;
-    console.log(data);
+
     return this.http.post(url, data);
   }
   requestReset(body) {

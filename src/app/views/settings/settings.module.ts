@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SettingsComponent } from './settings/settings.component';
-import { SettingsRouting } from './settings-routing';
+import { SettingsRouting } from './settings-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SettingsuperadminComponent } from './settingsuperadmin/settingsuperadmin.component';
 
 
 
 
 @NgModule({
-  declarations: [SettingsComponent],
   imports: [
     CommonModule,
     SettingsRouting,
-    FormsModule, 
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    SettingsRouting
   ],
+  declarations: [
+   SettingsuperadminComponent
+]
 
 })
 export class SettingsModule { }
