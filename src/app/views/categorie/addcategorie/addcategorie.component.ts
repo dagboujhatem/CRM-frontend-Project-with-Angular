@@ -10,7 +10,8 @@ import { AdminService } from '../../../service/admin.service';
   styleUrls: ['./addcategorie.component.css']
 })
 export class AddcategorieComponent implements OnInit {
-  constructor(private categorie: CategorieService, private adminservice: AdminService) { }
+  constructor(private categorie: CategorieService,
+     private adminservice: AdminService) { }
   decoded = jwt_decode(this.adminservice.token);
 
   categorieForm: FormGroup;
@@ -24,6 +25,7 @@ export class AddcategorieComponent implements OnInit {
   AddCategorie() {
     this.categorie.AddCategorie(this.categorieForm.value, this.decoded.data.pme).subscribe((res: any) => {
     });
+
   }
 
 }
