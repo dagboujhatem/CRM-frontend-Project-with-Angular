@@ -41,44 +41,24 @@
             <input type="number" id="min" formControlName="min" name="min" class="form-control"
               placeholder="NB de pieces" />
           </div>
-            <div class="col-md-3"> 
-            <label class="col-md-12 col-form-label" for="categorie">Catégories</label> -->
-            <div> 
-              <!-- <select
-                id="categorie"
-                name="categorie"
-                formControlName="categorie"
-                class="form-control"
-              >
-<<<<<<< HEAD
+          <div class="col-md-3">
+            <label class="col-md-12 col-form-label" for="categorie">Catégories</label> 
+            <div>
+              <select id="categorie" name="categorie" formControlName="categorie" class="form-control">
                 <option *ngFor="let t of categorietable" value="t.name">{{t.name}}</option>
               </select>
-=======
-                <option value="0">Please select</option>
-                <option value="val1">Option #1</option>
-                <option value="val2">Option #2</option>
-                <option value="val3">Option #3</option>
-              </select> -->
-            <label class="col-md-3 col-form-label">categorie</label>
-              <div class="col-md-9 col-form-label">
-                <select id="categorie" name="categorie" class="form-control" formConrolName="categorie">
-                  <option *ngFor="let t of table ,let i=index;" value="{{t._id}}">{{t.name}}</option>
-                </select>
-              </div>
->>>>>>> 209bdea426cbe0c00d2e2bfd06e0124c4a20ec53
             </div>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-3 col-form-label"
-            >Recevoire mail en cas rupture de Produit</label
-          >
+          <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
           <div class="col-md-9 col-form-label">
             <label class="switch switch-3d switch-primary">
               <input type="checkbox" class="switch-input" (change)="toggleIsAwesome()" checked />
               <span class="switch-slider"></span>
             </label>
           </div>
+        </div>
       </form>
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="file-input">Produit Image</label>
@@ -90,9 +70,6 @@
     <div class="card-footer">
       <button type="submit" (click)="addproduit()" class="btn btn-sm btn-primary">
         <i class="fa fa-dot-circle-o"></i> Add Produit
-      </button>
-      <button type="reset" class="btn btn-sm btn-danger">
-        <i class="fa fa-ban"></i> Reset
       </button>
     </div>
   </div>
