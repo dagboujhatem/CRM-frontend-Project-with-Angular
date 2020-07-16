@@ -10,6 +10,7 @@ import { LoginComponent } from "./common/login/login.component";
 import { RegisterComponent } from "./common/register/register.component";
 import { ForgetComponent } from "./common/forget/forget.component";
 import { ResetComponent } from "./common/reset/reset.component";
+import { GuardAuthorizGuard } from "./guards/guard-authoriz.guard";
 
 export const routes: Routes = [
   {
@@ -62,6 +63,7 @@ export const routes: Routes = [
   {
     path: "home",
     component: DefaultLayoutComponent,
+    canActivate: [GuardAuthorizGuard],
     data: {
       title: "Home",
     },
@@ -91,6 +93,7 @@ export const routes: Routes = [
           import("./views/fournisseur/fournisseur.module").then(
             (m) => m.FournisseurModule
           ),
+        canActivate: [GuardAuthorizGuard],
       },
       {
         path: "categorie",
