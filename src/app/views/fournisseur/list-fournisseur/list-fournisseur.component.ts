@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FournisService } from "../../../service/fournis.service";
 import { ActivatedRoute } from "@angular/router";
 import { PageEvent } from "@angular/material/paginator";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-list-fournisseur",
@@ -14,8 +15,8 @@ export class ListFournisseurComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalFournis;
   currentPage = 1;
-  Search :""
-  constructor(private fournis: FournisService, private route: ActivatedRoute) {}
+  Search: "";
+  constructor(private fournis: FournisService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.getFournisPme();
@@ -45,5 +46,6 @@ export class ListFournisseurComponent implements OnInit {
       this.list.splice(index, 1);
       this.getFournisPme();
     });
+    return this.toastr.success("Fournisseur Deleted Successfully");
   }
 }

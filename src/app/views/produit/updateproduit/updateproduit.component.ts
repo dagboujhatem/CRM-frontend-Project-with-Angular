@@ -17,7 +17,7 @@ export class UpdateproduitComponent implements OnInit {
   data: FormData;
   updateproduitform: FormGroup;
   categorietable;
-  isAwesome = false;
+  isAwesome = true;
   file: File;
   decoded = jwt_decode(this.adminservice.token);
   Id = this.activateroute.snapshot.paramMap.get("id");

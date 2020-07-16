@@ -1,0 +1,21 @@
+<div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Activity</strong> Groups
+      </div>
+      <div class="card-body">
+        <form [formGroup]="updateactivityForm" method="post" class="form-horizontal">
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <input type="text" id="input2-group2" formControlName="name" name="input2-group2" class="form-control" placeholder="Activity Name">
+                <span class="input-group-append">
+                  <button type="button" (click)="Updateactivity()" class="btn btn-primary">Add Activity</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
