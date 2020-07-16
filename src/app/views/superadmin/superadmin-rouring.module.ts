@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListsocieterComponent } from './listsocieter/listsocieter.component';
@@ -12,12 +13,21 @@ import { UpdateActivityComponent } from './activity/update-activity/update-activ
 
 
 
+
 const routes: Routes = [
-    {
-        path: '',
+  {
+    path: "",
+    data: {
+      title: "Administration",
+    },
+    children: [
+      {
+        path: "listsociete",
+        component: ListsocieterComponent,
         data: {
-            title: 'Administration'
+          title: "List Des Societé",
         },
+
         children: [
             {
                 path: 'listsociete',
@@ -88,11 +98,12 @@ const routes: Routes = [
         ],
     },
 
+
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
-    //   declarations: [ListsocieterComponent]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+  //   declarations: [ListsocieterComponent]
 })
-export class SuperAdminRouting { }
+export class SuperAdminRouting {}
