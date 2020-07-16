@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { ProduitService } from "../../../service/produit.service";
-import * as jwt_decode from "jwt-decode";
-import { AdminService } from "../../../service/admin.service";
-import { PageEvent } from "@angular/material/paginator";
-import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ProduitService } from '../../../service/produit.service';
+import * as jwt_decode from 'jwt-decode';
+import { AdminService } from '../../../service/admin.service';
+import { PageEvent } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-listproduit",
-  templateUrl: "./listproduit.component.html",
-  styleUrls: ["./listproduit.component.css"],
+  selector: 'app-listproduit',
+  templateUrl: './listproduit.component.html',
+  styleUrls: ['./listproduit.component.css'],
 })
 export class ListproduitComponent implements OnInit {
   table;
@@ -18,9 +18,12 @@ export class ListproduitComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalProd;
   currentPage = 1;
-  Search: "";
-  pme;
+  Search: '';
   pmeTable;
+  pme;
+  totalpme;
+
+
   constructor(
     private produit: ProduitService,
     private adminservice: AdminService,
@@ -29,6 +32,9 @@ export class ListproduitComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (this.decoded.data.role === 'admin') {
+      this.getPmeByAdmin();
+    }
     this.getproduit(this.pme);
     this.getPmeByAdmin();
   }
@@ -43,7 +49,7 @@ export class ListproduitComponent implements OnInit {
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.produit
         .Getallproduit(this.pme, this.pageSize, this.currentPage)
         .subscribe((res: { stocks; count }) => {
@@ -67,7 +73,7 @@ export class ListproduitComponent implements OnInit {
   }
   /*********************get produit ************ */
   getproduit(pme) {
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.produit
         .Getallproduit(pme, this.pageSize, this.currentPage)
         .subscribe((res: { stocks; count }) => {
@@ -90,7 +96,8 @@ export class ListproduitComponent implements OnInit {
       .subscribe((res: any) => {
         this.table.splice(i, 1);
         this.getproduit(this.pme);
-        return this.toastr.success("Produit Deleted with succesfully");
+        return this.toastr.success('Produit Deleted with succesfully');
       });
   }
+
 }
