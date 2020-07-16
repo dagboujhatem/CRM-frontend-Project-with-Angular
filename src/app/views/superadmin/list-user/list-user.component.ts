@@ -4,9 +4,8 @@ import { AdminService } from "../../../service/admin.service";
 import { UserServiceService } from "../../../service/user-service.service";
 import { PageEvent } from "@angular/material/paginator";
 
-import { CheckpipePipe } from "../../../pipes/checkpipe.pipe";
+// import { CheckpipePipe } from "../../../pipes/checkpipe.pipe";
 import { ToastrService } from "ngx-toastr";
-
 
 @Component({
   selector: "app-list-user",
@@ -31,7 +30,6 @@ export class ListUSERComponent implements OnInit {
   Search: "";
   boxes = ["ingenieur", "technicen"];
   selectedCheckboxes = [];
-
 
   constructor(
     private adminservice: AdminService,
@@ -102,18 +100,18 @@ export class ListUSERComponent implements OnInit {
       });
     }
   }
-  filterCheck(checkbox) {
-    if (!this.selectedCheckboxes.includes(checkbox)) {
-      this.selectedCheckboxes.push(checkbox);
-      console.log(this.selectedCheckboxes);
-    } else {
-      const i = this.selectedCheckboxes.indexOf(checkbox);
-      this.selectedCheckboxes.splice(i, 1);
-      console.log(this.selectedCheckboxes);
-    }
-    const p = new CheckpipePipe();
-    this.table = p.transform(this.user, this.selectedCheckboxes);
-  }
+  // filterCheck(checkbox) {
+  //   if (!this.selectedCheckboxes.includes(checkbox)) {
+  //     this.selectedCheckboxes.push(checkbox);
+  //     console.log(this.selectedCheckboxes);
+  //   } else {
+  //     const i = this.selectedCheckboxes.indexOf(checkbox);
+  //     this.selectedCheckboxes.splice(i, 1);
+  //     console.log(this.selectedCheckboxes);
+  //   }
+  //   const p = new CheckpipePipe();
+  //   this.table = p.transform(this.user, this.selectedCheckboxes);
+  // }
   // delete(i){
   //   let j=this.table[i]._id
   //   this.usersrvice.removeUser(j).subscribe((res:any) =>{
@@ -123,5 +121,4 @@ export class ListUSERComponent implements OnInit {
   //     return this.toastr.success("user deleted successfully")
   //   })
   // }
-
 }

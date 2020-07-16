@@ -105,8 +105,6 @@ export const routes: Routes = [
             (m) => m.SettingsModule
           ),
       },
-
-      ,
     ],
   },
   { path: "**", component: P404Component },
