@@ -21,14 +21,6 @@ const routes: Routes = [
             title: 'Administration',
         },
         children: [
-            {
-                path: 'listsociete',
-                component: ListsocieterComponent,
-                data: {
-                    title: 'List Des Societé',
-                },
-
-                children: [
                     {
                         path: 'listsociete',
                         component: ListsocieterComponent,
@@ -99,8 +91,7 @@ const routes: Routes = [
             },
 
 
-        ],
-    }];
+        ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

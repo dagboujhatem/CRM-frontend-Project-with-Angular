@@ -24,6 +24,7 @@ export class SidebarService {
       if (this.role === 'superAdmin') {
         const filtredItems = this.navItems.filter((item) => {
           return item.url === '/home/dashboard' ||
+          item.name === 'Activity' ||
           item.url === '/home/setting';
         });
         const  societeMenu = this.navItems.filter(item => item.name === 'Socièté');

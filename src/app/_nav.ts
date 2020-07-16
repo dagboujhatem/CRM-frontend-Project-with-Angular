@@ -94,6 +94,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Activity',
+    url: '/home/superadmin',
     icon: 'icon-puzzle',
     children: [
       {

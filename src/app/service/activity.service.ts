@@ -35,4 +35,9 @@ export class ActivityService {
     const url = `${this.BaseUrl}/activity/edit/${id}`;
     return this.http.put(url, data);
   }
+  /************get activité for add societé ****** */
+  getactforsoci() {
+    const url = `${this.BaseUrl}/activity/get`;
+      return this.http.get(url);
+  }
 }
