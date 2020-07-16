@@ -27,8 +27,8 @@ export class ListUSERComponent implements OnInit {
   j;
   fileToUpload: File = null;
   Search: '';
-  boxes = ['ingenieur', 'technicen'];
-  selectedCheckboxes = [];
+
+
 
 
   constructor(

@@ -8,18 +8,20 @@
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="nameP">Produit Name</label>
           <div class="col-md-9">
-            <input type="text" id="nameP" formControlName="name" name="nameP" class="form-control"
-              placeholder="Produit Name" />
+            <mat-form-field>
+              <input matInput type="text" id="nameP" formControlName="name" name="nameP"
+                placeholder="Produit Name" />
+            </mat-form-field>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-3 col-form-label">Refferance de Produit</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" placeholder="Enter Refferance" formControlName="ref" />
+            <mat-form-field>
+            <input matInput type="text"  placeholder="Enter Refferance" formControlName="ref" />
+          </mat-form-field>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
           <div class="col-md-9">
             <textarea id="textarea-input" formControlName="description" name="textarea-input" rows="3"
               class="form-control" placeholder="Content.."></textarea>
@@ -27,22 +29,25 @@
         </div>
         <div class="form-group row">
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="prix">Prix de Produit</label>
-            <input type="number" id="prix" formControlName="prix" name="prix" class="form-control"
+          <mat-form-field>
+            <input matInput type="number" id="prix" formControlName="prix" name="prix" 
               placeholder="Prix de Produit" />
+            </mat-form-field>
           </div>
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="stock">stock de Produit</label>
-            <input type="number" id="stock" formControlName="stock" name="stock" class="form-control"
+          <mat-form-field>
+            <input matInput type="number" id="stock" formControlName="stock" name="stock"
               placeholder="Prix de Produit" />
+            </mat-form-field>
           </div>
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="min">NB de pieces de rupture</label>
-            <input type="number" id="min" formControlName="min" name="min" class="form-control"
+         <mat-form-field>
+            <input matInput type="number" id="min" formControlName="min" name="min" 
               placeholder="NB de pieces" />
+            </mat-form-field>
           </div>
           <div class="col-md-3">
-            <label class="col-md-12 col-form-label" for="categorie">Catégories</label> 
+         
             <div>
               <select id="categorie" name="categorie" formControlName="categorie" class="form-control">
                 <option *ngFor="let t of categorietable" value="t.name">{{t.name}}</option>

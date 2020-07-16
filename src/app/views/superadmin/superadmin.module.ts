@@ -52,7 +52,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ListUSERComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { PipesearchPipe } from '../../pipes/pipesearch.pipe';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -62,10 +63,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
     MatPaginatorModule,
 
-    MatInputModule,
-    MatCheckboxModule
-    
-
+    MatInputModule,    
   ],
   declarations: [
       ListsocieterComponent,
@@ -75,7 +73,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
       ListUSERComponent,
       UpdateUserComponent,
       PipesearchPipe,
-    
+         
   ]
 
 })

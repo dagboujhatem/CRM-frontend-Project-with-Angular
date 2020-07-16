@@ -4,12 +4,12 @@
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Combined All Table
       </div>
-      <mat-form-field  appearance="outline" style="margin-left:300px;" >
-        <mat-label>Search</mat-label>
-        <input matInput type="text" [(ngModel)]="Search" />
-      </mat-form-field>
       <br>
       <div class="card-body">
+        <mat-form-field appearance="outline" style="margin-left:50px;" >
+          <mat-label>Search</mat-label>
+          <input matInput type="text" [(ngModel)]="Search" />
+        </mat-form-field>
         <table class="table table-bordered table-striped table-sm">
           <thead>
             <tr>
@@ -19,7 +19,7 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody *ngFor=" let tab of table; let i=index">
+          <tbody *ngFor=" let tab of table|pipesearch: Search; let i=index">
             <tr>
               <td>{{tab.name}}</td>
               <td>{{tab.email}}</td>
