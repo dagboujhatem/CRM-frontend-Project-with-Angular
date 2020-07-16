@@ -54,6 +54,7 @@ import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -80,6 +81,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     Produit,
     Categorie,
     MatButtonToggleModule
+ 
 
   ],
   declarations: [
@@ -91,6 +93,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ForgetComponent,
     RegisterComponent,
     ResetComponent,
+
   ],
   providers: [
     {

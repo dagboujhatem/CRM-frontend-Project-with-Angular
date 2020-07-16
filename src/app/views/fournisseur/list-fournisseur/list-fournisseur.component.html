@@ -4,6 +4,11 @@
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Combined All Table
       </div>
+      <mat-form-field  appearance="outline" style="margin-left:300px;" >
+        <mat-label>Search</mat-label>
+        <input matInput type="text" [(ngModel)]="Search" />
+      </mat-form-field>
+      <br>
       <div class="card-body">
         <table class="table table-outline table-hover table-sm">
           <thead>
@@ -15,7 +20,7 @@
             </tr>
           </thead>
           <tbody
-            *ngFor=" let tab of list; let i= index"
+            *ngFor=" let tab of list|fournpipe:Search; let i= index"
             style="cursor: pointer;"
           >
             <tr>
