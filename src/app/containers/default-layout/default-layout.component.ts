@@ -19,6 +19,7 @@ export class DefaultLayoutComponent implements OnInit {
     }
     ngOnInit(): void {
       this.navItems = this.appSidebarService.items$;
+      this.appSidebarService.reloadNavItem();
     }
   toggleMinimize(e) {
     this.sidebarMinimized = e;

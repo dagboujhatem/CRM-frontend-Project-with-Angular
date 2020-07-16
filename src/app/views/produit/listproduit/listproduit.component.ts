@@ -18,7 +18,12 @@ export class ListproduitComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalProd;
   currentPage = 1;
-  Search : "";
+  Search: '';
+  pmeTable;
+  pme;
+  totalpme;
+
+
   constructor(
     private produit: ProduitService,
     private adminservice: AdminService,
@@ -28,6 +33,9 @@ export class ListproduitComponent implements OnInit {
 
   ngOnInit(): void {
     this.getproduit();
+    if (this.decoded.data.role === 'admin') {
+      this.getPmeByAdmin();
+    }
   }
 
   onChange(pageData: PageEvent) {
@@ -57,6 +65,13 @@ export class ListproduitComponent implements OnInit {
         this.table.splice(i, 1);
         this.getproduit();
         return this.toastr.success('Produit Deleted with succesfully');
+      });
+  }
+  getPmeByAdmin() {
+    this.adminservice
+      .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
+      .subscribe((res: { pme; count }) => {
+        this.pmeTable = res.pme;
       });
   }
 }
