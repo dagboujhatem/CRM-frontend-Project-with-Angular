@@ -59,14 +59,40 @@
                   </div>
                 </div>
               </form>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Societé</mat-label>
+                <mat-select [(ngModel)]="pme" name="selecrPme">
+                  <mat-option
+                    *ngFor="let t of table ,let i=index;"
+                    value="{{t._id}}"
+                  >
+                    {{t.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
               <div class="form-group row">
-                <label class="col-md-3 col-form-label">Societé</label>
+                <!-- <label class="col-md-3 col-form-label">Societé</label>
                 <div class="col-md-9 col-form-label">
-                  <select id="select1" name="select1" class="form-control" [(ngModel)]="pme">
-                    <option *ngFor="let t of table ,let i=index;" value="{{t._id}}">{{t.name}}</option>
-                  </select>
-                  <button type="button" (click)="addUser()" class="btn btn-block btn-success">Add</button>
-                </div>
+                  <select
+                    id="select1"
+                    name="select1"
+                    class="form-control"
+                    [(ngModel)]="pme"
+                  >
+                    <option
+                      *ngFor="let t of table ,let i=index;"
+                      value="{{t._id}}"
+                      >{{t.name}}</option
+                    >
+                  </select> -->
+                <button
+                  type="button"
+                  (click)="addUser()"
+                  class="btn btn-block btn-success"
+                >
+                  Add
+                </button>
+                <!-- </div> -->
               </div>
             </div>
           </div>

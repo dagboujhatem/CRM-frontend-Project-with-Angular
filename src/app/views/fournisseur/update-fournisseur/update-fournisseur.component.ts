@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { FournisService } from "../../../service/fournis.service";
 import { ToastrService } from "ngx-toastr";
 import { AuthService } from "../../../service/auth.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-update-fournisseur",
@@ -18,7 +18,8 @@ export class UpdateFournisseurComponent implements OnInit {
   constructor(
     private fournis: FournisService,
     private toastr: ToastrService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -48,10 +49,11 @@ export class UpdateFournisseurComponent implements OnInit {
     if (this.fournisseurForm.valid) {
       this.fournis
         .updateOneFournisseur(this.id, this.fournisseurForm.value)
-        .subscribe((res) => {
-          console.log(res);
-        });
-      return this.toastr.success("Hello world!", "Toastr fun!");
-    } else return this.toastr.warning("Not Hello world!", "Toastr not fun!");
+        .subscribe(() => {});
+      this.router.navigate(["../../list-fournisseur"], {
+        relativeTo: this.route,
+      });
+      return this.toastr.success("Fournisseur Updated Successfully");
+    } else return this.toastr.warning("Update Not Successfull");
   }
 }
