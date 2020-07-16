@@ -67,53 +67,64 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: "dashboard",
+        path: 'dashboard',
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module").then(
-            (m) => m.DashboardModule
-          ),
+          import('./views/dashboard/dashboard.module')
+            .then((m) => m.DashboardModule),
+
       },
       {
-        path: "superadmin",
+        path: 'superadmin',
         loadChildren: () =>
-          import("./views/superadmin/superadmin.module").then(
-            (m) => m.SuperAdmin
-          ),
+
+          import('./views/superadmin/superadmin.module')
+            .then((m) => m.SuperAdmin),
+
       },
       {
-        path: "produit",
+        path: 'produit',
         loadChildren: () =>
-          import("./views/produit/produit.module").then((m) => m.Produit),
+
+          import('./views/produit/produit.module')
+            .then((m) => m.Produit),
+
       },
       {
-        path: "fournisseur",
+        path: 'fournisseur',
         loadChildren: () =>
-          import("./views/fournisseur/fournisseur.module").then(
-            (m) => m.FournisseurModule
-          ),
+
+          import('./views/fournisseur/fournisseur.module')
+            .then((m) => m.FournisseurModule),
+
       },
       {
-        path: "categorie",
+        path: 'categorie',
         loadChildren: () =>
-          import("./views/categorie/categorie.module").then((m) => m.Categorie),
+
+          import('./views/categorie/categorie.module')
+            .then((m) => m.Categorie),
+
       },
 
       {
         path: "setting",
         loadChildren: () =>
-          import("./views/settings/settings.module").then(
+
+          import('./views/settings/settings.module').then(
             (m) => m.SettingsModule
-          ),
+          )
       },
 
-      ,
-    ],
+
+
+],
   },
-  { path: "**", component: P404Component },
+{ path: '**', component: P404Component }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
