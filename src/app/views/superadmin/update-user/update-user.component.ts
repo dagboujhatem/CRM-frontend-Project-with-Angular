@@ -3,8 +3,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UserServiceService } from "../../../service/user-service.service";
 import { AdminService } from "../../../service/admin.service";
 import * as jwt_decode from "jwt-decode";
-import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-update-user",
@@ -24,20 +24,21 @@ export class UpdateUserComponent implements OnInit {
     private userservice: UserServiceService,
     private adminservice: AdminService,
     private toastr: ToastrService,
-    private router :Router,
-    private activateroute: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.Id = this.activateroute.snapshot.paramMap.get("id");
+    this.Id = this.route.snapshot.paramMap.get("id");
     this.getUserById();
     this.updateUserForm = new FormGroup({
-      name: new FormControl(""),
-      email: new FormControl(""),
-      password: new FormControl(""),
-      pme : new FormControl("")
+      name: new FormControl("", Validators.required),
+      email: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required),
+      pme: new FormControl("", Validators.required),
     });
-    this.getpme();
+    if (this.decoded.data.role === "superAdmin") this.getAllPme();
+    else if (this.decoded.data.role === "admin") this.getPmeByAdmin();
   }
   getUserById() {
     this.userservice.getUsrById(this.Id).subscribe(
@@ -47,24 +48,30 @@ export class UpdateUserComponent implements OnInit {
       (errors) => console.log(errors)
     );
   }
-  getpme() {
+  getPmeByAdmin() {
     this.adminservice
       .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
       .subscribe((res: any) => {
         this.table = res.pme;
-        console.log(this.table);
       });
   }
+
+  getAllPme() {
+    this.adminservice
+      .getall(this.pageSize, this.currentPage)
+      .subscribe((res: any) => {
+        this.table = res.pme;
+      });
+  }
+
   updateUserById() {
-    if(this.updateUserForm.valid){
-      this.userservice
-        .updateUser(this.Id, this.updateUserForm.value)
-        .subscribe((res: any) => {
-          return this.toastr.success("user updated succesfully") && this.router.navigateByUrl("/home/superadmin/listuser")
-        });
-    }
-    else {
-      return this.toastr.warning("user could not be updated")
-    }
+    if (!this.updateUserForm.valid)
+      return this.toastr.warning("Operation not successfull");
+    this.userservice
+      .updateUser(this.Id, this.updateUserForm.value)
+      .subscribe(() => {
+        this.router.navigate(["../../listuser"], { relativeTo: this.route });
+        return this.toastr.success("User Updated Successfully");
+      });
   }
 }
