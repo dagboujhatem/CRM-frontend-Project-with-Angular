@@ -40,7 +40,6 @@ export const navItems: INavData[] = [
       },
     ],
   },
-
   {
     name: 'Produit',
     url: '/home/produit',
@@ -78,7 +77,6 @@ export const navItems: INavData[] = [
       },
     ],
   },
-
   {
     name: 'Fournisseur',
     url: '/home/fournisseur',
