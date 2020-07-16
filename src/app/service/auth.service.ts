@@ -54,4 +54,7 @@ export class AuthService {
     if (token != undefined && token != null) return token;
     else return "";
   }
+  isloged(){
+    return !! localStorage.getItem('token');
+   }
 }

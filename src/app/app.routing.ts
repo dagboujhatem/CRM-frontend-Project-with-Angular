@@ -10,6 +10,7 @@ import { LoginComponent } from "./common/login/login.component";
 import { RegisterComponent } from "./common/register/register.component";
 import { ForgetComponent } from "./common/forget/forget.component";
 import { ResetComponent } from "./common/reset/reset.component";
+import { GuardAuthorizGuard } from './guards/guard-authoriz.guard';
 
 export const routes: Routes = [
   {
@@ -62,8 +63,10 @@ export const routes: Routes = [
   {
     path: "home",
     component: DefaultLayoutComponent,
+    canActivate:[GuardAuthorizGuard] ,
     data: {
       title: "Home",
+    
     },
     children: [
       {
@@ -79,7 +82,7 @@ export const routes: Routes = [
 
           import('./views/superadmin/superadmin.module')
             .then((m) => m.SuperAdmin),
-
+          
       },
       {
         path: 'produit',
@@ -87,7 +90,7 @@ export const routes: Routes = [
 
           import('./views/produit/produit.module')
             .then((m) => m.Produit),
-
+        
       },
       {
         path: 'fournisseur',
@@ -95,7 +98,7 @@ export const routes: Routes = [
 
           import('./views/fournisseur/fournisseur.module')
             .then((m) => m.FournisseurModule),
-
+            canActivate:[GuardAuthorizGuard]
       },
       {
         path: 'categorie',
@@ -103,7 +106,7 @@ export const routes: Routes = [
 
           import('./views/categorie/categorie.module')
             .then((m) => m.Categorie),
-
+       
       },
 
       {
@@ -112,7 +115,8 @@ export const routes: Routes = [
 
           import('./views/settings/settings.module').then(
             (m) => m.SettingsModule
-          )
+          ),
+          
       },
 
 
