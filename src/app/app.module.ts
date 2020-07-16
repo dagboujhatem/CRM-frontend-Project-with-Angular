@@ -92,8 +92,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     LoginComponent,
     ForgetComponent,
     RegisterComponent,
-    ResetComponent,
-
+    ResetComponent
   ],
   providers: [
     {

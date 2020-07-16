@@ -29,9 +29,39 @@ export const navItems: INavData[] = [
     icon: "icon-puzzle",
     children: [
       {
-        name: "Add User",
-        url: "/home/superadmin/adduser",
-        icon: "icon-drop",
+
+        name: 'Activity',
+        icon: 'icon-puzzle',
+        children: [
+          {
+            name: 'List Activity',
+            url: '/home/superadmin/activity/listactivity',
+            icon: 'icon-drop',
+          },
+          {
+            name: 'Add Activity',
+            url: '/home/superadmin/activity/addactivity',
+            icon: 'icon-drop',
+          },
+        ],
+      },
+      {
+        name: 'User',
+        url: '/home/user',
+        icon: 'icon-puzzle',
+        children: [
+          {
+            name: 'Add User',
+            url: '/home/superadmin/adduser',
+            icon: 'icon-drop',
+          },
+          {
+            name: 'List User',
+            url: '/home/superadmin/listuser',
+            icon: 'icon-drop',
+          },
+        ],
+
       },
       {
         name: "List User",
