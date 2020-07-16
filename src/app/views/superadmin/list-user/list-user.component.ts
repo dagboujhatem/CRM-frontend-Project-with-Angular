@@ -27,7 +27,7 @@ export class ListUSERComponent implements OnInit {
   fileToUpload: File = null;
   Search: "";
 
-  selectedCheckboxes = [];
+ 
 
   constructor(
     private adminservice: AdminService,
