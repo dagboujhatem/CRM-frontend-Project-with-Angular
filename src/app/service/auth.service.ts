@@ -8,6 +8,7 @@ import * as jwt_decode from "jwt-decode";
   providedIn: "root",
 })
 export class AuthService {
+  [x: string]: any;
   BaseUrl = environment.baseuri;
   id: string;
 
@@ -53,4 +54,7 @@ export class AuthService {
     if (token != undefined && token != null) return token;
     else return "";
   }
+  isloged(){
+    return !! localStorage.getItem('token');
+   }
 }

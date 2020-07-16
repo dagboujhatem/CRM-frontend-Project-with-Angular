@@ -18,6 +18,7 @@ export class ListproduitComponent implements OnInit {
   pageSizeOptions = [2, 5, 10];
   totalProd;
   currentPage = 1;
+  Search : "";
   constructor(
     private produit: ProduitService,
     private adminservice: AdminService,

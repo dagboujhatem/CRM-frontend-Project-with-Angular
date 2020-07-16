@@ -5,6 +5,10 @@ import { CategorieRouting } from './categorie-routing.module';
 import { AddcategorieComponent } from './addcategorie/addcategorie.component';
 import { ListcategorieComponent } from './listcategorie/listcategorie.component';
 import { UpdatecategorieComponent } from './updatecategorie/updatecategorie.component';
+import { CategpipePipe } from '../../pipes/categpipe.pipe';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -13,13 +17,16 @@ import { UpdatecategorieComponent } from './updatecategorie/updatecategorie.comp
       CommonModule,
       FormsModule,
       CategorieRouting,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      MatInputModule,
+      MatIconModule
 
     ],
     declarations: [
        AddcategorieComponent,
        ListcategorieComponent,
-       UpdatecategorieComponent
+       UpdatecategorieComponent,
+       CategpipePipe
     ]
 })
 export class Categorie { }

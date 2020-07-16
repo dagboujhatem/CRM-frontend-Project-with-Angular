@@ -17,6 +17,7 @@ export class ListsocieterComponent implements OnInit {
   totalPme;
   currentPage = 1;
   superAdminAccess = false;
+  Search: "";
 
   constructor(
     private adminservice: AdminService,
@@ -27,6 +28,7 @@ export class ListsocieterComponent implements OnInit {
     console.log(this.decoded);
     
     if (this.decoded.data.role === 'superAdmin') {
+
       this.superAdminAccess = true;
     }
   }
