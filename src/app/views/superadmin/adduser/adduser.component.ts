@@ -44,9 +44,7 @@ export class AdduserComponent implements OnInit {
     if (this.userForm.valid) {
       this.userservice
         .addUsr(this.pme, this.userForm.value)
-        .subscribe((res: any) => {
-          console.log(res);
-        });
+        .subscribe(() => {});
       return (
         this.toastr.success("User added succesfully") &&
         this.router.navigateByUrl("/home/superadmin/listuser")
@@ -73,7 +71,7 @@ export class AdduserComponent implements OnInit {
   toggleIsAwesome() {
     this.isAwesome = !this.isAwesome;
     this.userForm.controls.notifRupture.setValue(this.isAwesome);
-    console.log(this.isAwesome);
-    console.log(this.userForm.value);
+    // console.log(this.isAwesome);
+    // console.log(this.userForm.value);
   }
 }
