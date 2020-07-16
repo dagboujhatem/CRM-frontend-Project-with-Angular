@@ -85,7 +85,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     SuperAdmin,
     FournisseurModule,
     Produit,
-
     Categorie,
     MatButtonToggleModule
 
@@ -98,7 +97,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     LoginComponent,
     ForgetComponent,
     RegisterComponent,
-    ResetComponent,
+    ResetComponent
   ],
   providers: [
     {
