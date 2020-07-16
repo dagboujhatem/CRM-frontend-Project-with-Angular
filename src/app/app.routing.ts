@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
 // Import Containers
-import { DefaultLayoutComponent } from './containers';
+import { DefaultLayoutComponent } from "./containers";
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -10,107 +10,130 @@ import { LoginComponent } from './common/login/login.component';
 import { RegisterComponent } from './common/register/register.component';
 import { ForgetComponent } from './common/forget/forget.component';
 import { ResetComponent } from './common/reset/reset.component';
+import { AuthguardGuard } from './guards/authguard.guard';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  
   },
   {
-    path: 'reset-password',
+    path: "reset-password",
     component: ResetComponent,
     data: {
-      title: 'Page reset',
+      title: "Page reset",
     },
   },
   {
-    path: 'forget',
+    path: "forget",
     component: ForgetComponent,
     data: {
-      title: 'Page forget',
+      title: "Page forget",
     },
   },
   {
-    path: 'register',
+    path: "register",
     component: RegisterComponent,
     data: {
-      title: 'Page register',
+      title: "Page register",
     },
   },
   {
-    path: '404',
+    path: "404",
     component: P404Component,
     data: {
-      title: 'Page 404',
+      title: "Page 404",
     },
   },
   {
-    path: '500',
+    path: "500",
     component: P500Component,
     data: {
-      title: 'Page 500',
+      title: "Page 500",
     },
   },
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent,
     data: {
-      title: 'Login Page',
+      title: "Login Page",
     },
   },
   {
-    path: 'home',
+    path: "home",
     component: DefaultLayoutComponent,
     data: {
       title: 'Home',
+      canActivate:[AuthguardGuard],
     },
     children: [
       {
-
-        path: "dashboard",
+        path: 'superadmin',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module")
-          .then((m) => m.DashboardModule),
+          import("./views/superadmin/superadmin.module").then(
+            (module) => module.SuperAdmin
+          ),
       },
       {
-        path: "superadmin",
+        path: 'produit',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import("./views/superadmin/superadmin.module")
-          .then((m) => m.SuperAdmin),
+          import("./views/produit/produit.module").then((m) => m.Produit),
       },
       {
-        path: "produit",
+        path: 'fournisseur',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import("./views/produit/produit.module")
-          .then((m) => m.Produit),
+          import("./views/fournisseur/fournisseur.module").then(
+            (m) => m.FournisseurModule
+          ),
       },
       {
-        path: "fournisseur",
+        path: 'categorie',
+        canActivate:[AuthguardGuard],
         loadChildren: () =>
-          import("./views/fournisseur/fournisseur.module")
-          .then((m) => m.FournisseurModule),
+          import("./views/categorie/categorie.module").then((m) => m.Categorie),
       },
       {
-        path: "categorie",
+        path: 'dashboard',
+        
         loadChildren: () =>
-          import("./views/categorie/categorie.module")
-          .then((m) => m.Categorie),
-
-
-      {
-        path: 'setting',
-        loadChildren: () =>
-        import('./views/settings/settings.module').then(
-          (m) => m.SettingsModule
-        )
+          import("./views/dashboard/dashboard.module").then(
+            (m) => m.DashboardModule
+          ),
       },
-      
-
-      },
+      // {
+      //   path: "icons",
+      //   loadChildren: () =>
+      //     import("./views/icons/icons.module").then((m) => m.IconsModule),
+      // }
+      ,
+      // {
+      //   path: "notifications",
+      //   loadChildren: () =>
+      //     import("./views/notifications/notifications.module").then(
+      //       (m) => m.NotificationsModule
+      //     ),
+      // }
+      ,
+      // {
+      //   path: "theme",
+      //   loadChildren: () =>
+      //     import("./views/theme/theme.module").then((m) => m.ThemeModule),
+      // }
+      ,
+      // {
+      //   path: "widgets",
+      //   loadChildren: () =>
+      //     import("./views/widgets/widgets.module").then((m) => m.WidgetsModule),
+      // }
+      ,
     ],
   },
-  { path: '**', component: P404Component },
+  { path: "**", component: P404Component },
 ];
 
 @NgModule({
