@@ -44,8 +44,17 @@
           <div class="col-md-3">
             <label class="col-md-12 col-form-label" for="categorie">Catégories</label> 
             <div>
-              <select id="categorie" name="categorie" formControlName="categorie" class="form-control">
-                <option *ngFor="let t of categorietable" value="t.name">{{t.name}}</option>
+              <select
+                id="categorie"
+                name="categorie"
+                formControlName="categorie"
+                class="form-control"
+              >
+              <option *ngFor="let t of categorietable ,let i=index;" value="{{t._id}}">{{t.name}}</option>
+<!-- 
+                <option value="val1">Option #1</option>
+                <option value="val2">Option #2</option>
+                <option value="val3">Option #3</option> -->
               </select>
             </div>
           </div>

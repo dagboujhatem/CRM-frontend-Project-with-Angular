@@ -90,7 +90,7 @@ export const navItems: INavData[] = [
         url: '/home/fournisseur/list-fournisseur',
         icon: 'icon-puzzle',
       },
-    ]
+    ],
   },
   {
     name: 'Setting',

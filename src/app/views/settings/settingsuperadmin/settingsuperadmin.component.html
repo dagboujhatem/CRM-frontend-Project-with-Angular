@@ -1,43 +1,51 @@
 <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        <strong>Produit Form</strong>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="superadminform" class="form-horizontal">
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label"
-              >Recevoire mail en cas de register admin</label>
-            <div class="col-md-9 col-form-label">
-              <label class="switch switch-3d switch-primary">
-                <input type="checkbox" class="switch-input" (change)="toggleIsAwesome()" [checked]="statutisActivSuperAdmin"/>
-                <span class="switch-slider"></span>
-              </label>
-            </div>
+  <div class="card">
+    <div class="card-header">
+      <strong>Produit Form</strong>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="superadminform" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+            >Recevoire mail en cas de register admin</label
+          >
+          <div class="col-md-9 col-form-label">
+            <label class="switch switch-3d switch-primary">
+              <input
+                type="checkbox"
+                class="switch-input"
+                formControlName="isActivSuperAdmin"
+                (change)="toggleSuperAdmin()"
+              />
+              <span class="switch-slider"></span>
+            </label>
           </div>
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label"
-              >Recevoire mail en cas de ADD user</label>
-            <div class="col-md-9 col-form-label">
-              <label class="switch switch-3d switch-primary">
-                <input type="checkbox" class="switch-input" (change)="toggleIsAwesome1()" [checked]="statutisActivAdmin"/>
-                <span class="switch-slider"></span>
-              </label>
-            </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+            >Recevoire mail en cas de ADD user</label
+          >
+          <div class="col-md-9 col-form-label">
+            <label class="switch switch-3d switch-primary">
+              <input
+                type="checkbox"
+                class="switch-input"
+                formControlName="isActivAdmin"
+                (change)="toggleAdmin()"
+              />
+              <span class="switch-slider"></span>
+            </label>
           </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button
-          type="submit"
-          (click)="update()"
-          class="btn btn-sm btn-primary">
-          <i class="fa fa-dot-circle-o"></i> Add Produit
-        </button>
-        <button type="reset" class="btn btn-sm btn-danger">
-          <i class="fa fa-ban"></i> Reset
-        </button>
-      </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button type="submit" (click)="update()" class="btn btn-sm btn-primary">
+        <i class="fa fa-dot-circle-o"></i> Save Settings
+      </button>
+      <!-- <button type="reset" class="btn btn-sm btn-danger">
+        <i class="fa fa-ban"></i> Reset
+      </button> -->
     </div>
   </div>
-  
+</div>

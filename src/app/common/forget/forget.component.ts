@@ -26,7 +26,6 @@ export class ForgetComponent implements OnInit {
     this.auth
       .requestReset(this.resetForm.value)
       .subscribe((res: { message; token }) => {
-        console.log(res);
         this.token = res.token;
         this.router.navigate(["/reset-password"], {
           queryParams: { token: this.token },
