@@ -2,6 +2,7 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
+
     name: 'Dashboard',
     url: '/home/dashboard',
     icon: 'icon-puzzle',
@@ -17,6 +18,7 @@ export const navItems: INavData[] = [
         icon: 'icon-drop',
       },
       {
+
         name: 'Add Societé',
         url: '/home/superadmin/addsociete',
         icon: 'icon-drop',
@@ -44,7 +46,6 @@ export const navItems: INavData[] = [
     name: 'Produit',
     url: '/home/produit',
     icon: 'icon-puzzle',
-
     children: [
       {
         name: 'Add Produit',
@@ -56,8 +57,6 @@ export const navItems: INavData[] = [
         url: '/home/produit/listproduit',
         icon: 'icon-puzzle',
       },
-
-
     ],
   },
   {
@@ -77,6 +76,8 @@ export const navItems: INavData[] = [
       },
     ],
   },
+
+
   {
     name: 'Fournisseur',
     url: '/home/fournisseur',
@@ -105,4 +106,5 @@ export const navItems: INavData[] = [
   {
     divider: true,
   },
+
 ];
