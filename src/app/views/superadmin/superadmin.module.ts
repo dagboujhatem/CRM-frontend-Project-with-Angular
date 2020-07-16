@@ -1,8 +1,8 @@
 // Angular
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgModule } from "@angular/core";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 // import {  } from './cards.component';
 
@@ -43,40 +43,39 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 // import { NavbarsComponent } from './navbars/navbars.component';
 // // Components Routing
 // import { BaseRoutingModule } from './base-routing.module';
-import { ListsocieterComponent } from './listsocieter/listsocieter.component';
-import { SuperAdminRouting } from './superadmin-rouring.module';
-import { AddsocieterComponent } from './addsocieter/addsocieter.component';
-import { UpdatesocieterComponent } from './updatesocieter/updatesocieter.component';
-import { AdduserComponent } from './adduser/adduser.component';
-import { MatInputModule } from '@angular/material/input';
-import { ListUSERComponent } from './list-user/list-user.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
-import { PipesearchPipe } from '../../pipes/pipesearch.pipe';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ListsocieterComponent } from "./listsocieter/listsocieter.component";
+import { SuperAdminRouting } from "./superadmin-rouring.module";
+import { AddsocieterComponent } from "./addsocieter/addsocieter.component";
+import { UpdatesocieterComponent } from "./updatesocieter/updatesocieter.component";
+import { AdduserComponent } from "./adduser/adduser.component";
+import { MatInputModule } from "@angular/material/input";
+import { ListUSERComponent } from "./list-user/list-user.component";
+import { UpdateUserComponent } from "./update-user/update-user.component";
+import { PipesearchPipe } from "../../pipes/pipesearch.pipe";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatIconModule } from "@angular/material/icon";
+import { MatSelectModule } from "@angular/material/select";
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SuperAdminRouting,
     ReactiveFormsModule,
-
+    MatIconModule,
     MatPaginatorModule,
-
     MatInputModule,
-    MatCheckboxModule
-    
-
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   declarations: [
-      ListsocieterComponent,
-      AddsocieterComponent,
-      UpdatesocieterComponent,
-      AdduserComponent,
-      ListUSERComponent,
-      UpdateUserComponent,
-      PipesearchPipe,
-    
-  ]
-
+    ListsocieterComponent,
+    AddsocieterComponent,
+    UpdatesocieterComponent,
+    AdduserComponent,
+    ListUSERComponent,
+    UpdateUserComponent,
+    PipesearchPipe,
+  ],
 })
 export class SuperAdmin {}
