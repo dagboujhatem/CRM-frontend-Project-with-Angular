@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Combined All Table
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Activity Name</th>
+                <th>Date registered</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor=" let tab of activitytable; let i=index">
+              <tr>
+                <td>{{tab.name}}</td>
+                <td>{{tab.createdAt}}</td>
+                <td>20/1/2655</td>
+                <td>
+                  <button
+                    class="badge badge-success"
+                    routerLink="/home/superadmin/activity/updateactivity/{{tab._id}}"
+                  >
+                    Update</button
+                  ><button
+                    *ngIf="superAdminAccess"
+                    (click)="delete(i, tab._id)"
+                    class="badge badge-danger"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <mat-paginator
+              [length]="totalActivity"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="onChange($event)"
+            ></mat-paginator>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
