@@ -14,16 +14,16 @@ export class SidebarService {
   private navItems = navItems;
   constructor() {
     this.items$ = this.getNavItemsByRole();
+  }
 
+  // get navigation item by role
+  getNavItemsByRole(): Observable<INavData[]> {
     const token = localStorage.getItem("token");
     if (token != null && token != undefined) {
       this.decoded = jwt_decode(token);
       this.role = this.decoded.data.role;
     }
-  }
 
-  // get navigation item by role
-  getNavItemsByRole(): Observable<INavData[]> {
     if (this.role === "superAdmin") {
       const filtredItems = this.navItems.filter((item) => {
         return (
@@ -117,11 +117,6 @@ export class SidebarService {
     }
   }
   reloadNavItem() {
-    const token = localStorage.getItem("token");
-    if (token != null && token != undefined) {
-      this.decoded = jwt_decode(token);
-      this.role = this.decoded.data.role;
-    }
     this.items$ = this.getNavItemsByRole();
   }
 }
