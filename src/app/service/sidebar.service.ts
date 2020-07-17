@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { navItems } from "./../_nav";
-import { INavData } from "@coreui/angular";
-import { Observable, of } from "rxjs";
-import * as jwt_decode from "jwt-decode";
+import { Injectable } from '@angular/core';
+import { navItems } from './../_nav';
+import { INavData } from '@coreui/angular';
+import { Observable, of } from 'rxjs';
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class SidebarService {
   items$: Observable<INavData[]>;
@@ -14,26 +14,27 @@ export class SidebarService {
   private navItems = navItems;
   constructor() {
     this.items$ = this.getNavItemsByRole();
-
-    const token = localStorage.getItem("token");
-    if (token != null && token != undefined) {
-      this.decoded = jwt_decode(token);
-      this.role = this.decoded.data.role;
-    }
   }
 
   // get navigation item by role
   getNavItemsByRole(): Observable<INavData[]> {
-    if (this.role === "superAdmin") {
+    const token = localStorage.getItem('token');
+    // tslint:disable-next-line: triple-equals
+    if (token != null && token != undefined) {
+      this.decoded = jwt_decode(token);
+      this.role = this.decoded.data.role;
+    }
+
+    if (this.role === 'superAdmin') {
       const filtredItems = this.navItems.filter((item) => {
         return (
-          item.url === "/home/dashboard" ||
-          item.name === "Activity" ||
-          item.url === "/home/setting"
+          item.url === '/home/dashboard' ||
+          item.name === 'Activity' ||
+          item.url === '/home/setting'
         );
       });
       const societeMenu = this.navItems.filter(
-        (item) => item.name === "Socièté"
+        (item) => item.name === 'Socièté'
       );
       if (
         societeMenu != null &&
@@ -42,23 +43,23 @@ export class SidebarService {
       ) {
         const newMenuSoci: INavData[] = societeMenu[0].children.filter(
           (item) => {
-            return item.url === "/home/superadmin/listsociete";
+            return item.url === '/home/superadmin/listsociete';
           }
         );
         filtredItems.push(newMenuSoci[0]);
       }
       return of(filtredItems);
     }
-    if (this.role === "admin") {
+    if (this.role === 'admin') {
       const filtredItems = this.navItems.filter((item) => {
         return (
-          item.url === "/home/dashboard" ||
-          item.name === "Socièté" ||
-          item.name === "User"
+          item.url === '/home/dashboard' ||
+          item.name === 'Socièté' ||
+          item.name === 'User'
         );
       });
       const produitMenu = this.navItems.filter(
-        (item) => item.name === "Produit"
+        (item) => item.name === 'Produit'
       );
       if (
         produitMenu != null &&
@@ -67,13 +68,13 @@ export class SidebarService {
       ) {
         const newMenuproduit: INavData[] = produitMenu[0].children.filter(
           (item) => {
-            return item.url === "/home/produit/listproduit";
+            return item.url === '/home/produit/listproduit';
           }
         );
         filtredItems.push(newMenuproduit[0]);
       }
       const CategorieMenu = this.navItems.filter(
-        (item) => item.name === "Categorie"
+        (item) => item.name === 'Categorie'
       );
       if (
         CategorieMenu != null &&
@@ -82,13 +83,13 @@ export class SidebarService {
       ) {
         const newMenuCategorie: INavData[] = CategorieMenu[0].children.filter(
           (item) => {
-            return item.url === "/home/categorie/listcategorie";
+            return item.url === '/home/categorie/listcategorie';
           }
         );
         filtredItems.push(newMenuCategorie[0]);
       }
       const FournisseurMenu = this.navItems.filter(
-        (item) => item.name === "Fournisseur"
+        (item) => item.name === 'Fournisseur'
       );
       if (
         FournisseurMenu != null &&
@@ -97,31 +98,26 @@ export class SidebarService {
       ) {
         const newMenuFournisseur: INavData[] = FournisseurMenu[0].children.filter(
           (item) => {
-            return item.url === "/home/fournisseur/list-fournisseur";
+            return item.url === '/home/fournisseur/list-fournisseur';
           }
         );
         filtredItems.push(newMenuFournisseur[0]);
       }
       return of(filtredItems);
     }
-    if (this.role === "user") {
+    if (this.role === 'user') {
       const filtredItems = this.navItems.filter((item) => {
         return (
-          item.url === "/home/dashboard" ||
-          item.name === "Produit" ||
-          item.name === "Categorie" ||
-          item.name === "Fournisseur"
+          item.url === '/home/dashboard' ||
+          item.name === 'Produit' ||
+          item.name === 'Categorie' ||
+          item.name === 'Fournisseur'
         );
       });
       return of(filtredItems);
     }
   }
   reloadNavItem() {
-    const token = localStorage.getItem("token");
-    if (token != null && token != undefined) {
-      this.decoded = jwt_decode(token);
-      this.role = this.decoded.data.role;
-    }
     this.items$ = this.getNavItemsByRole();
   }
 }
