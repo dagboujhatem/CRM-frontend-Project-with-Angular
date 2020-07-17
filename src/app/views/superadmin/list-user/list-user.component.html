@@ -1,7 +1,4 @@
-<mat-form-field appearance="outline" style="margin-left: 300px;">
-  <mat-label>Search</mat-label>
-  <input matInput type="text" [(ngModel)]="Search" />
-</mat-form-field>
+
 <br />
 <div class="row justify-content-center">
   <div class="col-8">
@@ -22,6 +19,10 @@
             <i class="fa fa-align-justify"></i> Combined All Table
           </div>
           <div class="card-body">
+            <mat-form-field appearance="outline" style="margin-left: 50px;">
+              <mat-label>Search</mat-label>
+              <input matInput type="text" [(ngModel)]="Search" />
+            </mat-form-field>
             <select
               id="select1"
               name="select1"
@@ -38,7 +39,7 @@
                 <tr>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Role</th>
+              
                   <th>Action</th>
                 </tr>
               </thead>
@@ -48,7 +49,6 @@
                 <tr>
                   <td>{{tab.name}}</td>
                   <td>{{tab.email}}</td>
-                  <td>{{tab.role}}</td>
                   <td>
                     <button
                       class="badge badge-success"

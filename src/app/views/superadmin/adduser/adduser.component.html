@@ -1,27 +1,37 @@
-<div class="app-body register">
+<div class="app-body register ">
   <main class="main d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 mx-auto">
-          <div class="card mx-6">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
             <div class="card-body p-4">
               <form [formGroup]="userForm">
                 <h1>Add User</h1>
-                <mat-form-field class="full-width">
-                  <input matInput type="text" placeholder="Username" formControlName="name" required />
+
+                <!-- <p class="text-muted" routerLink="/login">Create your account</p> -->
+                <mat-form-field class="example-full-width">
+                  <mat-label>Name</mat-label>
+
+                  <input matInput placeholder="Name" formControlName="name" required />
+
                   <mat-error *ngIf="userForm.hasError('required','name')">
-                    name is required
+                    Name is required
                   </mat-error>
+
                 </mat-form-field>
                 <br />
                 <mat-form-field class="full-width">
                   <input matInput type="text" formControlName="email" placeholder="Email" required />
+
                   <mat-error *ngIf="userForm.hasError('required','email')">
                     email is required
                   </mat-error>
                   <mat-error *ngIf="userForm.hasError('email','email')">
                     email is invalid
                   </mat-error>
+
+                </mat-form-field><br>
+
                 </mat-form-field>
                 <br />
                 <mat-form-field class="full-width">
@@ -30,6 +40,7 @@
                     password is required
                   </mat-error>
                 </mat-form-field>
+
               </form>
               <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Societé</mat-label>
@@ -40,6 +51,22 @@
                 </mat-select>
               </mat-form-field>
               <div class="form-group row">
+
+                <!-- <label class="col-md-3 col-form-label">Societé</label>
+                <div class="col-md-9 col-form-label">
+                  <select
+                    id="select1"
+                    name="select1"
+                    class="form-control"
+                    [(ngModel)]="pme"
+                  >
+                    <option
+                      *ngFor="let t of table ,let i=index;"
+                      value="{{t._id}}"
+                      >{{t.name}}</option
+                    >
+                  </select> -->
+
                 <button type="button" (click)="addUser()" class="btn btn-block btn-success">
                   Add
                 </button>

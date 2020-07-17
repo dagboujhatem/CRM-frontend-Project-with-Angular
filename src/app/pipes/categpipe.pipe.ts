@@ -8,7 +8,7 @@ export class CategpipePipe implements PipeTransform {
     if (Search === '' || Search === null || Search === undefined) {
       return value;
       }
-      return  value.filter(p => (p.name.toLowerCase().startsWith(Search)));
+      return  value.filter(p => (p.name.toLowerCase().includes(Search)));
     }
 
 }
