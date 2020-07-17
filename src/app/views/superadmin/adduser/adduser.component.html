@@ -32,7 +32,7 @@
 
                 </mat-form-field><br>
 
-                </mat-form-field>
+
                 <br />
                 <mat-form-field class="full-width">
                   <input matInput type="password" formControlName="password" placeholder="Password" required />
@@ -51,26 +51,9 @@
                 </mat-select>
               </mat-form-field>
               <div class="form-group row">
-
-                <!-- <label class="col-md-3 col-form-label">Societé</label>
-                <div class="col-md-9 col-form-label">
-                  <select
-                    id="select1"
-                    name="select1"
-                    class="form-control"
-                    [(ngModel)]="pme"
-                  >
-                    <option
-                      *ngFor="let t of table ,let i=index;"
-                      value="{{t._id}}"
-                      >{{t.name}}</option
-                    >
-                  </select> -->
-
-                <button type="button" (click)="addUser()" class="btn btn-block btn-success">
+             <button  type="button" (click)="addUser()" class="btn btn-block btn-primary">
                   Add
-                </button>
-                <!-- </div> -->
+             </button>
               </div>
             </div>
           </div>
