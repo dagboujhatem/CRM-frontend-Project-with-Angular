@@ -4,51 +4,52 @@
       <strong>Company</strong>
       <small>Form</small>
     </div>
-    <form class="card-body" [formGroup]="societeform">
+    <form class="card-body" style="margin-left: 20%;" [formGroup]="societeform">
       <div class="row">
-        <div>
+
           <mat-form-field>
             <input matInput type="text" formControlName="name" id="inputError2" placeholder="Enter your company name">
+          </mat-form-field><br>
+     
+       
+          <mat-form-field style="margin-left: 20%;">
+            <input matInput type="email" formControlName="email" placeholder="Enter your company email">
           </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input maInput type="email" formControlName="email" placeholder="Enter your company email">
-          </mat-form-field>
-        </div>
+    
       </div>
-      <div>
+      <div class="row">
+     
         <mat-form-field>
-          <input maInput type="text" formControlName="description" placeholder="Enter your company Description">
+          <input matInput type="text" style="width: auto;" formControlName="description" placeholder="Enter your company Description">
         </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input maInput type="text" formControlName="adress" placeholder="Enter street Adresse">
+      
+     
+        <mat-form-field style="margin-left: 20%;">
+          <input matInput type="text" formControlName="adress" placeholder="Enter street Adresse">
         </mat-form-field>
       </div>
       <div class="row">
 
         <mat-form-field>
-          <input maInput type="number" formControlName="telephone" placeholder="Enter your Télephone number">
+          <input matInput type="number" formControlName="telephone" placeholder="Enter your Télephone number">
         </mat-form-field>
-        <div class="form-group col-sm-6">
-          <mat-form-field>
-            <input maInput type="number" formControlName="fax" placeholder="Enter your fax number">
+     
+          <mat-form-field style="margin-left: 20%;">
+            <input matInput type="number" formControlName="fax" placeholder="Enter your fax number">
           </mat-form-field>
-        </div>
+        
       </div>
       <div class="row">
-        <div class="form-group col-sm-6">
+    
           <mat-form-field>
-            <input maInput type="text" formControlName="siege" placeholder="Enter your siege">
+            <input matInput type="text" formControlName="siege" placeholder="Enter your siege">
           </mat-form-field>
-        </div>
-        <div class="form-group col-sm-6">
-          <mat-form-field>
-            <input maInput type="text" formControlName="activity" placeholder="Enter your activity">
+        
+      
+          <mat-form-field style="margin-left: 20%;">
+            <input matInput type="text" formControlName="activity" placeholder="Enter your activity">
           </mat-form-field>
-        </div>
+        
       </div>
       <button type="button" class="btn btn-primary px-4" (click)="Addsociete()">ADD</button>
     </form>
