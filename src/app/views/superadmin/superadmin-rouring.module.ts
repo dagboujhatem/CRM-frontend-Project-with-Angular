@@ -11,9 +11,6 @@ import { ListActivityComponent } from './activity/list-activity/list-activity.co
 import { AddActivityComponent } from './activity/add-activity/add-activity.component';
 import { UpdateActivityComponent } from './activity/update-activity/update-activity.component';
 
-
-
-
 const routes: Routes = [
   {
     path: "",
@@ -99,7 +96,7 @@ const routes: Routes = [
     },
 
 
-];
+    ],
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
