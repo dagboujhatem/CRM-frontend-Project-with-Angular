@@ -82,7 +82,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     Produit,
     Categorie,
     MatButtonToggleModule
- 
+
 
   ],
   declarations: [

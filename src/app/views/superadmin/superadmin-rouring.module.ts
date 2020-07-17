@@ -12,95 +12,87 @@ import { AddActivityComponent } from './activity/add-activity/add-activity.compo
 import { UpdateActivityComponent } from './activity/update-activity/update-activity.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    data: {
-      title: "Administration",
-    },
-    children: [
-      {
-        path: "listsociete",
-        component: ListsocieterComponent,
+    {
+        path: '',
         data: {
-          title: "List Des Societé",
+            title: 'Administration',
         },
-
         children: [
-            {
-                path: 'listsociete',
-                component: ListsocieterComponent,
-                data: {
-                    title: 'List Des Societé'
-                }
-            },
-            {
-                path: 'addsociete',
-                component: AddsocieterComponent,
-                data: {
-                    title: 'Add Societé'
-                }
-            },
-            {
-                path: 'updatesociete/:id',
-                component: UpdatesocieterComponent,
-                data: {
-                    title: 'Update Societé'
-                }
-            },
-            {
-                path : 'adduser',
-                component: AdduserComponent,
-                data: {
-                    title: 'Add User'
-                }
+                    {
+                        path: 'listsociete',
+                        component: ListsocieterComponent,
+                        data: {
+                            title: 'List Des Societé'
+                        }
+                    },
+                    {
+                        path: 'addsociete',
+                        component: AddsocieterComponent,
+                        data: {
+                            title: 'Add Societé'
+                        }
+                    },
+                    {
+                        path: 'updatesociete/:id',
+                        component: UpdatesocieterComponent,
+                        data: {
+                            title: 'Update Societé'
+                        }
+                    },
+                    {
+                        path: 'adduser',
+                        component: AdduserComponent,
+                        data: {
+                            title: 'Add User'
+                        }
 
-            },
-            {
-                path : 'listuser',
-                component: ListUSERComponent,
-                data: {
-                    title: 'List User'
-                }
+                    },
+                    {
+                        path: 'listuser',
+                        component: ListUSERComponent,
+                        data: {
+                            title: 'List User'
+                        }
 
-            },
-            {
-                path : 'updateuser/:id',
-                component: UpdateUserComponent,
-                data: {
-                    title: 'Update User'
-                }
+                    },
+                    {
+                        path: 'updateuser/:id',
+                        component: UpdateUserComponent,
+                        data: {
+                            title: 'Update User'
+                        }
 
+                    },
+                    {
+                        path: 'activity/addactivity',
+                        component: AddActivityComponent,
+                        data: {
+                            title: 'Add Activity'
+                        }
+                    },
+                    {
+                        path: 'activity/listactivity',
+                        component: ListActivityComponent,
+                        data: {
+                            title: 'List Des Activity'
+                        }
+                    },
+                    {
+                        path: 'activity/updateactivity/:id',
+                        component: UpdateActivityComponent,
+                        data: {
+                            title: 'Update Activity'
+                        }
+                    },
+                ],
             },
-            {
-                path: 'activity/addactivity',
-                component: AddActivityComponent,
-                data: {
-                    title: 'Add Activity'
-                }
-            },
-            {
-                path: 'activity/listactivity',
-                component: ListActivityComponent,
-                data: {
-                    title: 'List Des Activity'
-                }
-            },
-            {
-                path: 'activity/updateactivity/:id',
-                component: UpdateActivityComponent,
-                data: {
-                    title: 'Update Activity'
-                }
-            },
-        ],
-    },
 
 
-    ],
+        ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  //   declarations: [ListsocieterComponent]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
+    //   declarations: [ListsocieterComponent]
 })
-export class SuperAdminRouting {}
+export class SuperAdminRouting { }

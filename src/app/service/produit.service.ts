@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { environment } from "../../environments/environment";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ProduitService {
   BaseUrl = environment.baseuri;
@@ -25,7 +25,7 @@ export class ProduitService {
   }
   /**********get all produit ********** */
   Getallproduit(id: string, pageSize: number, currentPage: number) {
-    let queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
+    const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
     const url = `${this.BaseUrl}/stock/${id}${queryParams}`;
     return this.http.get(url);
   }
@@ -43,5 +43,11 @@ export class ProduitService {
   DeleteProduitById(id, prodId) {
     const url = `${this.BaseUrl}/stock/${id}/delete/${prodId}`;
     return this.http.delete(url);
+  }
+  /*************get produit by pme ******** */
+  getproduitbypme(idpme) {
+    // let queryParams = `?pagesize=${pageSizeU}&page=${currentPage}`;
+    const url = `${this.BaseUrl}/stock/pme/${idpme}`;
+    return this.http.get(url);
   }
 }

@@ -110,7 +110,7 @@
     (minimizedChange)="toggleMinimize($event)"
   >
     <app-sidebar-nav
-      [navItems]="navItems"
+      [navItems]="navItems | async"
       [perfectScrollbar]
       [disabled]="appSidebar.minimized"
     ></app-sidebar-nav>

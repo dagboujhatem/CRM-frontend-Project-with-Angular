@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import * as jwt_decode from "jwt-decode";
-import { AdminService } from "../../../service/admin.service";
-import { UserServiceService } from "../../../service/user-service.service";
-import { PageEvent } from "@angular/material/paginator";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import * as jwt_decode from 'jwt-decode';
+import { AdminService } from '../../../service/admin.service';
+import { UserServiceService } from '../../../service/user-service.service';
+import { PageEvent } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: "app-list-user",
-  templateUrl: "./list-user.component.html",
-  styleUrls: ["./list-user.component.css"],
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.css'],
 })
 export class ListUSERComponent implements OnInit {
   table;
@@ -36,9 +36,9 @@ export class ListUSERComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.decoded.data.role === "superAdmin") {
+    if (this.decoded.data.role === 'superAdmin') {
       this.getAllPme();
-    } else if (this.decoded.data.role === "admin") {
+    } else if (this.decoded.data.role === 'admin') {
       this.getPmeByAdmin();
     }
   }
@@ -92,13 +92,13 @@ export class ListUSERComponent implements OnInit {
   /*****************delete user for admin******** */
   delete(i, id) {
     if (
-      this.decoded.data.role === "admin" ||
-      this.decoded.data.role === "superAdmin"
+      this.decoded.data.role === 'admin' ||
+      this.decoded.data.role === 'superAdmin'
     ) {
       this.usersrvice.deleteuser(id).subscribe(() => {
         this.getUsersByPme();
         this.table.splice(i, 1);
-        return this.toastr.success("User Deleted succesfully");
+        return this.toastr.success('User Deleted succesfully');
       });
     }
   }
