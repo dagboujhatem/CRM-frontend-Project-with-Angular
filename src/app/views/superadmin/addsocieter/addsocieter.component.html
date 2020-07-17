@@ -44,10 +44,13 @@
           <mat-form-field>
             <input matInput type="text" formControlName="siege" placeholder="Enter your siege">
           </mat-form-field>
-        
-      
+
           <mat-form-field style="margin-left: 20%;">
-            <input matInput type="text" formControlName="activity" placeholder="Enter your activity">
+            <mat-select formControlName="activity" name="selecrPme">
+              <mat-option *ngFor="let t of activitytable ,let i=index;" value="{{t._id}}">
+                {{t.name}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         
       </div>
