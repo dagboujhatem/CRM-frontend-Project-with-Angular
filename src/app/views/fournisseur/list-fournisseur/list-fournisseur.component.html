@@ -5,8 +5,8 @@
         <i class="fa fa-align-justify"></i> Combined All Table
       </div>
       <div class="card-body">
-        <mat-form-field appearance="outline" style="margin-left: 350px;">
-          <mat-label>Search</mat-label>
+        <mat-form-field appearance="outline" style="margin-left: 50px;">
+          <mat-label><i class="fa fa-search" aria-hidden="true"></i>  Search...</mat-label>
           <input matInput type="text" [(ngModel)]="Search" />
         </mat-form-field>
         <select *ngIf="isAdmin" id="select1" name="select1" class="form-control" (change)="onChangePme($event)">
