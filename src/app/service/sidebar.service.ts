@@ -18,13 +18,14 @@ export class SidebarService {
 
   // get navigation item by role
   getNavItemsByRole(): Observable<INavData[]> {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
+    // tslint:disable-next-line: triple-equals
     if (token != null && token != undefined) {
       this.decoded = jwt_decode(token);
       this.role = this.decoded.data.role;
     }
 
-    if (this.role === "superAdmin") {
+    if (this.role === 'superAdmin') {
       const filtredItems = this.navItems.filter((item) => {
         return (
           item.url === '/home/dashboard' ||
