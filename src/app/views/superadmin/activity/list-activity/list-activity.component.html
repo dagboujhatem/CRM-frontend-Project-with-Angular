@@ -5,6 +5,10 @@
           <i class="fa fa-align-justify"></i> Combined All Table
         </div>
         <div class="card-body">
+          <mat-form-field appearance="outline" style="margin-left:50px;" >
+            <mat-label><i class="fa fa-search" aria-hidden="true"></i>  Search...</mat-label>
+            <input matInput type="text" [(ngModel)]="Search" />
+          </mat-form-field>
           <table class="table table-bordered table-striped table-sm">
             <thead>
               <tr>
@@ -13,7 +17,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor=" let tab of activitytable; let i=index">
+            <tbody *ngFor=" let tab of activitytable|activitypipe: Search; let i=index">
               <tr>
                 <td>{{tab.name}}</td>
                 <td>{{tab.createdAt}}</td>

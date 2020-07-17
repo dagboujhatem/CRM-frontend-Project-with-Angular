@@ -18,6 +18,7 @@ export class ListActivityComponent implements OnInit {
   totalActivity;
   currentPage = 1;
   superAdminAccess = false;
+  Search: "";
 
   constructor(private activity: ActivityService,
     private adminservice: AdminService,
