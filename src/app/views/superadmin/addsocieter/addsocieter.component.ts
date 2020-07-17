@@ -37,7 +37,6 @@ export class AddsocieterComponent implements OnInit {
     this.activity.getactforsoci().subscribe((res: { activity; count }) => {
       this.activitytable = res.activity;
       console.log(this.activitytable);
-      
     });
   }
   Addsociete() {
