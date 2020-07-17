@@ -7,29 +7,15 @@
             <div class="card-body p-4">
               <form [formGroup]="userForm">
                 <h1>Add User</h1>
-                <!-- <p class="text-muted" routerLink="/login">Create your account</p> -->
                 <mat-form-field class="full-width">
-                  <input
-                    matInput
-                    type="text"
-                    placeholder="Username"
-                    formControlName="name"
-                    required
-                  />
-
+                  <input matInput type="text" placeholder="Username" formControlName="name" required />
                   <mat-error *ngIf="userForm.hasError('required','name')">
                     name is required
                   </mat-error>
                 </mat-form-field>
                 <br />
                 <mat-form-field class="full-width">
-                  <input
-                    matInput
-                    type="text"
-                    formControlName="email"
-                    placeholder="Email"
-                    required
-                  />
+                  <input matInput type="text" formControlName="email" placeholder="Email" required />
                   <mat-error *ngIf="userForm.hasError('required','email')">
                     email is required
                   </mat-error>
@@ -37,80 +23,24 @@
                     email is invalid
                   </mat-error>
                 </mat-form-field>
-                <!-- <mat-form-field>
-                  <input
-                    matInput
-                    type="text"
-                    formControlName="role"
-                    placeholder="Role"
-                    required
-                  />
-                  <mat-error *ngIf="userForm.hasError('required','role')">
-                    role is required
-                  </mat-error>
-                </mat-form-field> -->
                 <br />
                 <mat-form-field class="full-width">
-                  <input
-                    matInput
-                    type="password"
-                    formControlName="password"
-                    placeholder="Password"
-                    required
-                  />
+                  <input matInput type="password" formControlName="password" placeholder="Password" required />
                   <mat-error *ngIf="userForm.hasError('required','password')">
                     password is required
                   </mat-error>
                 </mat-form-field>
-                <div class="form-group row">
-                  <label class="col-md-6 col-form-label">
-                    send mail to user ?</label
-                  >
-                  <div class="col-md-6 col-form-label">
-                    <label class="switch switch-3d switch-primary">
-                      <input
-                        type="checkbox"
-                        class="switch-input"
-                        [checked]="isAwesome"
-                        (change)="toggleIsAwesome()"
-                        checked
-                      />
-                      <span class="switch-slider"></span>
-                    </label>
-                  </div>
-                </div>
               </form>
               <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Societé</mat-label>
                 <mat-select [(ngModel)]="pme" name="selecrPme">
-                  <mat-option
-                    *ngFor="let t of table ,let i=index;"
-                    value="{{t._id}}"
-                  >
+                  <mat-option *ngFor="let t of table ,let i=index;" value="{{t._id}}">
                     {{t.name}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
               <div class="form-group row">
-                <!-- <label class="col-md-3 col-form-label">Societé</label>
-                <div class="col-md-9 col-form-label">
-                  <select
-                    id="select1"
-                    name="select1"
-                    class="form-control"
-                    [(ngModel)]="pme"
-                  >
-                    <option
-                      *ngFor="let t of table ,let i=index;"
-                      value="{{t._id}}"
-                      >{{t.name}}</option
-                    >
-                  </select> -->
-                <button
-                  type="button"
-                  (click)="addUser()"
-                  class="btn btn-block btn-success"
-                >
+                <button type="button" (click)="addUser()" class="btn btn-block btn-success">
                   Add
                 </button>
                 <!-- </div> -->
