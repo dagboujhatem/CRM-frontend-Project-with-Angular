@@ -14,18 +14,17 @@ export class SidebarService {
   private navItems = navItems;
   constructor() {
     this.items$ = this.getNavItemsByRole();
-
-    const token = localStorage.getItem('token');
-    // tslint:disable-next-line: triple-equals
-    if (token != null && token != undefined) {
-      this.decoded = jwt_decode(token);
-      this.role = this.decoded.data.role;
-    }
   }
 
   // get navigation item by role
   getNavItemsByRole(): Observable<INavData[]> {
-    if (this.role === 'superAdmin') {
+    const token = localStorage.getItem("token");
+    if (token != null && token != undefined) {
+      this.decoded = jwt_decode(token);
+      this.role = this.decoded.data.role;
+    }
+
+    if (this.role === "superAdmin") {
       const filtredItems = this.navItems.filter((item) => {
         return (
           item.url === '/home/dashboard' ||
@@ -118,12 +117,6 @@ export class SidebarService {
     }
   }
   reloadNavItem() {
-    const token = localStorage.getItem('token');
-    // tslint:disable-next-line: triple-equals
-    if (token != null && token != undefined) {
-      this.decoded = jwt_decode(token);
-      this.role = this.decoded.data.role;
-    }
     this.items$ = this.getNavItemsByRole();
   }
 }
