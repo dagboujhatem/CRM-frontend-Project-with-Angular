@@ -36,8 +36,7 @@ export class AddsocieterComponent implements OnInit {
   getactivité() {
     this.activity.getactforsoci().subscribe((res: { activity; count }) => {
       this.activitytable = res.activity;
-      
-    });
+      });
   }
   Addsociete() {
     if (!this.societeform.valid) {
