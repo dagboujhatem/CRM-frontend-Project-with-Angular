@@ -1,4 +1,3 @@
-
 <br />
 <div class="row justify-content-center">
   <div class="col-8">
@@ -23,42 +22,26 @@
               <mat-label>Search</mat-label>
               <input matInput type="text" [(ngModel)]="Search" />
             </mat-form-field>
-            <select
-              id="select1"
-              name="select1"
-              class="form-control"
-              (change)="onChangePme($event)"
-            >
+            <select id="select1" name="select1" class="form-control" (change)="onChangePme($event)">
               <option value="">Select a Pme</option>
-              <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}"
-                >{{pme.name}}</option
-              >
+              <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}">{{pme.name}}</option>
             </select>
             <table class="table table-bordered table-striped table-sm">
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Email</th>
-              
+
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody
-                *ngFor=" let tab of table | pipesearch: Search; let i=index"
-              >
+              <tbody *ngFor=" let tab of table | pipesearch: Search; let i=index">
                 <tr>
                   <td>{{tab.name}}</td>
                   <td>{{tab.email}}</td>
                   <td>
-                    <button
-                      class="badge badge-success"
-                      routerLink="../updateuser/{{tab._id}}"
-                    >
-                      Update</button
-                    ><button
-                      (click)="delete(i, tab._id)"
-                      class="badge badge-danger"
-                    >
+                    <button class="badge badge-success" routerLink="../updateuser/{{tab._id}}">
+                      Update</button><button (click)="delete(i, tab._id)" class="badge badge-danger">
                       delete
                     </button>
                   </td>
@@ -66,12 +49,8 @@
               </tbody>
             </table>
             <nav>
-              <mat-paginator
-                [length]="totalUsers"
-                [pageSize]="pageSizeU"
-                [pageSizeOptions]="pageSizeOptions"
-                (page)="onChange($event)"
-              ></mat-paginator>
+              <mat-paginator [length]="totalUsers" [pageSize]="pageSizeU" [pageSizeOptions]="pageSizeOptions"
+                (page)="onChange($event)"></mat-paginator>
             </nav>
           </div>
         </div>
