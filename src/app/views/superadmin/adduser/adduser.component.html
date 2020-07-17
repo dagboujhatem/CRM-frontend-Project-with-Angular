@@ -28,14 +28,14 @@
                     email is invalid
                   </mat-error>
                 </mat-form-field><br>
-                <mat-form-field>
+                <!-- <mat-form-field>
                   <div class="input-group mb-3">
 
                     <input matInput type="text" formControlName="role" placeholder="role" autocomplete="role"
                       required />
                   </div>
                   <mat-error *ngIf="userForm.hasError('required','role')"> role is required </mat-error>
-                </mat-form-field>
+                </mat-form-field> -->
 
 
                 <mat-form-field>
@@ -62,10 +62,7 @@
               <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Societé</mat-label>
                 <mat-select [(ngModel)]="pme" name="selecrPme">
-                  <mat-option
-                    *ngFor="let t of table ,let i=index;"
-                    value="{{t._id}}"
-                  >
+                  <mat-option *ngFor="let t of table ,let i=index;" value="{{t._id}}">
                     {{t.name}}
                   </mat-option>
                 </mat-select>
@@ -85,11 +82,7 @@
                       >{{t.name}}</option
                     >
                   </select> -->
-                <button
-                  type="button"
-                  (click)="addUser()"
-                  class="btn btn-block btn-success"
-                >
+                <button type="button" (click)="addUser()" class="btn btn-block btn-success">
                   Add
                 </button>
                 <!-- </div> -->

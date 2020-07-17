@@ -18,6 +18,7 @@ import { PipesearchPipe } from '../../pipes/pipesearch.pipe';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -29,7 +30,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatPaginatorModule,
 
-    MatInputModule,    
+    MatInputModule,   
+    MatSelectModule,
+    MatCheckboxModule,
+    MatOptionModule
+     
   ],
   declarations: [
       ListsocieterComponent,
