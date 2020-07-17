@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListUSERComponent implements OnInit {
   table;
-  user;
   pageSize = 1000;
   decoded = jwt_decode(this.adminservice.token);
   pageSizeU = 5;
