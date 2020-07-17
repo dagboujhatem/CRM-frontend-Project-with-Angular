@@ -4,17 +4,16 @@
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Combined All Table
       </div>
-      <br />
       <div class="card-body">
-        <mat-form-field appearance="outline" style="margin-left: 300px;">
-          <mat-label><i class="fa fa-search" aria-hidden="true"></i> Search...</mat-label>
+        <mat-form-field appearance="outline" style="margin-left: 350px;">
+          <mat-label>Search</mat-label>
           <input matInput type="text" [(ngModel)]="Search" />
         </mat-form-field>
         <select *ngIf="isAdmin" id="select1" name="select1" class="form-control" (change)="onChangePme($event)">
           <option value="">Select a Pme</option>
           <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}">{{pme.name}}</option>
         </select>
-        <table class="table table-outline table-hover table-sm">
+        <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
               <th>Name</th>
@@ -50,5 +49,4 @@
       </div>
     </div>
   </div>
-  <!--/.col-->
 </div>

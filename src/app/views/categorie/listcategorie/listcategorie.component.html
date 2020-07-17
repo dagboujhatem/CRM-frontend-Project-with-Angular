@@ -1,35 +1,37 @@
-<div class="col-md-12">
-    <div class="card">
-        <div class="card-header">
-            <i class="fa fa-align-justify"></i> Categorie Table
-        </div>
-        <br>
-        <div class="card-body">
-            <mat-form-field  appearance="outline" style="margin-left:300px;" >
-                <mat-label> <i class="fa fa-search" aria-hidden="true"></i>  Search..</mat-label>
-                <input matInput type="text" [(ngModel)]="Search" />
-              </mat-form-field>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Categorie Name</th>
-                        <th>Date registered</th>
-                        <th>Date de modification</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let tab of categorietable|categpipe: Search; let i=index">
-                    <tr>
-                        <td>{{tab.name}}</td>
-                        <td>{{tab.createdAt}}</td>
-                        <td>{{tab.updatedAt}}</td>
-                        <td>
-                            <button class="badge badge-success" routerLink="../updatecategorie/{{tab._id}}">Update</button>
-                            <button (click)='delete(i,tab._id)' class="badge badge-danger">délete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i> Categorie Table
+            </div>
+            <div class="card-body">
+                <mat-form-field appearance="outline" style="margin-left:350px;">
+                    <mat-label>Search</mat-label>
+                    <input matInput type="text" [(ngModel)]="Search" />
+                </mat-form-field>
+                <table class="table table-bordered table-responsive-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Categorie Name</th>
+                            <th>Date registered</th>
+                            <th>Date de modification</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let tab of categorietable|categpipe: Search; let i=index">
+                        <tr>
+                            <td>{{tab.name}}</td>
+                            <td>{{tab.createdAt}}</td>
+                            <td>{{tab.updatedAt}}</td>
+                            <td>
+                                <button class="badge badge-success"
+                                    routerLink="../updatecategorie/{{tab._id}}">Update</button>
+                                <button (click)='delete(i,tab._id)' class="badge badge-danger">délete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
