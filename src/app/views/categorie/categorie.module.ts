@@ -8,6 +8,7 @@ import { UpdatecategorieComponent } from './updatecategorie/updatecategorie.comp
 import { CategpipePipe } from '../../pipes/categpipe.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -19,7 +20,8 @@ import { MatInputModule } from '@angular/material/input';
       CategorieRouting,
       ReactiveFormsModule,
       MatInputModule,
-      MatIconModule
+      MatIconModule,
+      MatFormFieldModule
 
     ],
     declarations: [

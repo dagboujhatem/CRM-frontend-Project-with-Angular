@@ -17,7 +17,7 @@ export class ListsocieterComponent implements OnInit {
   totalPme;
   currentPage = 1;
   superAdminAccess = false;
-  Search: "";
+  Search:""
 
   constructor(
     private adminservice: AdminService,
