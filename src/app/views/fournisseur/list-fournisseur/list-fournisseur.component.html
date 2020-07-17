@@ -1,15 +1,27 @@
-<div class="row" *ngIf="list">
+<div class="row">
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Combined All Table
       </div>
-      <br>
+      <mat-form-field appearance="outline" style="margin-left: 300px;">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" [(ngModel)]="Search" />
+      </mat-form-field>
+      <br />
       <div class="card-body">
-        <mat-form-field  appearance="outline" style="margin-left:300px;" >
-          <mat-label>Search</mat-label>
-          <input matInput type="text" [(ngModel)]="Search" />
-        </mat-form-field>
+        <select
+          *ngIf="isAdmin"
+          id="select1"
+          name="select1"
+          class="form-control"
+          (change)="onChangePme($event)"
+        >
+          <option value="">Select a Pme</option>
+          <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}"
+            >{{pme.name}}</option
+          >
+        </select>
         <table class="table table-outline table-hover table-sm">
           <thead>
             <tr>
