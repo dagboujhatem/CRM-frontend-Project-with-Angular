@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { ActivitypipePipe } from '../../pipes/activitypipe.pipe';
 
 
 
@@ -48,7 +49,8 @@ import { MatOptionModule } from '@angular/material/core';
       AddActivityComponent,
       UpdateActivityComponent,
       PipesearchPipe,
-      ListActivityComponent
+      ListActivityComponent,
+      ActivitypipePipe
   ],
 
 })
