@@ -6,60 +6,37 @@
           <h5 class="card-title text-center">Set New Password</h5>
           <div>
             <form (ngSubmit)="onCodeSubmit(f)" #f="ngForm">
-              <div class="form-group">
-                <input
-                  class="form-control form-control-lg"
-                  placeholder="Code"
-                  type="text"
-                  [(ngModel)]="code"
-                  name="code"
-                />
-              </div>
-              <button type="submit" class="btn btn-primary mb-3">
-                Valid Code
-              </button>
+              <mat-form-field>
+                <div class="form-group">
+                  <input matInput placeholder="Code" type="text" [(ngModel)]="code"
+                    name="code" />
+                </div>
+                <button type="submit" class="btn btn-primary mb-3">
+                  Valid Code
+                </button>
+              </mat-form-field>
             </form>
-            <form
-              [formGroup]="ResponseResetForm"
-              (ngSubmit)="ResetPassword()"
-              *ngIf="CurrentState"
-            >
+            <form [formGroup]="ResponseResetForm" (ngSubmit)="ResetPassword()" *ngIf="CurrentState">
+              <mat-form-field>
               <div class="form-group">
-                <input
-                  class="form-control form-control-lg"
-                  placeholder="Password"
-                  type="password"
-                  id="password"
-                  formControlName="newPassword"
-                />
-                <span
-                  *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid"
-                  class="help-block"
-                  >Password is required with atleast 4 characters.</span
-                >
+                <input class="form-control form-control-lg" placeholder="Password" type="password" id="password"
+                  formControlName="newPassword" />
+                <span *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid"
+                  class="help-block">Password is required with atleast 4 characters.</span>
               </div>
               <div class="form-group">
-                <input
-                  class="form-control form-control-lg"
-                  placeholder="Confirm Password"
-                  type="password"
-                  id="cpassword"
-                  formControlName="confirmPassword"
-                />
-                <span
-                  *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid"
-                  class="help-block"
-                  >.
+                <input class="form-control form-control-lg" placeholder="Confirm Password" type="password"
+                  id="cpassword" formControlName="confirmPassword" />
+                <span *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid" class="help-block">.
                 </span>
                 <span
                   *ngIf="ResponseResetForm.get('confirmPassword').valid && (ResponseResetForm.get('confirmPassword').value != ResponseResetForm.get('newPassword').value) && !IsResetFormValid"
-                  class="help-block"
-                  >Confirm Password does not match with password.</span
-                >
+                  class="help-block">Confirm Password does not match with password.</span>
               </div>
               <button type="submit" class="btn btn-primary">
                 Update Password
               </button>
+            </mat-form-field>
             </form>
           </div>
         </div>

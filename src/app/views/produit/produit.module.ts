@@ -11,6 +11,7 @@ import { AffichageProduitComponent } from './affichage-produit/affichage-produit
 import { ProdpipePipe } from '../../pipes/prodpipe.pipe';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule
   ],
   declarations: [
     AddproduitComponent,

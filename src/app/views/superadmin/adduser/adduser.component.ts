@@ -67,10 +67,4 @@ export class AdduserComponent implements OnInit {
         });
     }
   }
-  toggleIsAwesome() {
-    this.isAwesome = !this.isAwesome;
-    this.userForm.controls.notifRupture.setValue(this.isAwesome);
-    // console.log(this.isAwesome);
-    // console.log(this.userForm.value);
-  }
 }
