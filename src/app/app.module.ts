@@ -52,6 +52,7 @@ import { Produit } from './views/produit/produit.module';
 import { FournisseurModule } from './views/fournisseur/fournisseur.module';
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ActivitypipePipe } from './pipes/activitypipe.pipe';
 
 
 
@@ -94,6 +95,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ForgetComponent,
     RegisterComponent,
     ResetComponent,
+    ActivitypipePipe,
   
   ],
   providers: [

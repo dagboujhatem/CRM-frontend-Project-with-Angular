@@ -8,9 +8,11 @@
           <div class="form-group row">
             <div class="col-md-12">
               <div class="input-group">
-                <input type="text" id="input2-group2" formControlName="name" name="input2-group2" class="form-control" placeholder="Activity Name">
+                <mat-form-field>
+                <input type="text" id="input2-group2" formControlName="name" name="input2-group2" placeholder="Activity Name">
+                </mat-form-field>                 
                 <span class="input-group-append">
-                  <button type="button" (click)="Updateactivity()" class="btn btn-primary">Add Activity</button>
+                  <button type="button" (click)="Updateactivity()" class="btn btn-primary">Update Activity</button>
                 </span>
               </div>
             </div>

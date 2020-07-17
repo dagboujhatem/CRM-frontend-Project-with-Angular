@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./adduser.component.css'],
 })
 export class AdduserComponent implements OnInit {
+  hide = true ;
   isAwesome = false;
   table;
   pme: '';
