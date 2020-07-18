@@ -4,37 +4,39 @@
       <strong>Company</strong>
       <small>Form</small>
     </div>
-    <form class="card-body" [formGroup]="fournisseurForm">
+    <form class="card-body ml-3" [formGroup]="fournisseurForm">
       <div class="row">
         <div class="form-group col-sm-6">
           <mat-form-field>
             <input matInput type="text" formControlName="name" id="inputError2" placeholder="Enter your company name" />
           </mat-form-field>
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <mat-form-field>
             <input matInput type="email" formControlName="email" placeholder="Enter your company email" />
           </mat-form-field>
         </div>
       </div>
-      <div class="form-group">
+      <div class="row">
+      <div class="form-group col-sm-6">
         <mat-form-field>
           <input matInput type="text" formControlName="ville" placeholder="Enter your company ville" />
         </mat-form-field>
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-6">
         <mat-form-field>
           <input matInput type="text" formControlName="addresse" placeholder="Enter street Adresse" />
         </mat-form-field>
       </div>
+    </div>
 
       <div class="row">
-        <div class="form-group col-sm-6">
+        <div class="form-group col-sm-6 ">
           <mat-form-field>
             <input matInput type="text" formControlName="codepostal" placeholder="Enter your Code Postal" />
           </mat-form-field>
         </div>
-        <div class="form-group col-sm-6">
+        <div class="form-group col-sm-6 ">
           <mat-form-field>
             <input matInput type="text" formControlName="pays" placeholder="Enter your Pays" />
           </mat-form-field>

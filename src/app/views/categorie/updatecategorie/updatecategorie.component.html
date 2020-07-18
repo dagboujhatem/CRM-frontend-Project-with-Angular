@@ -5,19 +5,21 @@
       </div>
       <div class="card-body">
         <form [formGroup]="updatecategorieForm" method="post" class="form-horizontal">
-          <!-- <mat-field-form> -->
+  
           <div class="form-group row">
             <div class="col-md-12">
               <div class="input-group">
+                <mat-form-field>
                 <input matInput type="text" id="input2-group2" formControlName="name" name="input2-group2" placeholder="Categorie Name">
+              </mat-form-field>
                 <span class="input-group-append">
-                  <button type="button" (click)="Updatecategorie()" class="btn btn-primary">Add Categorie</button>
                 </span>
               </div>
             </div>
           </div>
-        <!-- </mat-field-form> -->
+        
         </form>
+        <button type="button" (click)="Updatecategorie()" class="btn btn-success">Update Categorie</button>
       </div>
     </div>
   </div>

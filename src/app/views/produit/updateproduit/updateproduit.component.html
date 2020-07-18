@@ -5,48 +5,46 @@
     </div>
     <div class="card-body">
       <form [formGroup]="updateproduitform" class="form-horizontal">
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="text-input">Produit Name</label>
-          <div class="col-md-9">
+        <div class=" row">
+
+          <div class="form-group col-md-3">
             <mat-form-field>
-              <input matInput type="text" id="text-input" formControlName="name" name="text-input" placeholder="Produit Name">
+              <input matInput type="text" id="text-input" formControlName="name" name="text-input"
+                placeholder="Produit Name">
+            </mat-form-field>
+          </div>
+          <!-- <div class="form-group col-md-3">
+            <mat-form-field>
+              <input matInput type="text" id="nameP" formControlName="name" name="nameP" placeholder="Produit Name" />
+            </mat-form-field>
+          </div> -->
+        </div>
+        <div class=" row">
+          <div class="form-group col-md-3">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Enter Refferance" formControlName="ref" />
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-3">
+            <mat-form-field>
+              <input matInput type="number" id="prix" formControlName="prix" name="prix"
+                placeholder="Prix de Produit" />
             </mat-form-field>
           </div>
         </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Refferance de Produit</label>
-          <div class="col-md-9">
-              <mat-form-field>
-            <input matInput type="text" class="form-control" placeholder="Enter Refferance" formControlName="ref">
-        </mat-form-field>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
-          <div class="col-md-9">
-            <textarea id="textarea-input" formControlName="description" name="textarea-input" rows="3"
-              class="form-control" placeholder="Content.."></textarea>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-md-3">
-        <mat-form-field>
-            <input matInput type="number" id="text-input" formControlName="prix" name="text-input" 
-              placeholder="Prix de Produit">
+        <div class="row">
+          <div class="form-group col-md-3 ">
+            <mat-form-field>
+              <input matInput type="number" id="stock" formControlName="stock" name="stock" placeholder="stock" />
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field>
-            <input matInput type="number" id="text-input" formControlName="stock" name="text-input"
-              placeholder="Prix de Produit">
+              <input matInput type="number" id="min" formControlName="min" name="min" placeholder="NB de pieces" />
             </mat-form-field>
           </div>
-          <div class="col-md-3">
-           <mat-form-field>
-            <input matInput type="number" id="text-input" formControlName="min" name="text-input" 
-              placeholder="NB de pieces">
-            </mat-form-field>
-          </div>
+        </div>
+        <div class="row">
           <div class="col-md-3">
             <label class="col-md-12 col-form-label" for="text-input">Catégories</label>
             <div>
@@ -58,43 +56,25 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-3 col-form-label"
-            >Recevoire mail en cas rupture de Produit</label
-          >
+          <label class="col-md-3 col-form-label">Recevoire mail en cas rupture de Produit</label>
           <div class="col-md-9 col-form-label">
             <label class="switch switch-3d switch-primary">
-              <input
-                type="checkbox"
-                formControlName="notifRupture"
-                class="switch-input"
-                (change)="toggleIsAwesome()"
-                checked
-              />
+              <input type="checkbox" formControlName="notifRupture" class="switch-input" (change)="toggleIsAwesome()"
+                checked />
               <span class="switch-slider"></span>
             </label>
           </div>
         </div>
       </form>
       <div class="form-group row">
-        <label class="col-md-3 col-form-label" for="file-input"
-          >Produit Image</label
-        >
+        <label class="col-md-3 col-form-label" for="file-input">Produit Image</label>
         <div class="col-md-9">
-          <input
-            type="file"
-            id="file-input"
-            (change)="onFileChange($event)"
-            name="file-input"
-          />
+          <input type="file" id="file-input" (change)="onFileChange($event)" name="file-input" />
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <button
-        type="submit"
-        (click)="updateproduitById()"
-        class="btn btn-sm btn-primary"
-      >
+      <button type="submit" (click)="updateproduitById()" class="btn btn-sm btn-success">
         <i class="fa fa-dot-circle-o"></i>Update Produit
       </button>
     </div>

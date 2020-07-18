@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ["./update-user.component.css"],
 })
 export class UpdateUserComponent implements OnInit {
+  hide =true ;
   Id;
   table;
   pageSize = 1000;

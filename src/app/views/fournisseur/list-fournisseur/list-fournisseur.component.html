@@ -4,25 +4,16 @@
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Combined All Table
       </div>
-      <mat-form-field appearance="outline" style="margin-left: 300px;">
-        <mat-label>Search</mat-label>
-        <input matInput type="text" [(ngModel)]="Search" />
-      </mat-form-field>
-      <br />
       <div class="card-body">
-        <select
-          *ngIf="isAdmin"
-          id="select1"
-          name="select1"
-          class="form-control"
-          (change)="onChangePme($event)"
-        >
+        <mat-form-field appearance="outline" style="margin-left: 50px;">
+          <mat-label><i class="fa fa-search" aria-hidden="true"></i>  Search...</mat-label>
+          <input matInput type="text" [(ngModel)]="Search" />
+        </mat-form-field>
+        <select *ngIf="isAdmin" id="select1" name="select1" class="form-control" (change)="onChangePme($event)">
           <option value="">Select a Pme</option>
-          <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}"
-            >{{pme.name}}</option
-          >
+          <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}">{{pme.name}}</option>
         </select>
-        <table class="table table-outline table-hover table-sm">
+        <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
               <th>Name</th>
@@ -31,15 +22,9 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody
-            *ngFor=" let tab of list|fournpipe:Search; let i= index"
-            style="cursor: pointer;"
-          >
+          <tbody *ngFor=" let tab of list|fournpipe:Search; let i= index" style="cursor: pointer;">
             <tr>
-              <td
-                [routerLink]="['../detail-fournisseur', tab._id]"
-                routerLinkActive="router-link-active"
-              >
+              <td [routerLink]="['../detail-fournisseur', tab._id]" routerLinkActive="router-link-active">
                 {{tab.name}}
               </td>
               <td>{{tab.email}}</td>
@@ -48,11 +33,8 @@
                 <button (click)="delete(tab._id, i)" class="badge badge-danger">
                   Delete
                 </button>
-                <button
-                  class="badge badge-success"
-                  [routerLink]="['../update-fournisseur', tab._id]"
-                  routerLinkActive="router-link-active"
-                >
+                <button class="badge badge-success" [routerLink]="['../update-fournisseur', tab._id]"
+                  routerLinkActive="router-link-active">
                   Update
                 </button>
               </td>
@@ -61,15 +43,10 @@
         </table>
 
         <nav>
-          <mat-paginator
-            [length]="totalFournis"
-            [pageSize]="pageSize"
-            [pageSizeOptions]="pageSizeOptions"
-            (page)="onChange($event)"
-          ></mat-paginator>
+          <mat-paginator [length]="totalFournis" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+            (page)="onChange($event)"></mat-paginator>
         </nav>
       </div>
     </div>
   </div>
-  <!--/.col-->
 </div>
