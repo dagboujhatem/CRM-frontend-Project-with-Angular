@@ -30,6 +30,13 @@
                     email is invalid
                   </mat-error>
 
+                </mat-form-field><br />
+
+                <br />
+                <mat-form-field class="full-width">
+                  <input matInput type="password" formControlName="password" placeholder="Password" required />
+
+
                 </mat-form-field><br>
 
 
@@ -40,6 +47,7 @@
                   [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+
                   <mat-error *ngIf="userForm.hasError('required','password')">
                     password is required
                   </mat-error>
@@ -55,8 +63,8 @@
                 </mat-select>
               </mat-form-field>
               <div class="form-group row">
-             <button  type="button" (click)="addUser()" class="btn btn-block btn-primary">
-                  Add
+
+             <button  type="button" (click)="addUser()" class="btn btn-block btn-primary">  Add
              </button>
               </div>
             </div>
