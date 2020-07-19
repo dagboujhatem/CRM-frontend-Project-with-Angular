@@ -22,7 +22,7 @@ export class FournisService {
   }
 
   getOneFournisseur(id) {
-    const url = `${this.BaseUrl}/fournis/list-fourn/${id}`;
+    const url = `${this.BaseUrl}/fournis/detail-fourn/${id}`;
     return this.http.get(url);
   }
 

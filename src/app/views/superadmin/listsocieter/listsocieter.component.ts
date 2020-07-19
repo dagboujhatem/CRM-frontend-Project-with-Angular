@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../../service/admin.service';
-import * as jwt_decode from 'jwt-decode';
-import { ToastrService } from 'ngx-toastr';
-import { PageEvent } from '@angular/material/paginator';
+import { Component, OnInit } from "@angular/core";
+import { AdminService } from "../../../service/admin.service";
+import * as jwt_decode from "jwt-decode";
+import { ToastrService } from "ngx-toastr";
+import { PageEvent } from "@angular/material/paginator";
 
 @Component({
-  selector: 'app-listsocieter',
-  templateUrl: './listsocieter.component.html',
-  styleUrls: ['./listsocieter.component.css'],
+  selector: "app-listsocieter",
+  templateUrl: "./listsocieter.component.html",
+  styleUrls: ["./listsocieter.component.css"],
 })
 export class ListsocieterComponent implements OnInit {
   table;
@@ -17,7 +17,7 @@ export class ListsocieterComponent implements OnInit {
   totalPme;
   currentPage = 1;
   superAdminAccess = false;
-  Search:""
+  Search: "";
 
   constructor(
     private adminservice: AdminService,
@@ -25,10 +25,8 @@ export class ListsocieterComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.getallpme();
-    console.log(this.decoded);
-    
-    if (this.decoded.data.role === 'superAdmin') {
 
+    if (this.decoded.data.role === "superAdmin") {
       this.superAdminAccess = true;
     }
   }
@@ -36,14 +34,14 @@ export class ListsocieterComponent implements OnInit {
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
-    if (this.decoded.data.role === 'superAdmin') {
+    if (this.decoded.data.role === "superAdmin") {
       this.adminservice
         .getall(this.pageSize, this.currentPage)
         .subscribe((res: { pme; count }) => {
           this.table = res.pme;
           this.totalPme = res.count;
         });
-    } else if (this.decoded.data.role === 'admin') {
+    } else if (this.decoded.data.role === "admin") {
       this.adminservice
         .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
         .subscribe((res: { pme; count }) => {
@@ -54,14 +52,14 @@ export class ListsocieterComponent implements OnInit {
   }
   // ************* get all pme for superAdmin*******//
   getallpme() {
-    if (this.decoded.data.role === 'superAdmin') {
+    if (this.decoded.data.role === "superAdmin") {
       this.adminservice
         .getall(this.pageSize, this.currentPage)
         .subscribe((res: { pme; count }) => {
           this.table = res.pme;
           this.totalPme = res.count;
         });
-    } else if (this.decoded.data.role === 'admin') {
+    } else if (this.decoded.data.role === "admin") {
       this.adminservice
         .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
         .subscribe((res: { pme; count }) => {
@@ -72,12 +70,12 @@ export class ListsocieterComponent implements OnInit {
   }
   /*****************delete pme for supre admin******** */
   delete(i, id) {
-    if (this.decoded.data.role === 'superAdmin') {
+    if (this.decoded.data.role === "superAdmin") {
       this.adminservice.deletepme(id).subscribe(
         (res: any) => {
           this.getallpme();
           this.table.splice(i, 1);
-          return this.toastr.success('Pme Deleted Successfully');
+          return this.toastr.success("Pme Deleted Successfully");
         },
         (err) => {
           return this.toastr.warning(err.message);
