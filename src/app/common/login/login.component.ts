@@ -12,7 +12,7 @@ import { SidebarService } from "../../service/sidebar.service";
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
   hide = true;
-  responseData;
+
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -21,16 +21,31 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required ),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", Validators.required),
     });
   }
   login() {
-    this.auth.signin(this.LoginForm.value).subscribe((res) => {
-      this.responseData = res;
-      localStorage.setItem("token", this.responseData.token);
-      this.sidebar.reloadNavItem();
-      this.router.navigateByUrl("/home/dashboard");
-    });
+    this.auth
+      .signin(this.LoginForm.value)
+      .subscribe((res: { token: string }) => {
+        localStorage.setItem("token", res.token);
+        this.sidebar.reloadNavItem();
+        // this.auth.isLogged.next(true);
+        // if (this.auth.getRole() === "admin") {
+        //   this.auth.isAdmin.next(true);
+        //   this.auth.isUser.next(false);
+        //   this.auth.isSuperAdmin.next(false);
+        // } else if (this.auth.getRole() === "user") {
+        //   this.auth.isAdmin.next(false);
+        //   this.auth.isUser.next(true);
+        //   this.auth.isSuperAdmin.next(false);
+        // } else if (this.auth.getRole() === "superAdmin") {
+        //   this.auth.isAdmin.next(false);
+        //   this.auth.isUser.next(false);
+        //   this.auth.isSuperAdmin.next(true);
+        // }
+        this.router.navigateByUrl("/home/dashboard");
+      });
   }
 }
