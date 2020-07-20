@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import * as jwt_decode from "jwt-decode";
-import { CategorieService } from "../../../service/categorie.service";
-import { AdminService } from "../../../service/admin.service";
-import { ToastrService } from "ngx-toastr";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { PageEvent } from "@angular/material/paginator";
+import { Component, OnInit } from '@angular/core';
+import * as jwt_decode from 'jwt-decode';
+import { CategorieService } from '../../../service/categorie.service';
+import { AdminService } from '../../../service/admin.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: "app-listcategorie",
-  templateUrl: "./listcategorie.component.html",
-  styleUrls: ["./listcategorie.component.css"],
+  selector: 'app-listcategorie',
+  templateUrl: './listcategorie.component.html',
+  styleUrls: ['./listcategorie.component.css'],
 })
 export class ListcategorieComponent implements OnInit {
   decoded = jwt_decode(this.adminservice.token);
   categorietable;
-  Search: "";
+  Search: '';
   pmeTable;
   pageSize = 2;
   totalCat;
@@ -33,7 +33,7 @@ export class ListcategorieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.getPmeByAdmin();
       this.isAdmin = !this.isAdmin;
     }
@@ -54,7 +54,7 @@ export class ListcategorieComponent implements OnInit {
       .DeleteCategorieById(this.decoded.data.pme || this.pme, id)
       .subscribe(() => {
         this.categorietable.splice(i, 1);
-        return this.toastr.success("categorie deleted successfully");
+        return this.toastr.success('categorie deleted successfully');
       });
     this.modalService.dismissAll();
   }
@@ -75,7 +75,7 @@ export class ListcategorieComponent implements OnInit {
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.categorie
         .GetCategorie(this.pme, this.pageSize, this.currentPage)
         .subscribe((res: { categ; count }) => {
@@ -94,7 +94,7 @@ export class ListcategorieComponent implements OnInit {
 
   /******************get categorie ***************** */
   getcategorie(pme) {
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.categorie
         .GetCategorie(pme, this.pageSize, this.currentPage)
         .subscribe((res: { categ; count }) => {

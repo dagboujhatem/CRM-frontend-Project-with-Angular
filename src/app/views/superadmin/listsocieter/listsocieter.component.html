@@ -15,17 +15,17 @@
         <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Date registered</th>
-              <th>Action</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Date registered</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
-          <tbody *ngFor=" let tab of table|pipesearch: Search; let i=index">
+          <tbody *ngFor=" let tab of categorietable | pipesearch: Search; let i=index">
             <tr>
-              <td>{{tab.name}}</td>
-              <td>{{tab.email}}</td>
-              <td>20/1/2655</td>
+              <td class="text-center">{{tab.name}}</td>
+              <td class="text-center">{{tab.email}}</td>
+              <td class="text-center">20/1/2655</td>
               <td class="text-center">
                 <span
                   style="cursor: pointer;"
