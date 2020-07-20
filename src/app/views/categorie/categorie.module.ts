@@ -9,6 +9,7 @@ import { CategpipePipe } from '../../pipes/categpipe.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 
 
@@ -21,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       ReactiveFormsModule,
       MatInputModule,
       MatIconModule,
+      MatPaginatorModule,
       MatFormFieldModule
 
     ],

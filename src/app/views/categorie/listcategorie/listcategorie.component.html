@@ -8,26 +8,16 @@
         <div class="row">
           <div class="col-md-4">
             <mat-form-field appearance="outline" style="margin-left: 50px;">
-              <mat-label
-                ><i class="fa fa-search" aria-hidden="true"></i>
-                Search...</mat-label
-              >
+              <mat-label><i class="fa fa-search" aria-hidden="true"></i>
+                Search...</mat-label>
               <input matInput type="text" [(ngModel)]="Search" />
             </mat-form-field>
           </div>
           <div class="col-md-4"></div>
           <div class="col-md-4">
-            <mat-form-field
-              *ngIf="isAdmin"
-              appearance="fill"
-              class="full-width"
-            >
+            <mat-form-field *ngIf="isAdmin" appearance="fill" class="full-width">
               <mat-label>Select a Pme</mat-label>
-              <select
-                matNativeControl
-                (change)="onChangePme($event)"
-                name="select1"
-              >
+              <select matNativeControl (change)="onChangePme($event)" name="select1">
                 <option value=""></option>
                 <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}">
                   {{pme.name}}
@@ -45,9 +35,7 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody
-            *ngFor="let tab of categorietable|categpipe: Search; let i=index"
-          >
+          <tbody *ngFor="let tab of categorietable|categpipe: Search; let i=index">
             <tr>
               <td>{{tab.name}}</td>
               <td>{{tab.createdAt}}</td>
@@ -66,12 +54,7 @@
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title text-danger">Delete Product</h4>
-                  <button
-                    type="button"
-                    class="close"
-                    aria-label="Close"
-                    (click)="closeModal()"
-                  >
+                  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -79,11 +62,7 @@
                   <p>Are you sure you want to delete {{tab.name}}</p>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-outline-dark"
-                    (click)="acceptDelete(i, tab._id)"
-                  >
+                  <button type="button" class="btn btn-outline-dark" (click)="acceptDelete(i, tab._id)">
                     Delete
                   </button>
                 </div>
@@ -91,6 +70,13 @@
             </tr>
           </tbody>
         </table>
+        <nav>
+          <mat-paginator 
+          [length]="totalCat" 
+          [pageSize]="pageSize" 
+          [pageSizeOptions]="pageSizeOptions"
+            (page)="onChange($event)"></mat-paginator>
+        </nav>
       </div>
     </div>
   </div>
