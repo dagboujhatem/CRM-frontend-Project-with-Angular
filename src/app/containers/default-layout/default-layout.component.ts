@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { navItems } from "../../_nav";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { navItems } from '../../_nav';
+import { Router } from '@angular/router';
 
-import * as jwt_decode from "jwt-decode";
-import { SidebarService } from "../../service/sidebar.service";
-import { AuthService } from "../../service/auth.service";
-import { Observable } from "rxjs";
+import * as jwt_decode from 'jwt-decode';
+import { SidebarService } from '../../service/sidebar.service';
+import { AuthService } from '../../service/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: "app-dashboard",
-  templateUrl: "./default-layout.component.html",
+  selector: 'app-dashboard',
+  templateUrl: './default-layout.component.html',
 })
 export class DefaultLayoutComponent implements OnInit {
   public sidebarMinimized = false;
@@ -29,11 +29,11 @@ export class DefaultLayoutComponent implements OnInit {
     this.sidebarMinimized = e;
   }
   logout() {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     this.auth.isLogged.next(false);
     this.auth.isAdmin.next(false);
     this.auth.isUser.next(false);
     this.auth.isSuperAdmin.next(false);
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 }

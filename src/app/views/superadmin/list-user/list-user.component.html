@@ -57,18 +57,16 @@
             <tr>
               <td>{{tab.name}}</td>
               <td>{{tab.email}}</td>
-              <td>
-                <button
-                  class="badge badge-success"
+              <td class="text-center">
+                <span
+                  style="cursor: pointer;"
                   routerLink="../updateuser/{{tab._id}}"
+                  class="mr-3"
+                  ><mat-icon>mode_edit</mat-icon></span
                 >
-                  Update</button
-                ><button
-                  (click)="openDialog(content)"
-                  class="badge badge-danger"
+                <span style="cursor: pointer;" (click)="openDialog(content)"
+                  ><mat-icon>delete_sweep</mat-icon></span
                 >
-                  delete
-                </button>
               </td>
               <ng-template #content let-modal>
                 <div class="modal-header">

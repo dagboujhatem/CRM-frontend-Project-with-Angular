@@ -40,13 +40,16 @@
               <td>{{tab.name}}</td>
               <td>{{tab.createdAt}}</td>
               <td>{{tab.updatedAt}}</td>
-              <td>
-                <button class="badge badge-success" routerLink="../updatecategorie/{{tab._id}}">
-                  Update
-                </button>
-                <button (click)="openDialog(content)" class="badge badge-danger">
-                  délete
-                </button>
+              <td class="text-center">
+                <span
+                  style="cursor: pointer;"
+                  routerLink="../updatecategorie/{{tab._id}}"
+                  class="mr-3"
+                  ><mat-icon>mode_edit</mat-icon></span
+                >
+                <span style="cursor: pointer;" (click)="openDialog(content)"
+                  ><mat-icon>delete_sweep</mat-icon></span
+                >
               </td>
               <ng-template #content let-modal>
                 <div class="modal-header">

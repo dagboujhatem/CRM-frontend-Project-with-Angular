@@ -1,53 +1,83 @@
 <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> Combined All Table
-        </div>
-        <div class="card-body">
-          <mat-form-field appearance="outline" style="margin-left:50px;" >
-            <mat-label><i class="fa fa-search" aria-hidden="true"></i>  Search...</mat-label>
-            <input matInput type="text" [(ngModel)]="Search" />
-          </mat-form-field>
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr>
-                <th>Activity Name</th>
-                <th>Date registered</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody *ngFor=" let tab of activitytable|activitypipe: Search; let i=index">
-              <tr>
-                <td>{{tab.name}}</td>
-                <td>{{tab.createdAt}}</td>
-                <td>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Combined All Table
+      </div>
+      <div class="card-body">
+        <mat-form-field appearance="outline" style="margin-left: 50px;">
+          <mat-label
+            ><i class="fa fa-search" aria-hidden="true"></i>
+            Search...</mat-label
+          >
+          <input matInput type="text" [(ngModel)]="Search" />
+        </mat-form-field>
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Activity Name</th>
+              <th>Date registered</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody
+            *ngFor=" let tab of activitytable|activitypipe: Search; let i=index"
+          >
+            <tr>
+              <td>{{tab.name}}</td>
+              <td>{{tab.createdAt}}</td>
+              <td class="text-center">
+                <span
+                  style="cursor: pointer;"
+                  routerLink="/home/superadmin/activity/updateactivity/{{tab._id}}"
+                  class="mr-3"
+                  ><mat-icon>mode_edit</mat-icon></span
+                >
+                <span
+                  style="cursor: pointer;"
+                  *ngIf="superAdminAccess"
+                  (click)="openDialog(content)"
+                  ><mat-icon>delete_sweep</mat-icon></span
+                >
+              </td>
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title text-danger">Delete Product</h4>
                   <button
-                    class="badge badge-success"
-                    routerLink="/home/superadmin/activity/updateactivity/{{tab._id}}"
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    (click)="closeModal()"
                   >
-                    Update</button
-                  ><button
-                    *ngIf="superAdminAccess"
-                    (click)="delete(i, tab._id)"
-                    class="badge badge-danger"
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to delete {{tab.name}}</p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark"
+                    (click)="acceptDelete(i, tab._id)"
                   >
                     Delete
                   </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <nav>
-            <mat-paginator
-              [length]="totalActivity"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="onChange($event)"
-            ></mat-paginator>
-          </nav>
-        </div>
+                </div>
+              </ng-template>
+            </tr>
+          </tbody>
+        </table>
+        <nav>
+          <mat-paginator
+            [length]="totalActivity"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="onChange($event)"
+          ></mat-paginator>
+        </nav>
       </div>
     </div>
-    <!--/.col-->
   </div>
+  <!--/.col-->
+</div>
