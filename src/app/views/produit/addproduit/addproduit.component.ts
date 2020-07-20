@@ -13,8 +13,7 @@ import { Router } from "@angular/router";
 })
 export class AddproduitComponent implements OnInit {
   data: FormData;
-  pageSize = 2;
-  pageSizeOptions = [2, 5, 10];
+  pageSize = 1000;
   currentPage = 1;
   constructor(
     private adminservice: AdminService,
@@ -72,9 +71,11 @@ export class AddproduitComponent implements OnInit {
   }
   /***********get categorie *********** */
   getcatigorie() {
-    this.categorie.GetCategorie(this.decoded.data.pme, this.pageSize, this.currentPage).subscribe((res: any) => {
-      this.categorietable = res;
-    });
+    this.categorie
+      .GetCategorie(this.decoded.data.pme, this.pageSize, this.currentPage)
+      .subscribe((res: any) => {
+        this.categorietable = res.categ;
+      });
   }
   toggleIsAwesome() {
     this.isAwesome = !this.isAwesome;
