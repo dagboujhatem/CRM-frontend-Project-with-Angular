@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 })
 export class AddproduitComponent implements OnInit {
   data: FormData;
-  pageSize = 2;
+  pageSize = 1000;
   pageSizeOptions = [2, 5, 10];
   currentPage = 1;
   constructor(
@@ -73,7 +73,7 @@ export class AddproduitComponent implements OnInit {
   /***********get categorie *********** */
   getcatigorie() {
     this.categorie.GetCategorie(this.decoded.data.pme, this.pageSize, this.currentPage).subscribe((res: any) => {
-      this.categorietable = res;
+      this.categorietable = res.categ;
     });
   }
   toggleIsAwesome() {

@@ -8,24 +8,12 @@
         <div class="row">
           <div class="form-group col-md-6">
             <mat-form-field>
-              <input
-                matInput
-                type="text"
-                id="nameP"
-                formControlName="name"
-                name="nameP"
-                placeholder="Produit Name"
-              />
+              <input matInput type="text" id="nameP" formControlName="name" name="nameP" placeholder="Produit Name" />
             </mat-form-field>
           </div>
           <div class="form-group col-md-6">
             <mat-form-field>
-              <input
-                matInput
-                type="text"
-                placeholder="Enter Refferance"
-                formControlName="ref"
-              />
+              <input matInput type="text" placeholder="Enter Refferance" formControlName="ref" />
             </mat-form-field>
           </div>
         </div>
@@ -33,40 +21,21 @@
         <div class="row">
           <div class="form-group col-md-6">
             <mat-form-field>
-              <input
-                matInput
-                type="number"
-                id="prix"
-                formControlName="prix"
-                name="prix"
-                placeholder="Prix de Produit"
-              />
+              <input matInput type="number" id="prix" formControlName="prix" name="prix"
+                placeholder="Prix de Produit" />
             </mat-form-field>
           </div>
           <div class="form-group col-md-6">
             <mat-form-field>
-              <input
-                matInput
-                type="number"
-                id="stock"
-                formControlName="stock"
-                name="stock"
-                placeholder="stock"
-              />
+              <input matInput type="number" id="stock" formControlName="stock" name="stock" placeholder="stock" />
             </mat-form-field>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input
-                matInput
-                type="number"
-                id="min"
-                formControlName="min"
-                name="min"
-                placeholder="NB de pieces de rupture"
-              />
+              <input matInput type="number" id="min" formControlName="min" name="min"
+                placeholder="NB de pieces de rupture" />
             </mat-form-field>
           </div>
 
@@ -74,11 +43,7 @@
             <div class="form-group col-md-6">
               <mat-form-field class="example-full-width">
                 <mat-label>Leave a comment</mat-label>
-                <textarea
-                  matInput
-                  formControlName="description"
-                  placeholder="Content.."
-                ></textarea>
+                <textarea matInput formControlName="description" placeholder="Content.."></textarea>
               </mat-form-field>
               <!-- <textarea id="textarea-input" formControlName="description" name="textarea-input" rows="3"
               class="form-control" placeholder="Content.."></textarea> -->
@@ -90,28 +55,17 @@
             <mat-form-field appearance="fill">
               <mat-label>Please select a category</mat-label>
               <mat-select formControlName="categorie">
-                <mat-option
-                  *ngFor="let t of categorietable ,let i=index;"
-                  value="{{t._id}}"
-                  >{{t.name}}</mat-option
-                >
+                <mat-option *ngFor="let t of categorietable ,let i=index;" value="{{t._id}}">{{t.name}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
 
           <div class="form-group col-md-6">
-            <label class="col-md-12 col-form-label"
-              >Recevoire mail en cas rupture de Produit</label
-            >
+            <label class="col-md-12 col-form-label">Recevoire mail en cas rupture de Produit</label>
             <div class="col-md-9 col-form-label">
               <label class="switch switch-3d switch-primary">
-                <input
-                  type="checkbox"
-                  formControlName="notifRupture"
-                  class="switch-input"
-                  (change)="toggleIsAwesome()"
-                  [checked]="true"
-                />
+                <input type="checkbox" formControlName="notifRupture" class="switch-input" (change)="toggleIsAwesome()"
+                  [checked]="true" />
                 <span class="switch-slider"></span>
               </label>
             </div>
@@ -120,16 +74,9 @@
       </form>
 
       <div class="form-group row">
-        <label class="col-md-3 col-form-label" for="file-input"
-          >Produit Image</label
-        >
+        <label class="col-md-3 col-form-label" for="file-input">Produit Image</label>
         <div class="col-md-9">
-          <input
-            type="file"
-            id="file-input"
-            (change)="onFileChange($event)"
-            name="file-input"
-          />
+          <input type="file" id="file-input" (change)="onFileChange($event)" name="file-input" />
         </div>
       </div>
     </div>
