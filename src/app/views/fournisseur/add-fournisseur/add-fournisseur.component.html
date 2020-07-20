@@ -8,56 +8,96 @@
       <div class="row">
         <div class="form-group col-sm-6">
           <mat-form-field>
-            <input matInput type="text" formControlName="name" id="inputError2" placeholder="Enter your company name" />
+            <input
+              matInput
+              type="text"
+              formControlName="name"
+              id="inputError2"
+              placeholder="Enter your company name"
+            />
           </mat-form-field>
         </div>
         <div class="form-group col-sm-6">
           <mat-form-field>
-            <input matInput type="email" formControlName="email" placeholder="Enter your company email" />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-      <div class="form-group col-sm-6">
-        <mat-form-field>
-          <input matInput type="text" formControlName="ville" placeholder="Enter your company ville" />
-        </mat-form-field>
-      </div>
-      <div class="form-group col-sm-6">
-        <mat-form-field>
-          <input matInput type="text" formControlName="addresse" placeholder="Enter street Adresse" />
-        </mat-form-field>
-      </div>
-    </div>
-
-      <div class="row">
-        <div class="form-group col-sm-6 ">
-          <mat-form-field>
-            <input matInput type="text" formControlName="codepostal" placeholder="Enter your Code Postal" />
-          </mat-form-field>
-        </div>
-        <div class="form-group col-sm-6 ">
-          <mat-form-field>
-            <input matInput type="text" formControlName="pays" placeholder="Enter your Pays" />
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="Enter your company email"
+            />
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="form-group col-sm-6">
           <mat-form-field>
-            <input matInput type="number" formControlName="Telportable" placeholder="Enter your Cell Phone number" />
+            <input
+              matInput
+              type="text"
+              formControlName="ville"
+              placeholder="Enter your company ville"
+            />
           </mat-form-field>
         </div>
         <div class="form-group col-sm-6">
           <mat-form-field>
-            <input matInput type="number" formControlName="fixe" placeholder="Enter your Land Line number" />
+            <input
+              matInput
+              type="text"
+              formControlName="addresse"
+              placeholder="Enter street Adresse"
+            />
           </mat-form-field>
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary px-4" (click)="onSubmit()">
-        ADD
-      </button>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="codepostal"
+              placeholder="Enter your Code Postal"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="pays"
+              placeholder="Enter your Pays"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              formControlName="Telportable"
+              placeholder="Enter your Cell Phone number"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              formControlName="fixe"
+              placeholder="Enter your Land Line number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
     </form>
+    <button type="button" class="btn btn-primary px-4" (click)="onSubmit()">
+      <i class="fa fa-dot-circle-o"></i> ADD
+    </button>
   </div>
 </div>

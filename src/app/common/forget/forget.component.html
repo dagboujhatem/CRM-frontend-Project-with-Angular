@@ -4,25 +4,34 @@
       <div class="row">
         <div class="col-md-8 mx-auto">
           <div class="card-group">
-            <div class="card p-4">
+            <div class="card">
               <div class="card-body">
-                <form [formGroup]="resetForm" (ngSubmit)="reqReset()">
+                <form [formGroup]="resetForm">
                   <h1>Put your email adresse</h1>
-                 
+
                   <mat-form-field>
-                  <div class="input-group mb-3">         
-                    <input matInput type="text"  formControlName="email" placeholder="Email" required />
-                  </div>
-                </mat-form-field>
-                  <div class="row">
-                    <div class="col-6">
-                      <button type="submit" class="btn btn-primary px-4">
-                        confirm email
-                      </button>
+                    <div class="input-group mb-3">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="email"
+                        placeholder="Email"
+                        required
+                      />
                     </div>
+                  </mat-form-field>
+                  <div class="row">
+                    <div class="col-6"></div>
                   </div>
                 </form>
               </div>
+              <button
+                type="button"
+                (click)="reqReset()"
+                class="btn btn-primary px-4"
+              >
+                confirm email
+              </button>
             </div>
           </div>
         </div>
