@@ -39,26 +39,26 @@
         <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Réfferance</th>
-              <th>Stock</th>
-              <th>nb min</th>
-              <th>Prix</th>
-              <th>Action</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Réfferance</th>
+              <th class="text-center">Stock</th>
+              <th class="text-center">nb min</th>
+              <th class="text-center">Prix</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody *ngFor=" let tab of table|prodpipe: Search; let i=index">
             <tr>
-              <td
+              <td class="text-center"
                 routerLink="../affichageproduit/{{tab._id}}"
                 style="cursor: pointer;"
               >
                 {{tab.name}}
               </td>
-              <td>{{tab.ref}}</td>
-              <td>{{tab.stock}}</td>
-              <td>{{tab.min}}</td>
-              <td>{{tab.prix}}</td>
+              <td class="text-center">{{tab.ref}}</td>
+              <td class="text-center">{{tab.stock}}</td>
+              <td class="text-center">{{tab.min}}</td>
+              <td class="text-center">{{tab.prix}}</td>
               <td class="text-center">
                 <span
                   style="cursor: pointer;"

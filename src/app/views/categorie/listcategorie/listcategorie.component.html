@@ -29,17 +29,17 @@
         <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
-              <th>Categorie Name</th>
-              <th>Date registered</th>
-              <th>Date de modification</th>
-              <th>Action</th>
+              <th class="text-center">Categorie Name</th>
+              <th class="text-center">Date registered</th>
+              <th class="text-center">Date de modification</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody *ngFor="let tab of categorietable|categpipe: Search; let i=index">
             <tr>
-              <td>{{tab.name}}</td>
-              <td>{{tab.createdAt}}</td>
-              <td>{{tab.updatedAt}}</td>
+              <td class="text-center">{{tab.name}}</td>
+              <td class="text-center">{{tab.createdAt}}</td>
+              <td class="text-center">{{tab.updatedAt}}</td>
               <td class="text-center">
                 <span
                   style="cursor: pointer;"

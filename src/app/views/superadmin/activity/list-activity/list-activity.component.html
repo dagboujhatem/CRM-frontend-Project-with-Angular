@@ -2,7 +2,7 @@
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> Combined All Table
+        <i class="fa fa-align-justify"></i> Activity Table
       </div>
       <div class="card-body">
         <mat-form-field appearance="outline" style="margin-left: 50px;">
@@ -15,17 +15,17 @@
         <table class="table table-bordered table-striped table-sm">
           <thead>
             <tr>
-              <th>Activity Name</th>
-              <th>Date registered</th>
-              <th>Action</th>
+              <th class="text-center">Activity Name</th>
+              <th class="text-center">Date registered</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody
             *ngFor=" let tab of activitytable|activitypipe: Search; let i=index"
           >
             <tr>
-              <td>{{tab.name}}</td>
-              <td>{{tab.createdAt}}</td>
+              <td class="text-center">{{tab.name}}</td>
+              <td class="text-center">{{tab.createdAt}}</td>
               <td class="text-center">
                 <span
                   style="cursor: pointer;"

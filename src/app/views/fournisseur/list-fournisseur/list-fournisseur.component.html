@@ -30,17 +30,17 @@
         <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Action</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody *ngFor=" let tab of list|fournpipe:Search; let i= index" style="cursor: pointer;">
             <tr>
-              <td [routerLink]="['../detail-fournisseur', tab._id]" routerLinkActive="router-link-active">
+              <td class="text-center" [routerLink]="['../detail-fournisseur', tab._id]" routerLinkActive="router-link-active">
                 {{tab.name}}
               </td>
-              <td>{{tab.email}}</td>
+              <td class="text-center">{{tab.email}}</td>
               <td class="text-center">
                 <span style="cursor: pointer;" [routerLink]="['../update-fournisseur', tab._id]" class="mr-3">
                   <mat-icon>mode_edit</mat-icon>
