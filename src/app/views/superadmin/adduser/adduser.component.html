@@ -67,18 +67,19 @@
                     password is required
                   </mat-error>
                 </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Societé</mat-label>
+                  <mat-select formControlName="pme" name="selecrPme">
+                    <mat-option
+                      *ngFor="let t of table ,let i=index;"
+                      value="{{t._id}}"
+                    >
+                      {{t.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
               </form>
-              <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Societé</mat-label>
-                <mat-select [(ngModel)]="pme" name="selecrPme">
-                  <mat-option
-                    *ngFor="let t of table ,let i=index;"
-                    value="{{t._id}}"
-                  >
-                    {{t.name}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+
               <div class="form-group row">
                 <button
                   type="button"
