@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../../service/auth.service";
 import { Router } from "@angular/router";
 import { SidebarService } from "../../service/sidebar.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-login",
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private sidebar: SidebarService
+    private sidebar: SidebarService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -26,10 +28,12 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
-    this.auth
-      .signin(this.LoginForm.value)
-      .subscribe((res: { token: string }) => {
-        localStorage.setItem("token", res.token);
+    this.auth.signin(this.LoginForm.value).subscribe(
+      (res: any) => {
+        localStorage.setItem("token", res.message);
+        // const token = localStorage.getItem("token");
+        // if (!token) return console.log(res.message);
+
         this.sidebar.reloadNavItem();
         // this.auth.isLogged.next(true);
         // if (this.auth.getRole() === "admin") {
@@ -45,7 +49,12 @@ export class LoginComponent implements OnInit {
         //   this.auth.isUser.next(false);
         //   this.auth.isSuperAdmin.next(true);
         // }
+        this.toastr.success("Connected Successfully");
         this.router.navigateByUrl("/home/dashboard");
-      });
+      },
+      (err) => {
+        return this.toastr.warning(err.error.message);
+      }
+    );
   }
 }
