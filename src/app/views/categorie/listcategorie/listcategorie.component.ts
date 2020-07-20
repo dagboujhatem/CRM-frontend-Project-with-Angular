@@ -78,15 +78,15 @@ export class ListcategorieComponent implements OnInit {
     if (this.decoded.data.role === 'admin') {
       this.categorie
         .GetCategorie(this.pme, this.pageSize, this.currentPage)
-        .subscribe((res: { stocks; count }) => {
-          this.categorietable = res.stocks;
+        .subscribe((res: { categ; count }) => {
+          this.categorietable = res.categ;
           this.totalCat = res.count;
         });
     } else {
       this.categorie
         .GetCategorie(this.decoded.data.pme, this.pageSize, this.currentPage)
-        .subscribe((res: { stocks; count }) => {
-          this.categorietable = res.stocks;
+        .subscribe((res: { categ; count }) => {
+          this.categorietable = res.categ;
           this.totalCat = res.count;
         });
     }
@@ -95,15 +95,17 @@ export class ListcategorieComponent implements OnInit {
   /******************get categorie ***************** */
   getcategorie(pme) {
     if (this.decoded.data.role === 'admin') {
-      this.categorie.GetCategorie(pme, this.pageSize, this.currentPage).subscribe((res: { categories; count }) => {
-        this.categorietable = res.categories;
-        this.totalCat = res.count;
-      });
+      this.categorie
+        .GetCategorie(pme, this.pageSize, this.currentPage)
+        .subscribe((res: { categ; count }) => {
+          this.categorietable = res.categ;
+          this.totalCat = res.count;
+        });
     } else {
       this.categorie
         .GetCategorie(this.decoded.data.pme, this.pageSize, this.currentPage)
-        .subscribe((res: { categories; count }) => {
-          this.categorietable = res.categories;
+        .subscribe((res: { categ; count }) => {
+          this.categorietable = res.categ;
           this.totalCat = res.count;
         });
     }

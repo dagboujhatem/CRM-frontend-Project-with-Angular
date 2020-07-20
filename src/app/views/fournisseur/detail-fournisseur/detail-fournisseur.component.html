@@ -1,13 +1,12 @@
-<div class="col-sm-12" *ngIf="fournisseur">
+<div class="col-sm-12 mt-3" *ngIf="fournisseur">
   <div class="card">
     <div class="card-header">
-      <h2>Company</h2>
-      <!-- <small>Form</small> -->
+      <h2>Detail Fournisseur</h2>
     </div>
     <form class="card-body">
       <div class="row">
         <div class="form-group col-sm-6">
-          <label><strong>Company: </strong></label>
+          <label><strong>Company name: </strong></label>
           <span>{{fournisseur.name}}</span>
         </div>
         <div class="form-group col-sm-6">
@@ -17,22 +16,22 @@
       </div>
       <div class="row">
         <div class="form-group col-sm-6">
-          <label><strong>ville: </strong></label>
+          <label><strong>City: </strong></label>
           <span>{{fournisseur.ville}}</span>
         </div>
         <div class="form-group col-sm-6">
-          <label><strong>Adresse: </strong></label>
+          <label><strong>Adress: </strong></label>
           <span>{{fournisseur.addresse}}</span>
         </div>
       </div>
       <!--/.row-->
       <div class="row">
         <div class="form-group col-sm-6">
-          <label><strong>Code Postal: </strong></label>
+          <label><strong>Postal code: </strong></label>
           <span>{{fournisseur.codepostal}}</span>
         </div>
         <div class="form-group col-sm-6">
-          <label><strong>Pays: </strong></label>
+          <label><strong>Country: </strong></label>
           <span>{{fournisseur.pays}}</span>
         </div>
       </div>
