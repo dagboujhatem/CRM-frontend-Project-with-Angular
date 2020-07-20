@@ -1,23 +1,30 @@
-<div class="col-sm-12">
+<div class="container">
+  <div class="col-sm-12">
     <div class="card">
-      <div class="card-header">
-        <strong>Categorie</strong> Groups
-      </div>
+      <div class="card-header"><strong>Categorie</strong> Groups</div>
       <div class="card-body">
         <form [formGroup]="categorieForm" method="post" class="form-horizontal">
           <div class="form-group row">
             <div class="col-md-12">
               <div class="input-group">
                 <mat-form-field>
-                <input matInput type="text" id="input2-group2" formControlName="name" name="input2-group2"  placeholder="Categorie Name">
-              </mat-form-field><br>
+                  <input
+                    matInput
+                    type="text"
+                    id="input2-group2"
+                    formControlName="name"
+                    name="input2-group2"
+                    placeholder="Categorie Name"
+                  /> </mat-form-field
+                ><br />
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-          <span class="input-group-append">
-            <button type="button" (click)="AddCategorie()" class="btn btn-primary">Add Categorie</button>
-          </span>
+        </form>
       </div>
+      <button type="button" (click)="AddCategorie()" class="btn btn-primary">
+        Add Categorie
+      </button>
     </div>
   </div>
+</div>

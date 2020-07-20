@@ -1,23 +1,33 @@
 <div class="col-sm-12">
-    <div class="card">
-      <div class="card-header">
-        <strong>Activity</strong> Groups
-      </div>
-      <div class="card-body">
-        <form [formGroup]="updateactivityForm" method="post" class="form-horizontal">
-          <div class="form-group row">
-            <div class="col-md-12">
-              <div class="input-group">
-                <mat-form-field>
-                <input type="text" id="input2-group2" formControlName="name" name="input2-group2" placeholder="Activity Name">
-                </mat-form-field>                 
-                <span class="input-group-append">
-                  <button type="button" (click)="Updateactivity()" class="btn btn-success">Update Activity</button>
-                </span>
-              </div>
+  <div class="card">
+    <div class="card-header"><strong>Activity</strong> Groups</div>
+    <div class="card-body">
+      <form
+        [formGroup]="updateactivityForm"
+        method="post"
+        class="form-horizontal"
+      >
+        <div class="form-group row">
+          <div class="col-md-12">
+            <div class="input-group">
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  id="input2-group2"
+                  formControlName="name"
+                  name="input2-group2"
+                  placeholder="Activity Name"
+                />
+              </mat-form-field>
+              <span class="input-group-append"> </span>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
+    <button type="button" (click)="Updateactivity()" class="btn btn-success">
+      Update Activity
+    </button>
   </div>
+</div>

@@ -38,7 +38,7 @@ export class AddproduitComponent implements OnInit {
       prix: new FormControl(""),
       min: new FormControl(""),
       categorie: new FormControl("", [Validators.required]),
-      notifRupture: new FormControl(),
+      notifRupture: new FormControl(true),
     });
   }
 
