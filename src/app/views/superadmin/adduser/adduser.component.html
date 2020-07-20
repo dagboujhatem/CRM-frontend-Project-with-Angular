@@ -1,15 +1,15 @@
-<div class="app-body register">
+<div class="app-body register ">
   <main class="main d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 mx-auto">
-          <div class="card mx-6">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
             <div class="card-body p-4">
               <form [formGroup]="userForm">
                 <h1>Add User</h1>
 
                 <!-- <p class="text-muted" routerLink="/login">Create your account</p> -->
-                <mat-form-field class="full-width">
+                <mat-form-field class="example-full-width">
                   <mat-label>Name</mat-label>
 
                   <input matInput placeholder="Name" formControlName="name" required />
@@ -17,6 +17,7 @@
                   <mat-error *ngIf="userForm.hasError('required','name')">
                     Name is required
                   </mat-error>
+
                 </mat-form-field>
                 <br />
                 <mat-form-field class="full-width">
@@ -28,15 +29,22 @@
                   <mat-error *ngIf="userForm.hasError('email','email')">
                     email is invalid
                   </mat-error>
-                </mat-form-field><br />
+
+                </mat-form-field><br>
+
 
                 <br />
                 <mat-form-field class="full-width">
-                  <input matInput type="password" formControlName="password" placeholder="Password" required />
+                  <input matInput type="password" formControlName="password" placeholder="Password" [type]="hide ? 'password' : 'text'" required />
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
                   <mat-error *ngIf="userForm.hasError('required','password')">
                     password is required
                   </mat-error>
                 </mat-form-field>
+
               </form>
               <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Societé</mat-label>
@@ -47,9 +55,9 @@
                 </mat-select>
               </mat-form-field>
               <div class="form-group row">
-                <button type="button" (click)="addUser()" class="btn btn-block btn-primary">
+             <button  type="button" (click)="addUser()" class="btn btn-block btn-primary">
                   Add
-                </button>
+             </button>
               </div>
             </div>
           </div>

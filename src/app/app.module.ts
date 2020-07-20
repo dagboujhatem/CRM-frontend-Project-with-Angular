@@ -56,6 +56,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -94,6 +95,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ForgetComponent,
     RegisterComponent,
     ResetComponent,
+
   
   ],
   providers: [
