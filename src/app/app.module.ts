@@ -25,8 +25,6 @@ import { MatIconModule } from "@angular/material/icon";
 import { RegisterComponent } from "./common/register/register.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
-const APP_CONTAINERS = [DefaultLayoutComponent];
-
 import {
   AppAsideModule,
   AppBreadcrumbModule,
@@ -44,11 +42,8 @@ import { TabsModule } from "ngx-bootstrap/tabs";
 import { ChartsModule } from "ng2-charts";
 import { ForgetComponent } from "./common/forget/forget.component";
 import { AuthInterceptor } from "./common/interceptor";
-import { SuperAdmin } from "./views/superadmin/superadmin.module";
 import { ResetComponent } from "./common/reset/reset.component";
-import { Produit } from "./views/produit/produit.module";
-import { FournisseurModule } from "./views/fournisseur/fournisseur.module";
-import { Categorie } from "./views/categorie/categorie.module";
+
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatDialogComponent } from "./mat-dialog/mat-dialog.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -74,16 +69,11 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    SuperAdmin,
-    FournisseurModule,
-    Produit,
-    Categorie,
     MatButtonToggleModule,
     NgbModule,
   ],
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS,
     P404Component,
     P500Component,
     LoginComponent,
@@ -91,6 +81,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     RegisterComponent,
     ResetComponent,
     MatDialogComponent,
+    DefaultLayoutComponent,
   ],
   providers: [
     {
