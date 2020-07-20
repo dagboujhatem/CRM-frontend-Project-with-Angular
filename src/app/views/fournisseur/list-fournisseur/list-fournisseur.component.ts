@@ -1,24 +1,25 @@
-import { Component, OnInit } from "@angular/core";
-import { FournisService } from "../../../service/fournis.service";
-import { ActivatedRoute } from "@angular/router";
-import { PageEvent } from "@angular/material/paginator";
-import { ToastrService } from "ngx-toastr";
-import * as jwt_decode from "jwt-decode";
-import { AdminService } from "../../../service/admin.service";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Component, OnInit } from '@angular/core';
+import { FournisService } from '../../../service/fournis.service';
+import { ActivatedRoute } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
+import * as jwt_decode from 'jwt-decode';
+import { AdminService } from '../../../service/admin.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: "app-list-fournisseur",
-  templateUrl: "./list-fournisseur.component.html",
-  styleUrls: ["./list-fournisseur.component.css"],
+  selector: 'app-list-fournisseur',
+  templateUrl: './list-fournisseur.component.html',
+  styleUrls: ['./list-fournisseur.component.css'],
 })
 export class ListFournisseurComponent implements OnInit {
   list;
   pageSize = 2;
+  pageSizeA = 1000;
   pageSizeOptions = [2, 5, 10];
   totalFournis;
   currentPage = 1;
-  Search: "";
+  Search: '';
   pme;
   pmeTable;
   isAdmin = false;
@@ -32,7 +33,7 @@ export class ListFournisseurComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.isAdmin = !this.isAdmin;
       this.getPmeByAdmin();
     }
@@ -54,13 +55,13 @@ export class ListFournisseurComponent implements OnInit {
       this.getFournisPme(this.pme);
     });
     this.modalService.dismissAll();
-    return this.toastr.success("Fournisseur Deleted Successfully");
+    return this.toastr.success('Fournisseur Deleted Successfully');
   }
 
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.fournis
         .getAllFournisseur(this.pme, this.pageSize, this.currentPage)
         .subscribe((res: { fournis; count }) => {
@@ -83,7 +84,7 @@ export class ListFournisseurComponent implements OnInit {
 
   getPmeByAdmin() {
     this.adminservice
-      .getPmeByAdminId(this.decoded.data._id, this.pageSize, this.currentPage)
+      .getPmeByAdminId(this.decoded.data._id, this.pageSizeA, this.currentPage)
       .subscribe((res: { pme; count }) => {
         this.pmeTable = res.pme;
       });
@@ -96,7 +97,7 @@ export class ListFournisseurComponent implements OnInit {
   }
 
   getFournisPme(pme) {
-    if (this.decoded.data.role === "admin") {
+    if (this.decoded.data.role === 'admin') {
       this.fournis
         .getAllFournisseur(pme, this.pageSize, this.currentPage)
         .subscribe((res: { fournis; count }) => {
@@ -121,6 +122,6 @@ export class ListFournisseurComponent implements OnInit {
       this.list.splice(index, 1);
       this.getFournisPme(this.pme);
     });
-    return this.toastr.success("Fournisseur Deleted Successfully");
+    return this.toastr.success('Fournisseur Deleted Successfully');
   }
 }
