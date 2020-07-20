@@ -20,6 +20,9 @@ export class UpdateproduitComponent implements OnInit {
   isAwesome = true;
   file: File;
   decoded = jwt_decode(this.adminservice.token);
+  pageSize = 2;
+  pageSizeOptions = [2, 5, 10];
+  currentPage = 1;
   Id = this.activateroute.snapshot.paramMap.get("id");
   // tslint:disable-next-line: max-line-length
   constructor(
@@ -83,7 +86,7 @@ export class UpdateproduitComponent implements OnInit {
   }
   /***********get categorie *********** */
   getcatigorie() {
-    this.categorie.GetCategorie(this.decoded.data.pme).subscribe((res: any) => {
+    this.categorie.GetCategorie(this.decoded.data.pme, this.pageSize, this.currentPage).subscribe((res: any) => {
       this.categorietable = res;
     });
   }
