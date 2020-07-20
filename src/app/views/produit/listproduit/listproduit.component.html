@@ -5,61 +5,70 @@
         <i class="fa fa-align-justify"></i> Produit Table
       </div>
       <div class="card-body">
-        <mat-form-field appearance="outline" style="margin-left: 300px;">
-          <mat-label
-            ><i class="fa fa-search" aria-hidden="true"></i>
-            Search...</mat-label
-          >
-          <input matInput type="text" [(ngModel)]="Search" />
-        </mat-form-field>
-        <select
-          *ngIf="isAdmin"
-          id="select1"
-          name="select1"
-          class="form-control"
-          (change)="onChangePme($event)"
-        >
-          <option value="">Select a Pme</option>
-          <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}"
-            >{{pme.name}}</option
-          >
-        </select>
+        <div class="row">
+          <div class="col-md-4">
+            <mat-form-field appearance="outline" style="margin-left: 50px;">
+              <mat-label
+                ><i class="fa fa-search" aria-hidden="true"></i>
+                Search...</mat-label
+              >
+              <input matInput type="text" [(ngModel)]="Search" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <mat-form-field
+              *ngIf="isAdmin"
+              appearance="fill"
+              class="full-width"
+            >
+              <mat-label>Select a Pme</mat-label>
+              <select
+                matNativeControl
+                (change)="onChangePme($event)"
+                name="select1"
+              >
+                <option value=""></option>
+                <option *ngFor="let pme of pmeTable ;" value="{{pme._id}}">
+                  {{pme.name}}
+                </option>
+              </select>
+            </mat-form-field>
+          </div>
+        </div>
         <table class="table table-bordered table-responsive-sm table-hover">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Réfferance</th>
-              <th>Stock</th>
-              <th>nb min</th>
-              <th>Prix</th>
-              <th>Action</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Réfferance</th>
+              <th class="text-center">Stock</th>
+              <th class="text-center">nb min</th>
+              <th class="text-center">Prix</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody *ngFor=" let tab of table|prodpipe: Search; let i=index">
             <tr>
-              <td
+              <td class="text-center"
                 routerLink="../affichageproduit/{{tab._id}}"
                 style="cursor: pointer;"
               >
                 {{tab.name}}
               </td>
-              <td>{{tab.ref}}</td>
-              <td>{{tab.stock}}</td>
-              <td>{{tab.min}}</td>
-              <td>{{tab.prix}}</td>
-              <td>
-                <button
-                  class="badge badge-success"
+              <td class="text-center">{{tab.ref}}</td>
+              <td class="text-center">{{tab.stock}}</td>
+              <td class="text-center">{{tab.min}}</td>
+              <td class="text-center">{{tab.prix}}</td>
+              <td class="text-center">
+                <span
+                  style="cursor: pointer;"
                   routerLink="../updateproduit/{{tab._id}}"
+                  class="mr-3"
+                  ><mat-icon>mode_edit</mat-icon></span
                 >
-                  Update
-                </button>
-                <button
-                  (click)="openDialog(content)"
-                  class="badge badge-danger"
+                <span style="cursor: pointer;" (click)="openDialog(content)"
+                  ><mat-icon>delete_sweep</mat-icon></span
                 >
-                  Delete
-                </button>
               </td>
               <ng-template #content let-modal>
                 <div class="modal-header">

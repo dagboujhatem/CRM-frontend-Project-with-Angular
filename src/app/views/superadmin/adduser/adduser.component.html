@@ -1,4 +1,4 @@
-<div class="app-body register">
+<div class="app-body">
   <main class="main d-flex align-items-center">
     <div class="container">
       <div class="row">
@@ -12,12 +12,7 @@
                 <mat-form-field class="full-width">
                   <mat-label>Name</mat-label>
 
-                  <input
-                    matInput
-                    placeholder="Name"
-                    formControlName="name"
-                    required
-                  />
+                  <input matInput placeholder="Name" formControlName="name" required />
 
                   <mat-error *ngIf="userForm.hasError('required','name')">
                     Name is required
@@ -25,42 +20,23 @@
                 </mat-form-field>
                 <br />
                 <mat-form-field class="full-width">
-                  <input
-                    matInput
-                    type="text"
-                    formControlName="email"
-                    placeholder="Email"
-                    required
-                  />
+                  <input matInput type="text" formControlName="email" placeholder="Email" required />
 
                   <mat-error *ngIf="userForm.hasError('required','email')">
                     email is required
                   </mat-error>
                   <mat-error *ngIf="userForm.hasError('email','email')">
                     email is invalid
-                  </mat-error> </mat-form-field
-                ><br />
+                  </mat-error>
+                </mat-form-field><br />
 
                 <br />
                 <mat-form-field class="full-width">
-                  <input
-                    matInput
-                    type="password"
-                    formControlName="password"
-                    placeholder="Password"
-                    [type]="hide ? 'password' : 'text'"
-                    required
-                  />
-                  <button
-                    mat-icon-button
-                    matSuffix
-                    (click)="hide = !hide"
-                    [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide"
-                  >
-                    <mat-icon
-                      >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon
-                    >
+                  <input matInput type="password" formControlName="password" placeholder="Password"
+                    [type]="hide ? 'password' : 'text'" required />
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
 
                   <mat-error *ngIf="userForm.hasError('required','password')">
@@ -70,26 +46,16 @@
                 <mat-form-field appearance="fill" class="full-width">
                   <mat-label>Societé</mat-label>
                   <mat-select formControlName="pme" name="selecrPme">
-                    <mat-option
-                      *ngFor="let t of table ,let i=index;"
-                      value="{{t._id}}"
-                    >
+                    <mat-option *ngFor="let t of table ,let i=index;" value="{{t._id}}">
                       {{t.name}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
               </form>
-
-              <div class="form-group row">
-                <button
-                  type="button"
-                  (click)="addUser()"
-                  class="btn btn-block btn-primary"
-                >
-                  Add
-                </button>
-              </div>
             </div>
+            <button type="button" (click)="addUser()" class="btn btn-block btn-primary">
+              Add
+            </button>
           </div>
         </div>
       </div>

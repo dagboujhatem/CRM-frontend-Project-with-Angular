@@ -15,8 +15,9 @@ export class CategorieService {
     return this.http.post(url, data);
   }
   /***********get all categories ************* */
-  GetCategorie(id) {
-    const url = `${this.BaseUrl}/categorie/get/${id}`;
+  GetCategorie(id, pageSize: number , currentPage: number) {
+    const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
+    const url = `${this.BaseUrl}/categorie/get/${id}${queryParams}`;
     return this.http.get(url);
   }
   /***********get categorie By Id **************** */
