@@ -4,7 +4,7 @@ import * as jwt_decode from "jwt-decode";
 import { AdminService } from "../../../service/admin.service";
 import { PageEvent } from "@angular/material/paginator";
 import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-listproduit",
@@ -24,12 +24,13 @@ export class ListproduitComponent implements OnInit {
   totalpme;
   pageSizeA = 1000;
   isAdmin = false;
+  isDeleted = false;
 
   constructor(
     private produit: ProduitService,
     private adminservice: AdminService,
     private toastr: ToastrService,
-    private router: Router
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +40,27 @@ export class ListproduitComponent implements OnInit {
     }
     this.getproduit(this.pme);
     // this.getPmeByAdmin();
+  }
+
+  openDialog(content) {
+    this.isDeleted = !this.isDeleted;
+    this.modalService.open(content);
+  }
+
+  closeModal() {
+    this.modalService.dismissAll();
+  }
+
+  acceptDelete(i, id) {
+    this.produit
+      .DeleteProduitById(this.decoded.data.pme || this.pme, id)
+      .subscribe(() => {
+        console.log("hi", id);
+        this.table.splice(i, 1);
+        this.getproduit(this.pme);
+        return this.toastr.success("Produit Deleted with succesfully");
+      });
+    this.modalService.dismissAll();
   }
 
   getPmeByAdmin() {
@@ -93,13 +115,13 @@ export class ListproduitComponent implements OnInit {
     }
   }
   /*******************delete produit ******************* */
-  delete(i, id) {
-    this.produit
-      .DeleteProduitById(this.decoded.data.pme, id)
-      .subscribe((res: any) => {
-        this.table.splice(i, 1);
-        this.getproduit(this.pme);
-        return this.toastr.success("Produit Deleted with succesfully");
-      });
-  }
+  // delete(i, id) {
+  //   this.produit
+  //     .DeleteProduitById(this.decoded.data.pme, id)
+  //     .subscribe((res: any) => {
+  //       this.table.splice(i, 1);
+  //       this.getproduit(this.pme);
+  //       return this.toastr.success("Produit Deleted with succesfully");
+  //     });
+  // }
 }

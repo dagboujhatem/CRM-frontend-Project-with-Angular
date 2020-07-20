@@ -3,6 +3,7 @@ import * as jwt_decode from "jwt-decode";
 import { CategorieService } from "../../../service/categorie.service";
 import { AdminService } from "../../../service/admin.service";
 import { ToastrService } from "ngx-toastr";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-listcategorie",
@@ -10,11 +11,6 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./listcategorie.component.css"],
 })
 export class ListcategorieComponent implements OnInit {
-  constructor(
-    private categorie: CategorieService,
-    private toastr: ToastrService,
-    private adminservice: AdminService
-  ) {}
   decoded = jwt_decode(this.adminservice.token);
   categorietable;
   Search: "";
@@ -23,6 +19,14 @@ export class ListcategorieComponent implements OnInit {
   currentPage = 1;
   pme;
   isAdmin = false;
+  isDeleted = false;
+
+  constructor(
+    private categorie: CategorieService,
+    private toastr: ToastrService,
+    private adminservice: AdminService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     if (this.decoded.data.role === "admin") {
@@ -30,6 +34,25 @@ export class ListcategorieComponent implements OnInit {
       this.isAdmin = !this.isAdmin;
     }
     this.getcategorie(this.pme);
+  }
+
+  openDialog(content) {
+    this.isDeleted = !this.isDeleted;
+    this.modalService.open(content);
+  }
+
+  closeModal() {
+    this.modalService.dismissAll();
+  }
+
+  acceptDelete(i, id) {
+    this.categorie
+      .DeleteCategorieById(this.decoded.data.pme || this.pme, id)
+      .subscribe(() => {
+        this.categorietable.splice(i, 1);
+        return this.toastr.success("categorie deleted successfully");
+      });
+    this.modalService.dismissAll();
   }
 
   getPmeByAdmin() {
@@ -61,12 +84,12 @@ export class ListcategorieComponent implements OnInit {
     }
   }
   /*****************delete categorie ******* */
-  delete(i, id) {
-    this.categorie
-      .DeleteCategorieById(this.decoded.data.pme, id)
-      .subscribe((res: any) => {
-        return this.toastr.success("categorie deleted successfully");
-      });
-    this.categorietable.splice(i, 1);
-  }
+  // delete(i, id) {
+  //   this.categorie
+  //     .DeleteCategorieById(this.decoded.data.pme, id)
+  //     .subscribe((res: any) => {
+  //       return this.toastr.success("categorie deleted successfully");
+  //     });
+  //   this.categorietable.splice(i, 1);
+  // }
 }

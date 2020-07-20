@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
-import { AdminService } from '../../../service/admin.service';
-import { UserServiceService } from '../../../service/user-service.service';
-import { PageEvent } from '@angular/material/paginator';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit } from "@angular/core";
+import * as jwt_decode from "jwt-decode";
+import { AdminService } from "../../../service/admin.service";
+import { UserServiceService } from "../../../service/user-service.service";
+import { PageEvent } from "@angular/material/paginator";
+import { ToastrService } from "ngx-toastr";
+import {
+  NgbActiveModal,
+  NgbModal,
+  ModalDismissReasons,
+} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-list-user',
-  templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.css'],
+  selector: "app-list-user",
+  templateUrl: "./list-user.component.html",
+  styleUrls: ["./list-user.component.css"],
 })
 export class ListUSERComponent implements OnInit {
   table;
@@ -22,24 +27,46 @@ export class ListUSERComponent implements OnInit {
   pmeTable;
   profils;
 
-  j;
+  isDeleted = false;
   fileToUpload: File = null;
   Search: "";
-
- 
 
   constructor(
     private adminservice: AdminService,
     private toastr: ToastrService,
-    private usersrvice: UserServiceService
+    private usersrvice: UserServiceService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
-    if (this.decoded.data.role === 'superAdmin') {
+    if (this.decoded.data.role === "superAdmin") {
       this.getAllPme();
-    } else if (this.decoded.data.role === 'admin') {
+    } else if (this.decoded.data.role === "admin") {
       this.getPmeByAdmin();
     }
+  }
+
+  openDialog(content) {
+    this.isDeleted = !this.isDeleted;
+    this.modalService.open(content);
+  }
+
+  closeModal() {
+    this.modalService.dismissAll();
+  }
+
+  acceptDelete(i, id) {
+    if (
+      this.decoded.data.role === "admin" ||
+      this.decoded.data.role === "superAdmin"
+    ) {
+      this.usersrvice.deleteuser(id).subscribe(() => {
+        this.getUsersByPme();
+        this.table.splice(i, 1);
+        return this.toastr.success("User Deleted succesfully");
+      });
+    }
+    this.modalService.dismissAll();
   }
 
   onChange(pageData: PageEvent) {
@@ -89,16 +116,16 @@ export class ListUSERComponent implements OnInit {
   }
 
   /*****************delete user for admin******** */
-  delete(i, id) {
-    if (
-      this.decoded.data.role === 'admin' ||
-      this.decoded.data.role === 'superAdmin'
-    ) {
-      this.usersrvice.deleteuser(id).subscribe(() => {
-        this.getUsersByPme();
-        this.table.splice(i, 1);
-        return this.toastr.success('User Deleted succesfully');
-      });
-    }
-  }
+  // delete(i, id) {
+  //   if (
+  //     this.decoded.data.role === "admin" ||
+  //     this.decoded.data.role === "superAdmin"
+  //   ) {
+  //     this.usersrvice.deleteuser(id).subscribe(() => {
+  //       this.getUsersByPme();
+  //       this.table.splice(i, 1);
+  //       return this.toastr.success("User Deleted succesfully");
+  //     });
+  //   }
+  // }
 }
