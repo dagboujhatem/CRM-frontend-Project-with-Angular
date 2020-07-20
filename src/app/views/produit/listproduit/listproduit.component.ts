@@ -55,7 +55,6 @@ export class ListproduitComponent implements OnInit {
     this.produit
       .DeleteProduitById(this.decoded.data.pme || this.pme, id)
       .subscribe(() => {
-        console.log("hi", id);
         this.table.splice(i, 1);
         this.getproduit(this.pme);
         return this.toastr.success("Produit Deleted with succesfully");

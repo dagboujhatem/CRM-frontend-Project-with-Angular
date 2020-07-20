@@ -26,19 +26,19 @@
               <td>{{tab.name}}</td>
               <td>{{tab.email}}</td>
               <td>20/1/2655</td>
-              <td>
-                <button
-                  class="badge badge-success"
+              <td class="text-center">
+                <span
+                  style="cursor: pointer;"
                   routerLink="../updatesociete/{{tab._id}}"
+                  class="mr-3"
+                  ><mat-icon>mode_edit</mat-icon></span
                 >
-                  Update</button
-                ><button
+                <span
+                  style="cursor: pointer;"
                   *ngIf="superAdminAccess"
                   (click)="openDialog(content)"
-                  class="badge badge-danger"
+                  ><mat-icon>delete_sweep</mat-icon></span
                 >
-                  Delete
-                </button>
               </td>
               <ng-template #content let-modal>
                 <div class="modal-header">
