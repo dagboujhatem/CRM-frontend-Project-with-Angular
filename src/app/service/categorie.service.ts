@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CategorieService {
   BaseUrl = environment.baseuri;
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient) {}
   /***********add categorie *********** */
   ajoutCategorie(data, id) {
     const url = `${this.BaseUrl}/categorie/add/${id}`;
@@ -20,8 +20,8 @@ export class CategorieService {
     return this.http.get(url);
   }
   /***********get categorie By Id **************** */
-  GetCategorieById(id, idcat) {
-    const url = `${this.BaseUrl}/categorie/${id}/get/${idcat}`;
+  GetCategorieById(idcat) {
+    const url = `${this.BaseUrl}/categorie/getOne/${idcat}`;
     return this.http.get(url);
   }
   /*************delete categorie By Id ********* */
@@ -30,9 +30,8 @@ export class CategorieService {
     return this.http.delete(url);
   }
   /************update categorie *********** */
-  UpdatecategorieById(id, idcat, data) {
-    const url = `${this.BaseUrl}/categorie/${id}/edit/${idcat}`;
+  UpdatecategorieById(idcat, data) {
+    const url = `${this.BaseUrl}/categorie/edit/${idcat}`;
     return this.http.put(url, data);
   }
-
 }
