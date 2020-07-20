@@ -1,57 +1,58 @@
 <div class="col-sm-12">
-    <div class="card">
-      <div class="card-header">
-        <strong>Company</strong>
-        <small>Form</small>
-      </div>
-      <form class="card-body" [formGroup]="societeUpdateform">
-          <div class="row">
+  <div class="card">
+    <div class="card-header">
+      <strong>Company</strong>
+      <small>Form</small>
+    </div>
+    <form class="card-body" [formGroup]="societeUpdateform">
+      <div class="row">
         <div class="form-group  col-sm-6">
-         <mat-form-field>
-          <input type="text" matInput formControlName="name" placeholder="Enter your company name">
-        </mat-form-field>
+          <mat-form-field>
+            <input type="text" matInput formControlName="name" placeholder="Enter your company name">
+          </mat-form-field>
         </div>
         <div class="form-group  col-sm-6">
           <mat-form-field>
             <input type="email" matInput formControlName="email" placeholder="Enter your company email">
           </mat-form-field>
-          </div>
-    </div>
-        <div class="form-group">
-          <mat-form-field>
+        </div>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
           <input type="text" matInput formControlName="description" placeholder="Enter your company Description">
         </mat-form-field>
-        </div>
-        <div class="form-group">
-         <mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
           <input type="text" matInput formControlName="adress" placeholder="Enter street Adresse">
         </mat-form-field>
-        </div>
-        <div class="row">
-          <div class="form-group col-sm-6">
-            <mat-form-field>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
             <input type="number" matInput formControlName="telephone" placeholder="Enter your Télephone number">
           </mat-form-field>
-          </div>
-          <div class="form-group col-sm-6">
+        </div>
+        <div class="form-group col-sm-6">
           <mat-form-field>
             <input type="number" matInput formControlName="fax" placeholder="Enter your fax number">
           </mat-form-field>
-          </div>
-        </div><!--/.row-->
-        <div class="row">
-            <div class="form-group col-sm-6">
-             <mat-form-field>
-              <input type="text" matInput formControlName="siege" placeholder="Enter your siege">
-            </mat-form-field>
-            </div>
-            <div class="form-group col-sm-6">
-            <mat-form-field>
-              <input type="text" matInput formControlName="activity" placeholder="Enter your activity">
-            </mat-form-field>
-            </div>
-          </div>
-          <button type="button" class="btn btn-success px-4"  (click)="updatePmeById()">Update</button>
-        </form>
-    </div>
+        </div>
+      </div>
+      <!--/.row-->
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input type="text" matInput formControlName="siege" placeholder="Enter your siege">
+          </mat-form-field>
+        </div>
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input type="text" matInput formControlName="activity" placeholder="Enter your activity">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <button type="button" class="btn btn-success px-4" (click)="updatePmeById()">Update</button>
   </div>
+</div>
