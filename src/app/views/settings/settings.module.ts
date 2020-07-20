@@ -1,11 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SettingsRouting } from './settings-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SettingsuperadminComponent } from './settingsuperadmin/settingsuperadmin.component';
-
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { SettingsRouting } from "./settings-routing.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SettingsuperadminComponent } from "./settingsuperadmin/settingsuperadmin.component";
 
 @NgModule({
   imports: [
@@ -13,11 +10,8 @@ import { SettingsuperadminComponent } from './settingsuperadmin/settingsuperadmi
     SettingsRouting,
     FormsModule,
     ReactiveFormsModule,
-    SettingsRouting
+    SettingsRouting,
   ],
-  declarations: [
-   SettingsuperadminComponent
-]
-
+  declarations: [SettingsuperadminComponent],
 })
-export class SettingsModule { }
+export class SettingsModule {}

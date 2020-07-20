@@ -19,7 +19,6 @@ export class DetailFournisseurComponent implements OnInit {
     this.id = this.route.snapshot.params["id"];
     this.fournis.getOneFournisseur(this.id).subscribe((res) => {
       this.fournisseur = res;
-      console.log(res);
     });
   }
 }

@@ -29,7 +29,6 @@ export class AddproduitComponent implements OnInit {
   produitform: FormGroup;
   categorietable;
   ngOnInit(): void {
-    console.log(this.decoded);
     this.getcatigorie();
     this.produitform = new FormGroup({
       name: new FormControl("", [Validators.required]),
@@ -76,8 +75,5 @@ export class AddproduitComponent implements OnInit {
   }
   toggleIsAwesome() {
     this.isAwesome = !this.isAwesome;
-    // this.produitform.controls.notifRupture.setValue(this.isAwesome);
-    // console.log(this.isAwesome);
-    // console.log(this.produitform.value);
   }
 }

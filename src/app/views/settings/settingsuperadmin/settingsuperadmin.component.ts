@@ -38,9 +38,7 @@ export class SettingsuperadminComponent implements OnInit {
   update() {
     this.adminservice
       .updatesuperadminnotif(this.superadminform.value)
-      .subscribe((res: any) => {
-        console.log(res);
-      });
+      .subscribe((res: any) => {});
     this.router.navigateByUrl("/home");
 
     return this.toastr.success("activation-email-notif was updated");

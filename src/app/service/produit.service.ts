@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ProduitService {
   BaseUrl = environment.baseuri;
@@ -30,8 +30,8 @@ export class ProduitService {
     return this.http.get(url);
   }
   /****************get produit by id **** */
-  GetproduitById(id, idprod) {
-    const url = `${this.BaseUrl}/stock/${id}/${idprod}`;
+  GetproduitById(idprod) {
+    const url = `${this.BaseUrl}/stock/detail/${idprod}`;
     return this.http.get(url);
   }
   /*************update produit by id ******* */

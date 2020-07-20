@@ -48,11 +48,9 @@ export class UpdateproduitComponent implements OnInit {
     });
   }
   getproduitById() {
-    this.produit
-      .GetproduitById(this.decoded.data.pme, this.Id)
-      .subscribe((res: any) => {
-        this.updateproduitform.patchValue(res);
-      });
+    this.produit.GetproduitById(this.Id).subscribe((res: any) => {
+      this.updateproduitform.patchValue(res);
+    });
   }
   onFileChange(event) {
     if (event.target.files && event.target.files.length) {

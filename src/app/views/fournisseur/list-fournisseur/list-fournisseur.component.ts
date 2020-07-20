@@ -5,6 +5,7 @@ import { PageEvent } from "@angular/material/paginator";
 import { ToastrService } from "ngx-toastr";
 import * as jwt_decode from "jwt-decode";
 import { AdminService } from "../../../service/admin.service";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-list-fournisseur",
@@ -21,11 +22,13 @@ export class ListFournisseurComponent implements OnInit {
   pme;
   pmeTable;
   isAdmin = false;
+  isDeleted = false;
   decoded = jwt_decode(this.adminservice.token);
   constructor(
     private fournis: FournisService,
     private adminservice: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +38,25 @@ export class ListFournisseurComponent implements OnInit {
     }
     this.getFournisPme(this.pme);
   }
+
+  openDialog(content) {
+    this.isDeleted = !this.isDeleted;
+    this.modalService.open(content);
+  }
+
+  closeModal() {
+    this.modalService.dismissAll();
+  }
+
+  acceptDelete(i, id) {
+    this.fournis.deleteOneFournisseur(id).subscribe(() => {
+      this.list.splice(i, 1);
+      this.getFournisPme(this.pme);
+    });
+    this.modalService.dismissAll();
+    return this.toastr.success("Fournisseur Deleted Successfully");
+  }
+
   onChange(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
