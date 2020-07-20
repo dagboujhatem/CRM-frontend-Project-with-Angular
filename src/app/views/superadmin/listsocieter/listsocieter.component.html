@@ -21,7 +21,7 @@
               <th class="text-center">Action</th>
             </tr>
           </thead>
-          <tbody *ngFor=" let tab of categorietable | pipesearch: Search; let i=index">
+          <tbody *ngFor=" let tab of table | pipesearch: Search; let i=index">
             <tr>
               <td class="text-center">{{tab.name}}</td>
               <td class="text-center">{{tab.email}}</td>
