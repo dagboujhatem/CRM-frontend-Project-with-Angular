@@ -24,6 +24,7 @@ export class ListcategorieComponent implements OnInit {
   pme;
   isAdmin = false;
   isDeleted = false;
+  isUser = this.decoded.data.role;
 
   constructor(
     private categorie: CategorieService,

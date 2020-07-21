@@ -42,7 +42,7 @@
               </td>
               <td class="text-center">{{tab.email}}</td>
               <td class="text-center">
-                <span style="cursor: pointer;" [routerLink]="['../update-fournisseur', tab._id]" class="mr-3">
+                <span style="cursor: pointer;" [routerLink]="['../update-fournisseur', tab._id]" *ngIf="isUser == 'user'" class="mr-3">
                   <mat-icon>mode_edit</mat-icon>
                 </span>
                 <span style="cursor: pointer;" (click)="openDialog(content)">

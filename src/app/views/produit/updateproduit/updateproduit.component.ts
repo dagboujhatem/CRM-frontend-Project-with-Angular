@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { AdminService } from "../../../service/admin.service";
-import { ProduitService } from "../../../service/produit.service";
-import * as jwt_decode from "jwt-decode";
-import { ActivatedRoute } from "@angular/router";
-import { CategorieService } from "../../../service/categorie.service";
-import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AdminService } from '../../../service/admin.service';
+import { ProduitService } from '../../../service/produit.service';
+import * as jwt_decode from 'jwt-decode';
+import { ActivatedRoute } from '@angular/router';
+import { CategorieService } from '../../../service/categorie.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-updateproduit",
-  templateUrl: "./updateproduit.component.html",
-  styleUrls: ["./updateproduit.component.css"],
+  selector: 'app-updateproduit',
+  templateUrl: './updateproduit.component.html',
+  styleUrls: ['./updateproduit.component.css'],
 })
 export class UpdateproduitComponent implements OnInit {
   data: FormData;
@@ -23,7 +23,7 @@ export class UpdateproduitComponent implements OnInit {
   pageSize = 2;
   pageSizeOptions = [2, 5, 10];
   currentPage = 1;
-  Id = this.activateroute.snapshot.paramMap.get("id");
+  Id = this.activateroute.snapshot.paramMap.get('id');
   // tslint:disable-next-line: max-line-length
   constructor(
     private adminservice: AdminService,
@@ -40,13 +40,13 @@ export class UpdateproduitComponent implements OnInit {
     this.getcatigorie();
     this.getproduitById();
     this.updateproduitform = new FormGroup({
-      name: new FormControl("", [Validators.required]),
-      ref: new FormControl(""),
-      stock: new FormControl(""),
-      description: new FormControl("", [Validators.required]),
-      prix: new FormControl(""),
-      min: new FormControl(""),
-      categorie: new FormControl("", [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      ref: new FormControl(''),
+      stock: new FormControl(''),
+      description: new FormControl('', [Validators.required]),
+      prix: new FormControl(''),
+      min: new FormControl(''),
+      categorie: new FormControl('', [Validators.required]),
       notifRupture: new FormControl(),
     });
   }
@@ -72,15 +72,15 @@ export class UpdateproduitComponent implements OnInit {
           this.upload(res._id);
         });
       return (
-        this.toastr.success("update succesfully") &&
-        this.router.navigateByUrl("/home/produit/listproduit")
+        this.toastr.success('update succesfully') &&
+        this.router.navigateByUrl('/home/produit/listproduit')
       );
     } else {
-      return this.toastr.warning("Can't Update");
+      return this.toastr.warning('Can\'t Update');
     }
   }
   upload(id) {
-    this.data.set("image", this.file);
+    this.data.set('image', this.file);
     this.produit.upload(this.data, id).subscribe(() => {});
     // this.router.navigateByUrl('/home');
   }

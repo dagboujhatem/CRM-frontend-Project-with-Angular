@@ -64,6 +64,7 @@
                   style="cursor: pointer;"
                   routerLink="../updateproduit/{{tab._id}}"
                   class="mr-3"
+                  *ngIf="isUser == 'user'"
                   ><mat-icon>mode_edit</mat-icon></span
                 >
                 <span style="cursor: pointer;" (click)="openDialog(content)"
