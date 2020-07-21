@@ -35,7 +35,7 @@ export class UpdateUserComponent implements OnInit {
     this.updateUserForm = new FormGroup({
       name: new FormControl("", Validators.required),
       email: new FormControl("", Validators.required),
-      password: new FormControl("", Validators.required),
+      // password: new FormControl("", Validators.required),
       pme: new FormControl("", Validators.required),
     });
     if (this.decoded.data.role === "superAdmin") this.getAllPme();

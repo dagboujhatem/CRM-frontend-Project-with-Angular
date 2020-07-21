@@ -11,12 +11,7 @@
                 <form [formGroup]="LoginForm">
                   <mat-form-field class="full-width">
                     <mat-label>Email</mat-label>
-                    <input
-                      matInput
-                      placeholder="email"
-                      formControlName="email"
-                      required
-                    />
+                    <input matInput placeholder="email" formControlName="email" required />
                     <mat-error *ngIf="LoginForm.hasError('required','email')">
                       email is required
                     </mat-error>
@@ -27,58 +22,35 @@
                   <br />
                   <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
-                    <input
-                      matInput
-                      type="password"
-                      placeholder="password"
-                      formControlName="password"
-                      [type]="hide ? 'password' : 'text'"
-                      required
-                    />
-                    <mat-icon matSuffix (click)="hide = !hide"
-                      >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon
-                    >
-                    <mat-error
-                      *ngIf="LoginForm.hasError('required','password')"
-                    >
+                    <input matInput type="password" placeholder="password" formControlName="password"
+                      [type]="hide ? 'password' : 'text'" required />
+                    <mat-icon type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-icon>
+                    <mat-error *ngIf="LoginForm.hasError('required','password')">
                       password is required
                     </mat-error>
                   </mat-form-field>
                   <div class="row">
                     <div class="col-6"></div>
                     <div class="col-6">
-                      <button
-                        type="button"
-                        class="btn btn-link"
-                        routerLink="/forget"
-                      >
+                      <button type="button" class="btn btn-link" routerLink="/forget">
                         Forgot password?
                       </button>
                     </div>
                   </div>
                 </form>
               </div>
-              <button
-                [disabled]="!LoginForm.valid"
-                type="button"
-                class="btn btn-primary px-4"
-                (click)="login()"
-              >
+              <button [disabled]="!LoginForm.valid" type="button" class="btn btn-primary px-4" (click)="login()">
                 Login
               </button>
             </div>
-            <div
-              class="card text-white bg-primary py-5 d-md-down-none"
-              style="width: 44%;"
-            >
+            <div class="card text-white bg-primary py-5 d-md-down-none" style="width: 44%;">
               <div class="card-body text-center">
                 <div>
                   <h2>Sign up</h2>
-                  <button
-                    type="button"
-                    routerLink="/register"
-                    class="btn btn-primary active mt-3"
-                  >
+                  <button type="button" routerLink="/register" class="btn btn-primary active mt-3">
                     Register Now!
                   </button>
                 </div>

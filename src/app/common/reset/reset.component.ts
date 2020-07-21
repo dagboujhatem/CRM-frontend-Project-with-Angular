@@ -10,6 +10,8 @@ import { AuthService } from "../../service/auth.service";
   styleUrls: ["./reset.component.css"],
 })
 export class ResetComponent implements OnInit {
+  hide1 = true;
+  hide = true;
   ResponseResetForm: FormGroup;
   errorMessage: string;
   successMessage: string;
