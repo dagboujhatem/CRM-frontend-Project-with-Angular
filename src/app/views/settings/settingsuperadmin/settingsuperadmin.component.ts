@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
-import { AdminService } from "../../../service/admin.service";
-import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
-import * as jwt_decode from "jwt-decode";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { AdminService } from '../../../service/admin.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
-  selector: "app-settingsuperadmin",
-  templateUrl: "./settingsuperadmin.component.html",
-  styleUrls: ["./settingsuperadmin.component.css"],
+  selector: 'app-settingsuperadmin',
+  templateUrl: './settingsuperadmin.component.html',
+  styleUrls: ['./settingsuperadmin.component.css'],
 })
 export class SettingsuperadminComponent implements OnInit {
   constructor(
@@ -39,8 +39,8 @@ export class SettingsuperadminComponent implements OnInit {
     this.adminservice
       .updatesuperadminnotif(this.superadminform.value)
       .subscribe((res: any) => {});
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl('/home/dashboard');
 
-    return this.toastr.success("activation-email-notif was updated");
+    return this.toastr.success('activation-email-notif was updated');
   }
 }
