@@ -45,7 +45,6 @@ import { AuthInterceptor } from "./common/interceptor";
 import { ResetComponent } from "./common/reset/reset.component";
 
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
-import { MatDialogComponent } from "./mat-dialog/mat-dialog.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
@@ -80,7 +79,6 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ForgetComponent,
     RegisterComponent,
     ResetComponent,
-    MatDialogComponent,
     DefaultLayoutComponent,
   ],
   providers: [

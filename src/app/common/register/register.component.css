@@ -1,5 +1,8 @@
-:host(app-register){
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+:host(app-register) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.full-width {
+  width: 100%;
 }
