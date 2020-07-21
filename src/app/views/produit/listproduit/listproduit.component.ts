@@ -25,6 +25,7 @@ export class ListproduitComponent implements OnInit {
   pageSizeA = 1000;
   isAdmin = false;
   isDeleted = false;
+  isUser = this.decoded.data.role;
 
   constructor(
     private produit: ProduitService,

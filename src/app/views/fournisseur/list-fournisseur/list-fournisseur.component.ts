@@ -25,6 +25,7 @@ export class ListFournisseurComponent implements OnInit {
   isAdmin = false;
   isDeleted = false;
   decoded = jwt_decode(this.adminservice.token);
+  isUser = this.decoded.data.role;
   constructor(
     private fournis: FournisService,
     private adminservice: AdminService,
