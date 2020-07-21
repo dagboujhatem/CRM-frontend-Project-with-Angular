@@ -45,11 +45,15 @@ export class AdduserComponent implements OnInit {
     if (this.userForm.valid) {
       this.userservice
         .addUsr(this.userForm.value.pme, this.userForm.value)
-        .subscribe(() => {});
-      return (
-        this.toastr.success("User added succesfully") &&
-        this.router.navigateByUrl("/home/superadmin/listuser")
-      );
+        .subscribe(
+          () => {
+            this.toastr.success("User added succesfully") &&
+              this.router.navigateByUrl("/home/superadmin/listuser");
+          },
+          (err) => {
+            return this.toastr.warning(err.error.message);
+          }
+        );
     } else {
       return this.toastr.warning("add user invalid");
     }

@@ -7,50 +7,75 @@
             <div class="card-body p-4">
               <h1>Register</h1>
               <form [formGroup]="registerform">
-                <p class="text-muted" routerLink="/login">
+                <p class="text-muted">
                   Create your account
                 </p>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="full-width">
                   <mat-label>Name</mat-label>
-                  
-                  <input matInput placeholder="Name" formControlName="name" required />
+
+                  <input
+                    matInput
+                    placeholder="Name"
+                    formControlName="name"
+                    required
+                  />
                   <mat-error *ngIf="registerform.hasError('required','name')">
                     Name is required
-                  </mat-error>
-               
-                </mat-form-field><br>
-                <mat-form-field class="example-full-width">
+                  </mat-error> </mat-form-field
+                ><br />
+                <mat-form-field class="full-width">
                   <mat-label>Email</mat-label>
-     
-                  <input matInput placeholder="email" formControlName="email" required />
+
+                  <input
+                    matInput
+                    placeholder="email"
+                    formControlName="email"
+                    required
+                  />
                   <mat-error *ngIf="registerform.hasError('required','email')">
                     email is required
                   </mat-error>
                   <mat-error *ngIf="registerform.hasError('email','email')">
                     email is invalid
-                  </mat-error>
-                </mat-form-field><br>
-                <mat-form-field class="example-full-width">
+                  </mat-error> </mat-form-field
+                ><br />
+                <mat-form-field class="full-width">
                   <mat-label>Password</mat-label>
-                  <input matInput type="password" placeholder="password" formControlName="password" [type]="hide ? 'password' : 'text'" required />
-                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-                  <mat-error *ngIf="registerform.hasError('required','password')">
+                  <input
+                    matInput
+                    type="password"
+                    placeholder="password"
+                    formControlName="password"
+                    [type]="hide ? 'password' : 'text'"
+                    required
+                  />
+                  <mat-icon matSuffix (click)="hide = !hide"
+                    >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon
+                  >
+                  <mat-error
+                    *ngIf="registerform.hasError('required','password')"
+                  >
                     password is required
                   </mat-error>
-                  <mat-error *ngIf="registerform.hasError('pattern','password')">
-                    your pasword must have at least one letter 
+                  <mat-error
+                    *ngIf="registerform.hasError('pattern','password')"
+                  >
+                    your pasword must have at least one letter
                   </mat-error>
                   <mat-error *ngIf="registerform.hasError('min','password')">
                     your pasword must contain at least 8 character
                   </mat-error>
                 </mat-form-field>
-                <button [disabled]="!registerform.valid" type="submit" (click)="register()"
-                  class="btn btn-block btn-success">Create Account</button>
               </form>
             </div>
+            <button
+              [disabled]="!registerform.valid"
+              type="submit"
+              (click)="register()"
+              class="btn btn-block btn-success"
+            >
+              Create Account
+            </button>
           </div>
         </div>
       </div>
