@@ -44,7 +44,6 @@ export class AuthService {
   // connection sur la base de donnée et register societé
   Register(data) {
     const url = `${this.BaseUrl}/admin/register`;
-    this.router.navigateByUrl("/login");
     return this.http.post(url, data);
   }
   // connection sur la base de donnée et login societé

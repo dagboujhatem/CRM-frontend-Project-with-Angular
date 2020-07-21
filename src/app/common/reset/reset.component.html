@@ -6,14 +6,7 @@
         <div class="card-body">
           <form #f="ngForm">
             <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="Code"
-                type="text"
-                [(ngModel)]="code"
-                name="code"
-                required
-              />
+              <input matInput placeholder="Code" type="text" [(ngModel)]="code" name="code" required />
             </mat-form-field>
           </form>
         </div>
@@ -25,38 +18,27 @@
         <div class="card-body">
           <form [formGroup]="ResponseResetForm">
             <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="Password"
-                type="password"
-                formControlName="newPassword"
-                required
-              />
-              <span
-                *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid"
-                class="help-block"
-                >Password is required with atleast 4 characters.</span
-              >
+              <input matInput placeholder="Password" type="password" formControlName="newPassword" [type]="hide1 ? 'password' : 'text'" required />
+              <mat-icon matSuffix type="button" (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide1">
+              <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+               </mat-icon>
+              <span *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid" class="help-block">Password
+                is required with atleast 4 characters.</span>
             </mat-form-field>
             <br />
             <mat-form-field class="full-width">
-              <input
-                matInput
-                placeholder="Confirm Password"
-                type="password"
-                formControlName="confirmPassword"
-                required
-              />
-              <span
-                *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid"
-                class="help-block"
-                >.
+              <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword" [type]="hide ? 'password' : 'text'"
+                required />
+                <mat-icon matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                 </mat-icon>
+              <span *ngIf="!ResponseResetForm.get('confirmPassword').valid && !IsResetFormValid" class="help-block">.
               </span>
               <span
                 *ngIf="ResponseResetForm.get('confirmPassword').valid && (ResponseResetForm.get('confirmPassword').value != ResponseResetForm.get('newPassword').value) && !IsResetFormValid"
-                class="help-block"
-                >Confirm Password does not match with password.</span
-              >
+                class="help-block">Confirm Password does not match with password.</span>
             </mat-form-field>
           </form>
         </div>
