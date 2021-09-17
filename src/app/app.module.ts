@@ -52,6 +52,8 @@ import { Produit } from './views/produit/produit.module';
 import { FournisseurModule } from './views/fournisseur/fournisseur.module';
 import { Categorie } from './views/categorie/categorie.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { SettingsModule } from './views/settings/settings.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 
@@ -77,13 +79,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    SuperAdmin,
-    FournisseurModule,
-    Produit,
-    Categorie,
-    MatButtonToggleModule
-
-
+    MatButtonToggleModule,
+    SettingsModule,
   ],
   declarations: [
     AppComponent,
@@ -102,6 +99,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
       useClass: AuthInterceptor,
       multi: true,
     },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],
 })

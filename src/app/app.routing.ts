@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-
+import { DashboardModule } from './views/dashboard/dashboard.module';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './common/login/login.component';
@@ -11,6 +11,7 @@ import { RegisterComponent } from './common/register/register.component';
 import { ForgetComponent } from './common/forget/forget.component';
 import { ResetComponent } from './common/reset/reset.component';
 import { GuardAuthorizGuard } from './guards/guard-authoriz.guard';
+import { SettingsModule } from './views/settings/settings.module';
 
 export const routes: Routes = [
   {
@@ -63,10 +64,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: DefaultLayoutComponent,
-    canActivate: [GuardAuthorizGuard],
     data: {
       title: 'Home',
     },
+    // canActivate: [GuardAuthorizGuard],
     children: [
       {
         path: 'dashboard',
